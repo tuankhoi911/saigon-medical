@@ -1,0 +1,87 @@
+<nav class="col-md-2 d-none d-md-block sidebar p-0">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <!-- <li *ngFor="let manage of manages" class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="manage.link">
+          <i class="fas fa-prescription-bottle-alt"></i>
+          <span data-feather="home"></span>
+          {{manage.title}}
+        </a>
+      </li> -->
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/overview'">
+          <i class="fas fa-hospital-alt"></i>
+          <span data-feather="home"></span>
+          Tổng quan
+        </a>
+      </li>
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/patient'">
+          <i class="fab fa-accessible-icon"></i>
+          <span data-feather="home"></span>
+          Bệnh Nhân
+        </a>
+      </li>
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/examination'">
+          <i class="fas fa-stethoscope"></i>
+          <span data-feather="home"></span>
+          Khám Bệnh
+        </a>
+      </li>
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/employees'">
+          <i class="fas fa-id-card"></i>
+          <span data-feather="home"></span>
+          Nhân Viên
+        </a>
+      </li>
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/medicine'">
+          <i class="fas fa-capsules"></i>
+          <span data-feather="home"></span>
+          Dược Phẩm
+        </a>
+      </li>
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/prescription'">
+          <i class="fas fa-file-prescription"></i>
+          <span data-feather="home"></span>
+          Đơn Thuốc
+        </a>
+      </li>
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/regulations'">
+          <i class="fas fa-pencil-ruler"></i>
+          <span data-feather="home"></span>
+          Quy Định
+        </a>
+      </li>
+      <!-- <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/report'">
+          <i class="fas fa-notes-medical"></i>
+          <span data-feather="home"></span>
+          Báo Cáo
+        </a>
+      </li> -->
+    </ul>
+
+    <div class="drop-devider m-2"></div>
+    <ul class="nav flex-column">
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link" [routerLink]="'/admin/setting'">
+          <i class="fas fa-cogs"></i>
+          <span data-feather="home"></span>
+          Cài Đặt
+        </a>
+      </li>
+      <li class="nav-item p-0 mt-2 mb-2">
+        <a class="nav-link"  style="cursor: ponter;">
+         <i class="fas fa-sign-out-alt"></i>
+          <span data-feather="home"></span>
+          Đăng Xuất
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

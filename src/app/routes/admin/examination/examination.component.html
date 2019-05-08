@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="patient">
+    <div class="row">
+      <div class="col-lg-12 patient-nav">
+        <h3> <i class="fas fa-stethoscope mr-2 ml-2"></i>Quản Lí Khám Bệnh</h3>
+      </div>
+    </div>
+    <div class="row" *ngIf="isHidden">
+      <div class="col-lg-12">
+        <div class="patient-list">
+          <div class="patient-list-head">
+            <p>
+              <button class="btn m-2" [routerLink]="'add-examination'"><a><i class="fas fa-plus-square mr-2"></i>Đăng Ký Phiếu Khám</a></button>
+              <!-- <button class="btn m-2" [routerLink]="'add-examination'"><a><i class="fas fa-edit mr-2"></i></a></button> -->
+
+            </p>
+          </div>
+          <div class="search-patient mt-3">
+            <div class="row">
+              <div class="col-12">
+                <form class="search-container mx-auto">
+                  <input type="text" id="search-bar" placeholder="Nhập tên phiếu khám bệnh!">
+                  <a><i class="fas fa-search"></i></a>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="patient-list-body">
+            <ul class="m-0 p-0">
+              <div class="row m-4">
+                <li class=" p-0 col-6" *ngFor="let user of users">
+                  <div class="patient-user m-1">
+                    <div class="card">
+                      <div class="card-head">
+                        <h5 class="name title mt-2 p-0">Mã phiếu khám: {{user.no}}</h5>
+                      </div>
+                      <div class="card-body p-2">
+                        <p>Mã đăng ký: {{user.birth}}</p>                 
+                        <p>Chuẩn đoán: {{user.email}}</p>
+                        <p>Ngày thêm: {{user.blood}}</p>
+                      </div>
+                      <p class="text-center">
+                        <button class="btn m-2 btn-success"><i class="fas fa-shield-check mr-2"></i>Done!</button>
+                        <button class="btn m-2 btn-danger"><i
+                            class="fas fa-exclamation-triangle mr-2"></i>Delete!</button>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
