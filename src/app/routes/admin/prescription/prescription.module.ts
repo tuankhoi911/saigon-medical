@@ -9,6 +9,7 @@ import { PrescriptionDetailComponent } from './prescription-detail/prescription-
   imports: [
     CommonModule,
     PrescriptionRoutingModule
-  ]
+  ],
+  exports: [AddPrescriptionComponent]
 })
 export class PrescriptionModule { }

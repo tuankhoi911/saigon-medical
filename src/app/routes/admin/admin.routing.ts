@@ -24,6 +24,10 @@ const routes: Routes = [
             {
                 path: '',
                 loadChildren: './../../routes/admin/patient/patient.module#PatientModule'
+            },
+            {
+                path: '/examination',
+                loadChildren: './../../routes/admin/examination/examination.module#ExaminationModule'
             }
         ]
     },

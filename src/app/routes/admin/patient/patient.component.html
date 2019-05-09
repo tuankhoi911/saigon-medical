@@ -41,9 +41,13 @@
                         <p class="m-0">{{user.gioiTinh}}</p>
                         <p class="m-0">{{user.ngaySinh}}</p>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                         <p class="m-0">{{user.ngheNghiep}}</p>
                         <p class="m-0">{{user.soDienThoai}}</p>
+                        <p class="m-0 text-right">
+                          <button class="btn m-2" [routerLink]="'add-examination'"><a><i class="fas fa-plus-square mr-2"></i>Thêm Phiếu Khám Bệnh
+                              </a></button>
+                        </p>
                       </div>
                     </div>
                   </div>

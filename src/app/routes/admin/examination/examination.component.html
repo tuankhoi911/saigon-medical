@@ -10,7 +10,8 @@
         <div class="patient-list">
           <div class="patient-list-head">
             <p>
-              <button class="btn m-2" [routerLink]="'add-examination'"><a><i class="fas fa-plus-square mr-2"></i>Đăng Ký Phiếu Khám</a></button>
+              <button class="btn m-2" [routerLink]="'list-examination'"><a><i class="fas fa-plus-square mr-2"></i>Danh
+                  Sách Phiếu Khám</a></button>
               <!-- <button class="btn m-2" [routerLink]="'add-examination'"><a><i class="fas fa-edit mr-2"></i></a></button> -->
 
             </p>
@@ -28,21 +29,23 @@
           <div class="patient-list-body">
             <ul class="m-0 p-0">
               <div class="row m-4">
-                <li class=" p-0 col-6" *ngFor="let user of users">
+                <li class=" p-0 col-12" *ngFor="let user of users">
                   <div class="patient-user m-1">
                     <div class="card">
                       <div class="card-head">
-                        <h5 class="name title mt-2 p-0">Mã phiếu khám: {{user.no}}</h5>
+                        <h5 class="name title mt-2 p-0">Mã phiếu đăng ký: {{user.no}}
+                          <span class="badge badge-success">Complete</span>
+                          <!-- <span class="badge badge-danger">Waiting</span> -->
+                        </h5>
                       </div>
                       <div class="card-body p-2">
-                        <p>Mã đăng ký: {{user.birth}}</p>                 
-                        <p>Chuẩn đoán: {{user.email}}</p>
-                        <p>Ngày thêm: {{user.blood}}</p>
+                        <p class="m-0">Mã đăng ký: {{user.birth}}</p>
+                        <p class="m-0">Ngày thêm: {{user.blood}}</p>
                       </div>
-                      <p class="text-center">
-                        <button class="btn m-2 btn-success"><i class="fas fa-shield-check mr-2"></i>Done!</button>
-                        <button class="btn m-2 btn-danger"><i
-                            class="fas fa-exclamation-triangle mr-2"></i>Delete!</button>
+                      <p class="text-right m-0">
+                        <button class="btn m-2 btn" [routerLink]="'add-examination'"><i class="fas fa-shield-check mr-2"></i>Tạo Phiếu Khám Bệnh</button>
+                        <!-- <button class="btn m-2 btn-danger"><i
+                            class="fas fa-exclamation-triangle mr-2"></i>Delete!</button> -->
                       </p>
                     </div>
                   </div>

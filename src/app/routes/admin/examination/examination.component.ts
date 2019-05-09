@@ -57,7 +57,7 @@ export class ExaminationComponent implements OnInit {
   constructor(private router: Router) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        if (router.url === '/admin/examination/add-examination') {
+        if (router.url != '/admin/examination') {
           this.isHidden = false;
         } else {
           this.isHidden = true;

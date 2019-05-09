@@ -105,18 +105,3 @@ li {
 .card {
   border-radius: 5px !important;
 }
-
-.patient-user {
-  button {
-    width: 100px;
-  }
-  cursor: pointer;
-  &:hover {
-    color: white;
-    transition-duration: 0.4s;
-
-    .card {
-      background-color: #395c9c !important;
-    }
-  }
-}
