@@ -13,43 +13,69 @@ export class ExaminationComponent implements OnInit {
 
   users = [
     {
-      name: 'Monkey D Luffy',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/luffy.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    },
-    {
-      name: 'Charllote Nami',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/user.jpg',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    },
-    {
-      name: 'Nico Robin',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/robin.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      status: 'Đang chờ',
+      doctor: 'Vinsmoke Reiju'
     },
     {
       name: 'Vinsmoke Sanji',
-      phone: '0123456789', birth: '25-11-1999',
       img: 'assets/images/sanji.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      status: 'Đã khám',
+      doctor: 'Vinsmoke Reiju'
     },
     {
-      name: 'Roronoa Zoro',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/zoro.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      status: 'Đang chờ',
+      doctor: 'Vinsmoke Reiju'
     },
     {
-      name: 'God Usopp',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/usopp.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    }
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      status: 'Đang chờ',
+      doctor: 'Vinsmoke Reiju'
+    },
+    {
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      status: 'Đã khám',
+      doctor: 'Vinsmoke Reiju'
+    },
+    {
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      status: 'Đang chờ',
+      doctor: 'Vinsmoke Reiju'
+    },
+    {
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      status: 'Đã khám',
+      doctor: 'Vinsmoke Reiju'
+    },
   ]
-
   // viewDetail() {
   //   this.isHidden = !this.isHidden;
   // }

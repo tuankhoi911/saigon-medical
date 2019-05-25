@@ -10,68 +10,72 @@ export class PatientComponent implements OnInit {
 
   isHidden = false;
 
-
   users = [
     {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Siêu nhân cào cào',
-      soDienThoai: '023541245871',
-      ngayThem: '20/11/2019'
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      phone: '01254125124',
+      doctor: 'Vinsmoke Reiju'
     },
     {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Siêu nhân cào cào',
-      soDienThoai: '023541245871',
-      ngayThem: '20/11/2019'
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      phone: '01254125124',
+      doctor: 'Vinsmoke Reiju'
     },
     {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Siêu nhân cào cào',
-      soDienThoai: '023541245871',
-      ngayThem: '20/11/2019'
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      phone: '01254125124',
+      doctor: 'Vinsmoke Reiju'
     },
     {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Siêu nhân cào cào',
-      soDienThoai: '023541245871',
-      ngayThem: '20/11/2019'
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      phone: '01254125124',
+      doctor: 'Vinsmoke Reiju'
     },
     {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Siêu nhân cào cào',
-      soDienThoai: '023541245871',
-      ngayThem: '20/11/2019'
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      phone: '01254125124',
+      doctor: 'Vinsmoke Reiju'
+    },
+    {
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      phone: '01254125124',
+      doctor: 'Vinsmoke Reiju'
+    },
+    {
+      name: 'Vinsmoke Sanji',
+      img: 'assets/images/sanji.png',
+      address: 'Osaka, Japan',
+      date: '11/7/1984',
+      arrive: '19/5/2019',
+      phone: '01254125124',
+      doctor: 'Vinsmoke Reiju'
     },
   ]
 
-  // viewDetail() {
-  //   this.isHidden = !this.isHidden;
-  // }
 
   constructor(private router: Router) {
     router.events.subscribe((event: Event) => {

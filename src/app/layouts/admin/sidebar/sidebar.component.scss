@@ -69,3 +69,29 @@
   background: #333;
   width: auto;
 }
+
+
+.model-box {
+  z-index: 1;
+  // height: 200px;
+  width: 400px;
+  background: whitesmoke;
+  position: fixed;
+  top: 30%;
+  border: #d0cfce 1px solid;
+  left: 35%;
+  border-radius: 5px;
+
+  img {
+    width: 200px;
+  }
+
+  .head {
+    color: white;
+    background: #395c9c !important;
+  }
+
+  .body {
+    padding: 20px;
+  }
+}

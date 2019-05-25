@@ -10,6 +10,8 @@ import { RegulationsComponent } from './regulations/regulations.component';
 import { ReportComponent } from './report/report.component';
 import { SettingComponent } from './setting/setting.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { BarChartModule } from 'src/app/components/bar-chart/bar-chart.module';
+import { PieChartModule } from 'src/app/components/pie-chart/pie-chart.module';
 
 @NgModule({
   declarations: [PatientComponent,
@@ -25,7 +27,9 @@ import { EmployeesComponent } from './employees/employees.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    BarChartModule,
+    PieChartModule
   ]
 })
 export class AdminModule { }

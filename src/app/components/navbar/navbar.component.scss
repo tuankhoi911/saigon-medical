@@ -1,0 +1,14 @@
+.bg-medical {
+    background: #395c9c;
+}
+
+.nav-link {
+        color: white !important;
+        font-weight: bold;
+
+        &:hover {
+            border: #fff solid 1px;
+            border-radius: 5px;
+            transition-duration: .4s;
+        }
+}

@@ -26,32 +26,41 @@
               </div>
             </div>
           </div>
-          <div class="patient-list-body">
-            <ul class="m-0 p-0">
-              <div class="row m-4">
-                <li class=" p-0 col-12" *ngFor="let user of users">
-                  <div class="patient-user m-1">
-                    <div class="card">
-                      <div class="card-head">
-                        <h5 class="name title mt-2 p-0">Mã phiếu đăng ký: {{user.no}}
-                          <span class="badge badge-success">Complete</span>
-                          <!-- <span class="badge badge-danger">Waiting</span> -->
-                        </h5>
-                      </div>
-                      <div class="card-body p-2">
-                        <p class="m-0">Mã đăng ký: {{user.birth}}</p>
-                        <p class="m-0">Ngày thêm: {{user.blood}}</p>
-                      </div>
-                      <p class="text-right m-0">
-                        <button class="btn m-2 btn" [routerLink]="'add-examination'"><i class="fas fa-shield-check mr-2"></i>Tạo Phiếu Khám Bệnh</button>
-                        <!-- <button class="btn m-2 btn-danger"><i
-                            class="fas fa-exclamation-triangle mr-2"></i>Delete!</button> -->
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              </div>
-            </ul>
+
+          <div class="col-12 mt-4">
+            <h3 class="text-center">Danh sách phiếu khám bệnh</h3>
+
+            <table class="table ml-2">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Hình</th>
+                  <th scope="col">Tên</th>
+                  <th scope="col">Địa chỉ</th>
+                  <th scope="col">Ngày sinh</th>
+                  <th scope="col">Ngày khám</th>
+                  <th scope="col">Tình trạng</th>
+                  <th scope="col">Bác sĩ</th>
+                  <th scope="col">Hành động</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users; let i=index">
+                  <th scope="row">{{i+1}}</th>
+                  <td><img [src]="user.img" alt=""></td>
+                  <td>{{user.name}}</td>
+                  <td>{{user.address}}</td>
+                  <td>{{user.date}}</td>
+                  <td>{{user.arrive}}</td>
+                  <td><span class="badge" [class.badge-success]="user.status == 'Đã khám'" [class.badge-warning]="user.status == 'Đang chờ'" >{{user.status}}</span></td>
+                  <td>{{user.doctor}}</td>
+                  <td>
+                    <button class="btn mr-2" [routerLink]="'add-examination'"><i class="fas fa-pencil-alt"></i></button>
+                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

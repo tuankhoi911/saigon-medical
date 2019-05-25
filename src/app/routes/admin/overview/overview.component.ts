@@ -7,8 +7,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  
+  doanhThus = [
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
+    {
+      thang: 'Tháng một',
+      soTien: '200,000,000vnd',
+      ghiChu: 'Tăng 20%'
+    },
 
+  ]
   constructor() { }
 
   ngOnInit() {

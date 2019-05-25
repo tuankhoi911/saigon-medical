@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { HomeComponent } from 'src/app/routes/home/home.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,16 @@ const routes: Routes = [
             }
         ]
     },
+    // {
+    //     path: '/home',
+    //     component: HomeComponent,
+    //     children: [
+    //         {
+    //             path: '',
+    //             loadChildren: './../../routes/home/home.module#HomeModule'
+    //         }
+    //     ]
+    // }
 ];
 
 @NgModule({

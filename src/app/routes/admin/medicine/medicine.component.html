@@ -16,7 +16,7 @@
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
-                  <input type="text" id="search-bar" placeholder="Nhập tên dược phẩm!">
+                  <input type="text" id="search-bar" (keyup)="searchUpdate($event.target.value)" placeholder="Nhập tên dược phẩm!">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
@@ -25,7 +25,7 @@
           <div class="patient-list-body">
             <ul class="m-0 p-0">
               <div class="row m-4">
-                <li class=" p-0 col-12" *ngFor="let user of users">
+                <li class=" p-0 col-12" *ngFor="let user of searchedUsers">
                   <div class="patient-user m-1">
                     <div class="card">
                       <div class="card-head">

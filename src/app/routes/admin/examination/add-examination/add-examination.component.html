@@ -8,16 +8,9 @@
           <h4 class="mb-3 text-center"> <i class="fas fa-users-medical mr-3"></i>Thông Tin Phiếu Khám Bệnh</h4>
           <form class="needs-validation" novalidate>
             <div class="row">
-              <div class="col-12 mb-3">
-                <label for="firstName">Mã phiếu khám bệnh</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
-              </div>
             </div>
             <div class="mb-3">
-              <label for="address2">Mã đăng ký</label>
+              <label for="address2">Triệu chứng</label>
               <input type="text" class="form-control" id="address2" placeholder="">
             </div>
             <div class="mb-3">
@@ -25,7 +18,7 @@
               <input type="text" class="form-control" id="address2" placeholder="">
             </div>
             <div class="mb-3">
-              <label for="address2">Ngày thêm</label>
+              <label for="address2">Chọn bác sĩ (option)</label>
               <input type="text" class="form-control" id="address2" placeholder="">
             </div>
             <div class="mb-3 mt-4 medicine-table">
@@ -42,7 +35,7 @@
                 </div>
               </div>
               <ul class="p-0">
-                <li class="col-12 pl-0 pr-0 pt-2 pb-2" *ngFor="let medicine of medicines">
+                <li class="col-12 pl-0 pr-0 pt-2 pb-2" *ngFor="let medicine of medicines; let index = index">
                   <div class="container">
                     <div class="row">
                       <div class="col-8 pt-1" style="border: 1px #000 solid">
@@ -52,7 +45,7 @@
                         {{medicine.amount}}
                       </div>
                       <div class="col-1">
-                        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <button class="btn btn-danger" (click)="delete(index)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </div>
                   </div>
@@ -66,7 +59,8 @@
 
             <!-- Alert -->
           </form>
-          <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>Thêm Thuốc</button></p>
+          <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>Thêm
+              Thuốc</button></p>
           <div class="row" *ngIf="isAdd">
             <div class="col-lg-12">
               <div class="patient-list">
@@ -74,36 +68,73 @@
                   <div class="row">
                     <div class="col-12">
                       <form class="search-container mx-auto">
-                        <input type="text" id="search-bar" placeholder="Nhập tên dược phẩm!">
+                        <input type="text" id="search-bar" (keyup)="searchUpdate($event.target.value)" placeholder="Nhập tên dược phẩm!">
                         <a><i class="fas fa-search"></i></a>
                       </form>
                     </div>
                   </div>
                 </div>
-                <div class="patient-list-body">
-                  <ul class="m-0 p-0">
-                    <div class="row m-4">
-                      <li class=" p-0 col-12" *ngFor="let user of users">
-                        <div class="patient-user m-1">
-                          <div class="card">
-                            <div class="card-head">
-                              <h5 class="name title mt-2 p-0">{{user.name}}</h5>
+
+                <div class="col-12 mt-4">
+                  <table class="table ml-2">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tên thuốc</th>
+                        <th scope="col">Số lượng còn lại</th>
+                        <th scope="col text-right">Thêm vào đơn</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let user of searchedUsers; let index =index">
+                        <th scope="row">{{index+1}}</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.amount}} {{user.unit}}</td>
+                        <td class="text-right"><button class="btn" (click)="show()"><i
+                              class="fas fa-folder-plus"></i></button></td>
+
+                        <div class="container" *ngIf="isPopup">
+                          <div class="row">
+                            <div class="model-box">
+                              <div class="col-12 p-0 head">
+                                <p class="logo text-center m-0"><img [src]="logo" alt=""></p>
+                                <p class="text-center m-0 font-weight-bold title">
+                                  PHÒNG KHÁM ĐA KHOA SAIGON MEDICAL
+                                </p>
+                              </div>
+                              <div class="col-12 body">
+                                <form action="" #formMed="ngForm">
+                                  <div class="amount">
+                                    <label for="">Số lượng:</label>
+                                    <input type="text" name="amountMed" id="" placeholder="Số lượng thuốc"
+                                      [(ngModel)]="amountMed" required>
+                                  </div>
+
+                                  <div class="instruc">
+                                    <label for="">Cách dùng:</label>
+                                    <textarea name="cachDung" id="" placeholder="Cách dùng" [(ngModel)]="cachDung"
+                                      required></textarea>
+                                  </div>
+                                  <div class="col-12">
+                                    <p class="text-right">
+                                      <button class="btn btn-danger mr-2" (click)="close()"> <i
+                                          class="fas fa-times-square mr-2"></i>Đóng</button>
+                                      <button class="btn btn-success" [disabled]="formMed.invalid" (click)="add(index)">
+                                        <i class="fas fa-check-square mr-2"></i>Thêm</button>
+                                    </p>
+                                  </div>
+                                </form>
+                              </div>
+
                             </div>
-                            <div class="card-body p-2">
-                              <p class="m-0"> <img [src]="user.img" alt="">{{user.amount}}
-                                {{user.unit}} |
-                              </p>
-                            </div>
-                            <p class="text-right m-0">
-                              <button class="btn m-2" (click)="show()"><i class="fas fa-file-medical mr-2"></i>Thêm Vào
-                                Đơn Thuốc</button>
-                            </p>
                           </div>
                         </div>
-                      </li>
-                    </div>
-                  </ul>
+
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+
               </div>
             </div>
           </div>
@@ -114,7 +145,7 @@
 
 </div>
 
-<div class="container" *ngIf="isPopup">
+<div class="container" *ngIf="isAlert">
   <div class="row">
     <div class="model-box">
       <div class="col-12 p-0 head">
@@ -123,12 +154,13 @@
           PHÒNG KHÁM ĐA KHOA SAIGON MEDICAL
         </p>
       </div>
-      <div class="col-12 body">
-        <p class="text-center">Thêm vào đơn thuốc thành công!</p>
+      <div class="col-12 body text-center">
+        <h5 *ngIf="isSuccess">Thêm vào thành công!</h5>
+        <h5 *ngIf="isFail">Số lượng thuốc trong kho không đủ! Vui lòng giảm số lượng.</h5>
       </div>
       <div class="col-12">
         <p class="text-right">
-          <button class="btn btn-danger" (click)="close()"> <i class="fas fa-times-square mr-2"></i>Đóng</button>
+          <button class="btn btn-danger mr-2" (click)="close()"> <i class="fas fa-times-square mr-2"></i>Đóng</button>
         </p>
       </div>
     </div>

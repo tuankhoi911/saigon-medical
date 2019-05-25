@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="patient">
+        <div class="row">
+            <div class="col-lg-12 patient-nav">
+                <h3><i class="fas fa-hospital-alt mr-2 ml-2"></i>Thông Tin Thống Kê</h3>
+            </div>
+
+            <div class="col-12 ml-2">
+                <h3 class="text-left pl-4 mt-2">Thống kê sơ bộ</h3>
+                <div class="survey m-4">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-3 m-2 card">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-4 p-0">
+                                            <i class="fas fa-briefcase-medical survey-icon"></i>
+                                        </div>
+                                        <div class="col-8 p-0">
+                                            <p class="don-kham m-0">Số đơn khám bệnh</p>
+                                            <h3 class="so-luong pl-2">215</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-3 m-2 card">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-4 p-0">
+                                            <i class="fas fa-user-injured survey-icon"></i>
+                                        </div>
+                                        <div class="col-8 p-0">
+                                            <p class="don-kham m-0">Số bệnh nhân mới </p>
+                                            <h3 class="so-luong pl-2">215</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-3 m-2 card">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-4 p-0">
+                                            <i class="fas fa-kidneys survey-icon"></i>
+                                        </div>
+                                        <div class="col-8 p-0">
+                                            <p class="don-kham m-0">Số ca phẩu thuật</p>
+                                            <h3 class="so-luong pl-2">215</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <h3 class="text-center">
+                    Tỉ lệ bệnh nhân
+                </h3>
+                <app-bar-chart></app-bar-chart>
+            </div>
+            <div class="col-6">
+                <h3 class="text-center">
+                    Tỉ lệ khám bệnh
+                </h3>
+                <app-pie-chart></app-pie-chart>
+            </div>
+
+            <div class="col-12 mt-4">
+                <h3 class="text-center">Doanh thu toàn quý</h3>
+
+                <table class="table ml-2">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tháng</th>
+                            <th scope="col">Doanh thu</th>
+                            <th scope="col">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let doanhThu of doanhThus; let i=index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{doanhThu.thang}}</td>
+                            <td>{{doanhThu.soTien}}</td>
+                            <td>{{doanhThu.ghiChu}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

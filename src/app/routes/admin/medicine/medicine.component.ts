@@ -13,7 +13,6 @@ export class MedicineComponent implements OnInit {
   isPopup = false;
   logo = 'assets/images/pbLogo.png'
 
-
   users = [
     {
       name: 'Paracetamol 500mg',
@@ -52,7 +51,7 @@ export class MedicineComponent implements OnInit {
       unit: 'Viên'
     },
     {
-      name: 'Paracetamol 500mg',
+      name: 'Tatanol 500mg',
       img : 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
@@ -70,7 +69,7 @@ export class MedicineComponent implements OnInit {
       unit: 'Viên'
     },
     {
-      name: 'Paracetamol 500mg',
+      name: 'Aspirin 500mg',
       img : 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
@@ -79,6 +78,9 @@ export class MedicineComponent implements OnInit {
       unit: 'Viên'
     },
   ]
+
+  searchedUsers = this.users;
+
 
   // viewDetail() {
   //   this.isHidden = !this.isHidden;
@@ -107,4 +109,13 @@ export class MedicineComponent implements OnInit {
   ngOnInit() {
   }
 
+  public searchUpdate(term: string): void {
+    term = term.trim().toLowerCase();
+    const isMatch = (user: any) => user.name.toLowerCase().includes(term); 
+
+    if (term == "") {
+      this.searchedUsers = this.users;
+    }
+    this.searchedUsers = this.users.filter(isMatch);
+  }
 }

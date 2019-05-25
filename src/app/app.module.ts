@@ -10,7 +10,7 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
