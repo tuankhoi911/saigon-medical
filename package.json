@@ -16,7 +16,8 @@
     "build:prod": "npm run build:ssr",
     "serve:prerender": "node static.js",
     "build:prerender": "npm run build:prod && node dist/prerender.js",
-    "deploy": "ng build --prod && firebase deploy"
+    "deploy": "ng build --prod && firebase deploy",
+    "json-server": "json-server --watch db.json"
   },
   "private": true,
   "dependencies": {
@@ -39,8 +40,10 @@
     "domino": "^2.1.3",
     "express": "^4.15.2",
     "font-awesome": "^4.7.0",
+    "json-server": "^0.15.0",
     "ng2-charts": "^2.2.3",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
