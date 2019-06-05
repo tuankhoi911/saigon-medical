@@ -1,86 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.component.html',
-  styleUrls: ['./patient.component.scss']
+  styleUrls: ['./patient.component.scss'],
+  providers: [PatientService]
 })
 export class PatientComponent implements OnInit {
 
   isHidden = false;
+  patients: any;
 
-  users = [
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      phone: '01254125124',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      phone: '01254125124',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      phone: '01254125124',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      phone: '01254125124',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      phone: '01254125124',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      phone: '01254125124',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      phone: '01254125124',
-      doctor: 'Vinsmoke Reiju'
-    },
-  ]
-
-
-  constructor(private router: Router) {
+  constructor(private router: Router, protected patientService: PatientService) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        if ((router.url === '/admin/patient/add-patient') || (router.url === '/admin/patient/add-examination')) {
+        if ((router.url === '/admin/patient/add-patient') || (router.url === '/admin/patient/add-examination') || (router.url === '/admin/patient/update-patient')) {
           this.isHidden = false;
         } else {
           this.isHidden = true;
@@ -90,6 +26,38 @@ export class PatientComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllPatients();
   }
+
+  public getAllPatients() {
+    this.patientService
+      .getAll()
+      .subscribe(
+        (patientData: any) => {
+          this.patients = patientData;
+          console.log(this.patients);
+          
+        }
+      )
+  }
+
+  public updatePatien(patient) {
+    this.patientService
+    .update(patient)
+    .subscribe(() => {
+      this.getAllPatients();
+    })
+  }
+
+  public deletePatient(patient) {
+    this.patientService
+    .delete(patient.maBenhNhan)
+    .subscribe(() => {
+      this.getAllPatients();
+      
+    }
+    )
+  }
+
 
 }

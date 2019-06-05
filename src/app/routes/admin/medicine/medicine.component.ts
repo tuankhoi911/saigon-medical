@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { MedicineService } from 'src/app/services/medicine.service';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-medicine',
   templateUrl: './medicine.component.html',
-  styleUrls: ['./medicine.component.scss']
+  styleUrls: ['./medicine.component.scss'],
+  providers: [MedicineService]
 })
 export class MedicineComponent implements OnInit {
 
@@ -12,11 +15,13 @@ export class MedicineComponent implements OnInit {
   isHidden = false;
   isPopup = false;
   logo = 'assets/images/pbLogo.png'
+  public medicines: any;
+  public patients: any;
 
   users = [
     {
       name: 'Paracetamol 500mg',
-      img : 'assets/images/para.jpg',
+      img: 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
       nsx: '20/10/2017',
@@ -25,7 +30,7 @@ export class MedicineComponent implements OnInit {
     },
     {
       name: 'Paracetamol 500mg',
-      img : 'assets/images/para.jpg',
+      img: 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
       nsx: '20/10/2017',
@@ -34,7 +39,7 @@ export class MedicineComponent implements OnInit {
     },
     {
       name: 'Paracetamol 500mg',
-      img : 'assets/images/para.jpg',
+      img: 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
       nsx: '20/10/2017',
@@ -43,7 +48,7 @@ export class MedicineComponent implements OnInit {
     },
     {
       name: 'Paracetamol 500mg',
-      img : 'assets/images/para.jpg',
+      img: 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
       nsx: '20/10/2017',
@@ -52,7 +57,7 @@ export class MedicineComponent implements OnInit {
     },
     {
       name: 'Tatanol 500mg',
-      img : 'assets/images/para.jpg',
+      img: 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
       nsx: '20/10/2017',
@@ -61,7 +66,7 @@ export class MedicineComponent implements OnInit {
     },
     {
       name: 'Paracetamol 500mg',
-      img : 'assets/images/para.jpg',
+      img: 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
       nsx: '20/10/2017',
@@ -70,7 +75,7 @@ export class MedicineComponent implements OnInit {
     },
     {
       name: 'Aspirin 500mg',
-      img : 'assets/images/para.jpg',
+      img: 'assets/images/para.jpg',
       amount: '500 ',
       price: '200,000',
       nsx: '20/10/2017',
@@ -81,12 +86,7 @@ export class MedicineComponent implements OnInit {
 
   searchedUsers = this.users;
 
-
-  // viewDetail() {
-  //   this.isHidden = !this.isHidden;
-  // }
-
-  constructor(private router: Router) {
+  constructor(private router: Router, protected medicineService: MedicineService, protected patientService: PatientService) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         if (router.url === '/admin/medicine/add-medicine') {
@@ -107,15 +107,35 @@ export class MedicineComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllMedicine();
   }
 
   public searchUpdate(term: string): void {
     term = term.trim().toLowerCase();
-    const isMatch = (user: any) => user.name.toLowerCase().includes(term); 
+    const isMatch = (user: any) => user.name.toLowerCase().includes(term);
 
     if (term == "") {
       this.searchedUsers = this.users;
     }
     this.searchedUsers = this.users.filter(isMatch);
+  }
+
+  public getAllMedicine() {
+    this.medicineService
+      .getAll()
+      .subscribe(
+        (medicineData: any) => {
+          this.medicines = medicineData;
+          console.log(this.medicines);
+        }
+      )
+  }
+
+  public deleteMedicine(medicine) {
+    this.medicineService
+      .delete(medicine.maThuoc)
+      .subscribe(() => {
+        this.getAllMedicine();
+      })
   }
 }

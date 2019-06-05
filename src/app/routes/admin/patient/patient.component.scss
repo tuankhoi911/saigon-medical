@@ -1,5 +1,5 @@
 .patient {
-  margin-left: 100px;
+  margin-left: 230px;
 }
 
 .patient-nav {
@@ -59,15 +59,6 @@
     }
   }
 
-li {
-  list-style-type: none;
-}
-
-.crd {
-  border-radius: 5px !important;
-}
-
-
 .thead-dark {
   th {
     background-color: #395c9c !important;
@@ -90,4 +81,10 @@ li {
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
     }
   }
+}
+
+.patinent-table {
+  border: 1px solid #d0cfce;
+  border-radius: 5px;
+  background: white;
 }

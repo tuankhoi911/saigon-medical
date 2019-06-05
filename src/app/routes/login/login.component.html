@@ -1,27 +1,30 @@
 <div class="background">
   <div class="area-login">
     <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>Đăng nhập thất bại!</strong><br>Vui lòng đăng nhập lại.
+      <strong>Login failed!</strong><br>Please check your account!
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="pt-4">
+    <div class="pt-4 m-4">
       <p class="text-center m-0">
-        <img style="cursor: pointer;" class="w-75" [src]="pbLogo" [routerLink]="['/']" alt="">
+        <img style="cursor: pointer;" class="w-100 img" [src]="pbLogo" [routerLink]="['/']" alt="">
       </p>
     </div>
     <form autocomplete="off" class="p-4" (ngSubmit)="emailLogin()">
       <div class="input-area row">
         <i class="fal fa-user icon px-0"></i>
-        <input autocomplete="off" type="text" class="input-login" [(ngModel)]="email" placeholder="Email" name="email"
+        <input autocomplete="off" type="text" class="input-login" [(ngModel)]="email" placeholder="Username" name="email"
           (change)="validateEmail($event.target.value)">
       </div>
       <div class="input-area row">
         <i class="fal fa-key icon px-0"></i>
-        <input type="password" [(ngModel)]="password" placeholder="Mật Khẩu" class="input-login" name="password">
+        <input type="password" [(ngModel)]="password" placeholder="Password" class="input-login" name="password">
       </div>
-      <button type="submit" class="login-button" (click)="emailLogin()">Đăng Nhập</button>
+      <button type="submit" class="login-button" (click)="emailLogin()">Login</button>
     </form>
+    <p class="text-center" style="color: white">
+      Copyright &copy; 2019 <span class="font-weight-bold">GoCodee</span>
+    </p>
   </div>
 </div>

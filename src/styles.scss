@@ -1,9 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/scss/bootstrap.min.css";
 @import "assets/fontawesome/css/all.css";
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
 
 button {
   background: #395c9c;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2) inset;
   color: white;
   border-radius: 35px !important;
 
@@ -27,7 +33,7 @@ button {
 
   img {
     width: 35px;
-    border-radius: 50%; 
+    border-radius: 50%;
   }
 
   tr {
@@ -35,4 +41,47 @@ button {
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
     }
   }
+}
+
+.table td,
+.table th {
+  vertical-align: baseline !important;
+  border: 1px solid #dee2e6 !important;
+}
+
+.table {
+  width: 98.5% !important;
+}
+
+.title-list {
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: #dee2e6;
+}
+
+.bg-nhanviet {
+  background: #dee2e6;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  background-color: #395c9c;
+}
+::-webkit-scrollbar-track {
+  box-sizing: content-box;
+  margin: 3px 2px 3px 0;
+  background: white;
+}
+
+.table td,
+.table th {
+  padding: 0.25rem !important;
 }

@@ -1,17 +1,30 @@
-<div class="container">
+<div class="container-fluid">
   <div class="patient">
     <div class="row">
       <div class="col-lg-12 patient-nav">
-        <h3><i class="fab fa-accessible-icon mr-2 ml-2"></i>Quản Lí Bệnh Nhân</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-1">
+              <p class="text-center m-0">
+                <i class="far fa-dna"></i>
+              </p>
+            </div>
+            <div class="col-11">
+              <h4 class="m-0">Bệnh Nhân</h4>
+              <p class="m-0">Danh sách bệnh nhân</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="row" *ngIf="isHidden">
+    <div class="row bg-nhanviet" *ngIf="isHidden">
       <div class="col-lg-12">
         <div class="patient-list">
           <div class="patient-list-head">
             <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-patient'"><a><i class="fas fa-plus-square mr-2"></i>Thêm Bệnh
-                  Nhân
+              <button class="btn m-2" [routerLink]="'add-patient'"><a><i class="fas fa-plus-square mr-2"></i>Thêm bệnh
+                  nhân
                 </a></button>
             </p>
           </div>
@@ -25,46 +38,45 @@
               </div>
             </div>
           </div>
-          <div class="col-12 mt-4">
-            <h3 class="text-center">Danh sách bệnh nhân</h3>
-
+          <div class="col-12 mt-4 patinent-table p-0">
+            <h4 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách bệnh nhân</h4>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Hình</th>
+                  <th scope="col">Mã</th>
                   <th scope="col">Tên</th>
-                  <th scope="col">Địa chỉ</th>
+                  <th scope="col">Giới tính</th>
                   <th scope="col">Ngày sinh</th>
-                  <th scope="col">Ngày khám</th>
+                  <th scope="col">Địa chỉ</th>
+                  <th scope="col">Nghề nghiệp</th>
                   <th scope="col">Số điện thoại</th>
-                  <th scope="col">Bác sĩ</th>
+                  <th scope="col">Ngày thêm</th>
                   <th scope="col">Hành động</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let user of users; let i=index">
-                  <th scope="row">{{i+1}}</th>
-                  <td><img [src]="user.img" alt=""></td>
-                  <td>{{user.name}}</td>
-                  <td>{{user.address}}</td>
-                  <td>{{user.date}}</td>
-                  <td>{{user.arrive}}</td>
-                  <td style="color: blue"><i class="fas fa-mobile-android-alt mr-2"></i>{{user.phone}}</td>
-                  <td>{{user.doctor}}</td>
+                <tr *ngFor="let patient of patients; let i=index">
+                  <th scope="row">{{patient.maBenhNhan}}</th>
+                  <td>{{patient.tenBenhNhan}}</td>
+                  <td>{{patient.gioiTinh}}</td>
+                  <td>{{patient.ngaySinh}}</td>
+                  <td>{{patient.diaChi}}</td>
+                  <td>{{patient.ngheNghiep}}</td>
+                  <td style="color: blue"><i class="fas  fa-mobile-android-alt mr-2"></i>{{patient.soDienThoai}}</td>
+                  <td>{{patient.ngayThem}}</td>
                   <td>
-                    <button class="btn mr-2"><i class="fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                    <button class="btn mr-2" [routerLink]="'update-patient'"><i class="fas fa-pencil-alt"></i></button>
+                    <button class="btn btn-danger" (click)="deletePatient(patient)"><i
+                        class="fas fa-trash"></i></button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-
         </div>
       </div>
     </div>
   </div>
-</div>
 
+</div>
 <router-outlet></router-outlet>

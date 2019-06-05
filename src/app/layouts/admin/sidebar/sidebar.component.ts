@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   public isPopup = false;
+  logo = 'assets/images/pbLogo.png'
 
   public manages = [
     { title: 'Quản lí bệnh nhân', link: '/admin/patient' },

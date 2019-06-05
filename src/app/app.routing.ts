@@ -3,15 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: '',
-        loadChildren: './layouts/client/client.module#ClientModule'
-    },
-    {
         path: 'admin',
         loadChildren: './layouts/admin/admin.module#AdminModule'
     },
     {
-        path: 'login',
+        path: '',
         loadChildren: './routes/login/login.module#LoginModule'
     }
 ];

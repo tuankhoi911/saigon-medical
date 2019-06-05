@@ -10,7 +10,7 @@
             <div class="row">
               <div class="col-12 mb-3">
                 <label for="firstName">Tên dược phẩm</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required name="tenThuoc" [(ngModel)]="medicine.tenThuoc">
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
@@ -18,22 +18,26 @@
             </div>
             <div class="mb-3">
               <label for="address2">Số lượng</label>
-              <input type="text" class="form-control" id="address2" placeholder="">
+              <input type="text" class="form-control" id="address2" placeholder="" name="soLuong" [(ngModel)]="medicine.soLuong">
             </div>
             <div class="mb-3">
               <label for="address2">Đơn vị</label>
-              <input type="text" class="form-control" id="address2" placeholder="">
+              <input type="text" class="form-control" id="address2" placeholder="" name="donVi" [(ngModel)]="medicine.donVi">
             </div>
             <div class="mb-3">
               <label for="address2">Ngày sản xuất</label>
-              <input type="text" class="form-control" id="address2" placeholder="">
+              <input type="text" class="form-control" id="address2" placeholder="" name="ngaySanXuat" [(ngModel)]="medicine.ngaySanXuat">
             </div>
             <div class="mb-3">
               <label for="address2">Hạn sử dụng</label>
-              <input type="text" class="form-control" id="address2" placeholder="">
+              <input type="text" class="form-control" id="address2" placeholder="" name="hanSuDung" [(ngModel)]="medicine.hanSuDung">
+            </div>
+            <div class="mb-3">
+              <label for="address2">Price</label>
+              <input type="text" class="form-control" id="address2" placeholder="" name="gia" [(ngModel)]="medicine.gia">
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block">Lưu</button>
+            <button class="btn btn-lng btn-block" (click)="createMedicine()">Save</button>
 
             <!-- Alert -->
           </form>

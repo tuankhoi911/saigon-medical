@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingComponent implements OnInit {
 
+  imgUrl = 'assets/images/zoro.png'
+
   constructor() { }
 
   ngOnInit() {
