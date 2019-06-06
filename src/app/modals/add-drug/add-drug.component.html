@@ -1,0 +1,30 @@
+<div class="modal-header m-1">
+  <div class="col-12 p-0 head">
+    <p class="logo text-center m-0"><img class="w-50" [src]="logo" alt=""></p>
+    <h4 class="text-center m-0 title text-white">
+      Nhanviet Medical General Hospital
+    </h4>
+  </div>
+</div>
+<div class="modal-body">
+  <form action="" #formMed="ngForm">
+    <div class="amount mb-2">
+      <label for="">Amount of drug:</label>
+      <input class="w-100 p-2" type="text" name="amountMed" id="" [(ngModel)]="amountMed" required>
+    </div>
+
+    <div class="instruc">
+      <label for="">Instruction:</label>
+      <textarea class="w-100 p-2" name="cachDung" id="" [(ngModel)]="cachDung" required></textarea>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <div class="col-12">
+    <p class="text-right m-0">
+      <button class="btn btn-danger mr-2" (click)="close()"> <i class="fas fa-times-square mr-2"></i>Close</button>
+      <button class="btn btn-success" [disabled]="formMed.invalid" (click)="add(index)">
+        <i class="fas fa-check-square mr-2"></i>Add</button>
+    </p>
+  </div>
+</div>

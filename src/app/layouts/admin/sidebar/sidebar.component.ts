@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NgbModal, NgbActiveModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { LogOutComponent } from 'src/app/modals/log-out/log-out.component';
 
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  providers: [NgbModalConfig, NgbModal, NgbActiveModal]
 })
 export class SidebarComponent implements OnInit {
 
-  public isPopup = false;
   logo = 'assets/images/pbLogo.png'
 
   public manages = [
@@ -19,20 +20,12 @@ export class SidebarComponent implements OnInit {
     { title: 'Quản lí đơn thuốc', link: '/admin/prescription' }
   ]
 
-  logout() {
-      this.router.navigate(['/']);
-  }
+  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) { }
 
   show() {
-    this.isPopup = true;
+    this.modalService.open(LogOutComponent, { centered: true, windowClass: 'send-message' });
   }
 
-  close() {
-    this.isPopup = false;
-  }
-
-
-  constructor(private router: Router) { }
 
   ngOnInit() {
   }

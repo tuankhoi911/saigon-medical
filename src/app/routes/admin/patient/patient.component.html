@@ -65,7 +65,7 @@
                   <td style="color: blue"><i class="fas  fa-mobile-android-alt mr-2"></i>{{patient.soDienThoai}}</td>
                   <td>{{patient.ngayThem}}</td>
                   <td>
-                    <button class="btn mr-2" [routerLink]="'update-patient'"><i class="fas fa-pencil-alt"></i></button>
+                    <button class="btn mr-2" [routerLink]="['update-patient', patient.maBenhNhan]"><i class="fas fa-pencil-alt"></i></button>
                     <button class="btn btn-danger" (click)="deletePatient(patient)"><i
                         class="fas fa-trash"></i></button>
                   </td>
@@ -79,4 +79,7 @@
   </div>
 
 </div>
+
+
+<!-- <app-update-patient></app-update-patient> -->
 <router-outlet></router-outlet>

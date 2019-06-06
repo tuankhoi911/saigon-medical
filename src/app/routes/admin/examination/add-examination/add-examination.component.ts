@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal, NgbActiveModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AddDrugComponent } from 'src/app/modals/add-drug/add-drug.component';
 
 @Component({
   selector: 'app-add-examination',
   templateUrl: './add-examination.component.html',
-  styleUrls: ['./add-examination.component.scss']
+  styleUrls: ['./add-examination.component.scss'],
+  providers: [NgbModal, NgbModalConfig]
+
 })
 export class AddExaminationComponent implements OnInit {
 
@@ -103,10 +107,6 @@ export class AddExaminationComponent implements OnInit {
     },
   ]
 
-  show() {
-    this.isPopup = true;
-  }
-
   close() {
     this.isPopup = false;
     this.isAlert = false;
@@ -118,7 +118,7 @@ export class AddExaminationComponent implements OnInit {
 
   searchedUsers = this.users;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   }
@@ -132,7 +132,12 @@ export class AddExaminationComponent implements OnInit {
     }
     this.searchedUsers = this.users.filter(isMatch);
     console.log(this.searchedUsers);
-    
+
   };
-  
+
+  show() {
+    this.modalService.open(AddDrugComponent, { centered: true, windowClass: 'send-message' });
+  }
+
+
 }

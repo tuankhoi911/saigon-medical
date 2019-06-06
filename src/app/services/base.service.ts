@@ -24,7 +24,7 @@ export class BaseService {
 
   public getById(id: number): Observable<any> {
     return this.http
-      .get(`${this.API_URL}/${this.url}` + id)
+      .get(`${this.API_URL}/${this.url}/` + id)
       .pipe(
         map(response => response)
       )
@@ -40,7 +40,7 @@ export class BaseService {
   
   public update(object: any): Observable<any> {
     return this.http
-      .put(`${this.API_URL}/${this.url}` + object.id, object)
+      .put(`${this.API_URL}/${this.url}`, object)
       .pipe(
         map(response => response)
       )

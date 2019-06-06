@@ -2,114 +2,74 @@
   <div class="sidebar-logo">
     <img [src]="logo" class="w-100 mt-4 mb-3">
   </div>
-
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
-      <!-- <li *ngFor="let manage of manages" class="nav-item p-0 mt-2 mb-2">
-        <a class="nav-link" [routerLink]="manage.link">
-          <i class="fas fa-prescription-bottle-alt"></i>
-          <span data-feather="home"></span>
-          {{manage.title}}
-        </a>
-      </li> -->
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/overview'">
           <i class="fas fa-university mr-2"></i>
           <span data-feather="home"></span>
-          Tổng quan
+          Overview
         </a>
       </li>
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/patient'">
           <i class="fab fa-accessible-icon mr-2"></i>
           <span data-feather="home"></span>
-          Bệnh Nhân
+          Patient
         </a>
       </li>
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/examination'">
           <i class="fas fa-stethoscope mr-2"></i>
           <span data-feather="home"></span>
-          Khám Bệnh
+          Examination
         </a>
       </li>
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/employees'">
           <i class="fas fa-id-card mr-2"></i>
           <span data-feather="home"></span>
-          Nhân Viên
+          Employees
         </a>
       </li>
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/medicine'">
           <i class="fas fa-prescription-bottle-alt mr-2"></i>
           <span data-feather="home"></span>
-          Dược Phẩm
+          Medicine
         </a>
       </li>
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/prescription'">
           <i class="fas fa-file-invoice-dollar mr-2"></i>
           <span data-feather="home"></span>
-          Hóa Đơn
+          Invoice
         </a>
       </li>
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/regulations'">
           <i class="fas fa-pencil-ruler mr-2"></i>
           <span data-feather="home"></span>
-          Quy Định
+          Regulations
         </a>
       </li>
-      <!-- <li class="nav-item p-0 mt-2 mb-2">
-        <a class="nav-link" [routerLink]="'/admin/report'">
-          <i class="fas fa-notes-medical"></i>
-          <span data-feather="home"></span>
-          Báo Cáo
-        </a>
-      </li> -->
     </ul>
-
     <div class="drop-devider m-2"></div>
     <ul class="nav flex-column">
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/setting'">
-          <i class="fas fa-cogs"></i>
+          <i class="fas fa-cogs mr-2"></i>
           <span data-feather="home"></span>
-          Cài Đặt
+          Setting
         </a>
       </li>
       <li class="nav-item p-0 mt-2 mb-2">
         <a class="nav-link" (click)="show()" style="cursor: pointer;">
-          <i class="fas fa-sign-out-alt"></i>
+          <i class="fas fa-sign-out-alt mr-2"></i>
           <span data-feather="home"></span>
-          Đăng Xuất
+          Log-out
         </a>
       </li>
     </ul>
   </div>
 </nav>
-
-<div class="container" *ngIf="isPopup">
-  <div class="row">
-    <div class="model-box">
-      <div class="col-12 p-0 head">
-        <p class="logo text-center m-0"><img [src]="logo" alt=""></p>
-        <p class="text-center m-0 font-weight-bold title">
-          PHÒNG KHÁM ĐA KHOA SAIGON MEDICAL
-        </p>
-      </div>
-      <div class="col-12 body">
-        <p class="text-center">Bạn có chắc chắn muốn đăng xuất không?</p>
-      </div>
-      <div class="col-12">
-        <p class="text-right">
-          <button class="btn btn-success mr-2" (click)="close()"> <i class="fas fa-times-square mr-2"></i>Hủy
-            bỏ</button>
-          <button class="btn btn-danger ml-2" (click)="logout()"> <i class="fas fa-sign-out-alt mr-2"></i>Đăng
-            xuất</button>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>

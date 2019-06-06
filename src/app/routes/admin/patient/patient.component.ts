@@ -16,7 +16,7 @@ export class PatientComponent implements OnInit {
   constructor(private router: Router, protected patientService: PatientService) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        if ((router.url === '/admin/patient/add-patient') || (router.url === '/admin/patient/add-examination') || (router.url === '/admin/patient/update-patient')) {
+        if ((router.url != '/admin/patient')) {
           this.isHidden = false;
         } else {
           this.isHidden = true;

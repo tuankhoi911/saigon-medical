@@ -17,6 +17,10 @@ button {
     transition-duration: 0.4s;
     background: #5384df;
   }
+
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 .thead-dark {
