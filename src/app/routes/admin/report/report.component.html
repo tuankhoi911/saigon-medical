@@ -1,22 +1,139 @@
 <div class="container-fluid">
-    <div class="patient">
-      <div class="row">
-        <div class="col-lg-12 patient-nav">
-          <div class="container">
-            <div class="row">
-              <div class="col-1">
-                <p class="text-center m-0">
-                  <i class="far fa-dna"></i>
-                </p>
-              </div>
-              <div class="col-11">
-                <h4 class="m-0">Reportation</h4>
-                <p class="m-0">Report Management Department</p>
-              </div>
+  <div class="patient">
+    <div class="row">
+      <div class="col-lg-12 patient-nav">
+        <div class="container">
+          <div class="row">
+            <div class="col-1">
+              <p class="text-center m-0">
+                <i class="far fa-dna"></i>
+              </p>
+            </div>
+            <div class="col-11">
+              <h4 class="m-0">Reportation</h4>
+              <p class="m-0">Report and Notification Center</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
-  
+    <div class="row bg-nhanviet">
+      <div class="col-lg-12">
+        <div class="patient-list">
+          <div class="patient-list-head">
+            <p class="m-0">
+              <button class="btn m-2"><a><i class="fal fa-file-word mr-2"></i>Template Report
+                </a></button>
+            </p>
+          </div>
+          <div class="col-12 mt-4 patinent-table p-0 mb-4">
+            <h5 class="mb-2 title-list p-2"><i class="fal fa-stretcher mr-2"></i>Reportation about amount of patients by month</h5>
+            <form action="" class="form-inline">
+              <div class="container mb-2">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="form-group w-100">
+                      <div class="input-group w-100">
+                        <label for="month">Month</label>
+                        <select class="custom-select d-block w-100" id="month" name="month" required
+                          [(ngModel)]="month">
+                          <option value="">Choose...</option>
+                          <option *ngFor="let month of months">
+                            {{month}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group w-100">
+                      <div class="input-group w-100">
+                        <label for="month">Year</label>
+                        <select class="custom-select d-block w-100" id="year" name="year" required
+                          [(ngModel)]="year">
+                          <option value="">Choose...</option>
+                          <option *ngFor="let year of years">
+                            {{year}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-center mt-4">
+                      <button class="btn">
+                          <i class="fal fa-plus-octagon mr-2"></i>
+                          Create Report
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-12 mt-4 patinent-table p-0 mb-4">
+            <h5 class="mb-2 title-list p-2"><i class="fal fa-journal-whills mr-2"></i>Reportation of medicines used by month</h5>
+            <form action="" class="form-inline">
+              <div class="container mb-2">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="form-group w-100">
+                      <div class="input-group w-100">
+                        <label for="month">Month</label>
+                        <select class="custom-select d-block w-100" id="month" name="month" required
+                          [(ngModel)]="month">
+                          <option value="">Choose...</option>
+                          <option *ngFor="let month of months">
+                            {{month}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group w-100">
+                      <div class="input-group w-100">
+                        <label for="month">Year</label>
+                        <select class="custom-select d-block w-100" id="year" name="year" required
+                          [(ngModel)]="year">
+                          <option value="">Choose...</option>
+                          <option *ngFor="let year of years">
+                            {{year}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-center mt-4">
+                      <button class="btn">
+                          <i class="fal fa-plus-octagon mr-2"></i>
+                          Create Report
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+<!-- 
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                          #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                              class="fal fa-calendar-alt"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </form> -->

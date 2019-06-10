@@ -30,10 +30,14 @@
                 </div>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="address2">Date of Birth</label>
-              <input type="text" class="form-control" id="address2" name="ngaySinh" placeholder=""
-                [(ngModel)]="patient.ngaySinh">
+            <div class="mb-3 input-group">
+              <label for="address2" class="w-100">Date of Birth</label>
+              <input class="form-control" placeholder="yyyy-mm-dd" name="ngaySinh" [(ngModel)]="patient.ngaySinh"
+                ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                    class="fal fa-calendar-alt"></i></button>
+              </div>
             </div>
             <div class="mb-3">
               <label for="address2">Career</label>
