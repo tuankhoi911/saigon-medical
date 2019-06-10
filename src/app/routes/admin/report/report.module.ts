@@ -8,7 +8,6 @@ import { ReportComponent } from './report.component';
   declarations: [ReportComponent],
   imports: [
     CommonModule,
-    NgbDatepickerModule,
     FormsModule
   ], 
   exports: [ReportComponent]
