@@ -1,84 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.scss']
+  styleUrls: ['./employees.component.scss'],
+  providers: [EmployeeService]
 })
 export class EmployeesComponent implements OnInit {
 
 
-  isHidden = false;
+  public isHidden = false;
+  public employees: any;
+  public searchedEmployees = this.employees;
 
 
-  users = [
-    {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Bác sĩ',
-      ngayVao:'20/11/2010',
-      ngayThem: '20/11/2019'
-    },
-    {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Bác sĩ',
-      ngayVao:'20/11/2010',
-      ngayThem: '20/11/2019'
-    },
-    {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Bác sĩ',
-      ngayVao:'20/11/2010',
-      ngayThem: '20/11/2019'
-    },
-    {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Bác sĩ',
-      ngayVao:'20/11/2010',
-      ngayThem: '20/11/2019'
-    },
-    {
-      maBenhNhan: '1412152',
-      maDinhDanh: '2221452',
-      tenBenhNhan: 'Mai Văn Yên',
-      gioiTinh: 'Nam',
-      ngaySinh: '03/01/2000',
-      diaChi: 'Osaka, Japna',
-      ngheNghiep: 'Bác sĩ',
-      ngayVao:'20/11/2010',
-      ngayThem: '20/11/2019'
-    },
-  ]
-
-  // viewDetail() {
-  //   this.isHidden = !this.isHidden;
-  // }
-
-  constructor(private router: Router) {
+  constructor(private router: Router, protected employeeService: EmployeeService) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        if (router.url === '/admin/employees/add-employees') {
+        if (router.url != '/admin/employees') {
           this.isHidden = false;
         } else {
           this.isHidden = true;
@@ -88,6 +30,45 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllEmployees();
   }
+
+  public getAllEmployees() {
+    this.employeeService
+      .getAll()
+      .subscribe(
+        (employeeData = []) => {
+          employeeData.forEach((employee) => employee.keys = JSON.stringify(employee));
+          this.employees = employeeData;
+          this.searchedEmployees = employeeData;
+          console.log(this.employees);
+        }
+      )
+        
+  }
+
+  public deleteEmployee(employee) {
+    this.employeeService
+      .delete(employee.maNhanVien)
+      .subscribe(() => {
+        this.getAllEmployees();
+      })
+  }
+
+  public searchUpdateForEmployees(term: string): void {
+    term = term.trim().toLowerCase();
+
+    const isMatch = (employee: any) => employee.keys.toLowerCase().includes(term);
+
+
+    if (term == "") {
+      this.searchedEmployees = this.employees;
+    }
+    console.log(this.employees);
+
+    this.searchedEmployees = this.employees.filter(isMatch);
+  }
+
+
 
 }

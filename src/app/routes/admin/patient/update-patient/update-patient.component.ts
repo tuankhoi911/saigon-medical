@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { PatientService } from 'src/app/services/patient.service';
 
@@ -19,7 +19,9 @@ export class UpdatePatientComponent implements OnInit {
     soDienThoai: ""
   }
 
-  constructor(private route: ActivatedRoute, private patientService: PatientService) {
+  public isSuccess = true
+
+  constructor(private route: ActivatedRoute, private patientService: PatientService, private router: Router) {
     this.route.params.pipe(
       switchMap((res) => this.patientService.getById(res.id))
     ).subscribe((value: any) => {
@@ -32,5 +34,10 @@ export class UpdatePatientComponent implements OnInit {
 
   public updatePatient() {
     this.patientService.update(this.patient).subscribe();
+    if (this.isSuccess) {
+      this.router.navigate(['/admin/patient']).then(() => {
+        window.location.reload();
+      })
+    }
   }
 }

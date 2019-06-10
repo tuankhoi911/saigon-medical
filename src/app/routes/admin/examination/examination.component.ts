@@ -1,86 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-examination',
   templateUrl: './examination.component.html',
-  styleUrls: ['./examination.component.scss']
+  styleUrls: ['./examination.component.scss'],
+  providers: [RegisterService]
 })
 export class ExaminationComponent implements OnInit {
 
   isHidden = false;
+  public registers: any;
+  public searchedRegis = this.registers;
 
-
-  users = [
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      status: 'Đang chờ',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      status: 'Đã khám',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      status: 'Đang chờ',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      status: 'Đang chờ',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      status: 'Đã khám',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      status: 'Đang chờ',
-      doctor: 'Vinsmoke Reiju'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      img: 'assets/images/sanji.png',
-      address: 'Osaka, Japan',
-      date: '11/7/1984',
-      arrive: '19/5/2019',
-      status: 'Đã khám',
-      doctor: 'Vinsmoke Reiju'
-    },
-  ]
-  // viewDetail() {
-  //   this.isHidden = !this.isHidden;
-  // }
-
-  constructor(private router: Router) {
+  constructor(private router: Router, protected registerService: RegisterService) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         if (router.url != '/admin/examination') {
@@ -93,6 +27,50 @@ export class ExaminationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllRegisters();
+  }
+
+  public getAllRegisters() {
+    this.registerService
+      .getAll()
+      .subscribe((registerData: any) => {
+        registerData.forEach((register) => register.keys = JSON.stringify(register));
+        this.registers = registerData;
+        this.searchedRegis = registerData;
+        // console.log(this.registers);
+      })
+      
+      
+  }
+
+  public updateRegister(register) {
+    this.registerService
+      .update(register)
+      .subscribe(() => {
+        this.getAllRegisters();
+      })
+  }
+
+  public deleteRegister(register) {
+    this.registerService
+      .delete(register.maDangKi)
+      .subscribe(() => {
+        this.getAllRegisters();
+      })
+  }
+
+  public searchUpdateForRegister(term : string): void {
+    term = term.trim().toLowerCase();
+
+    const isMatch = (register: any) => register.keys.toLowerCase().includes(term);
+
+
+    if (term == "") {
+      this.searchedRegis = this.registers;
+    }
+    console.log(this.registers);
+
+    this.searchedRegis = this.registers.filter(isMatch);
   }
 
 }

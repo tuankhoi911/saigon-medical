@@ -121,19 +121,64 @@
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
                 <h4 class="mb-4 title-list p-2"><i class="fal fa-medal mr-2"></i>Medical Achievement</h4>
-                
+                <div class="container">
+                    <div class="row p-2">
+                        <div *ngFor="let reward of rewards" class="col-lg-3">
+                            <div class="card card-new p-0 m-2">
+                                <img class="card-img-top" [src]="reward?.doctorUrl" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{reward?.doctorName}}
+                                    </h5>
+                                    <p class="card-text">
+                                        {{reward?.doctorDescription}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
                 <h4 class="mb-4 title-list p-2"><i class="fal fa-head-side-brain mr-2"></i>New Technology</h4>
-                
+                <div class="container">
+                    <div class="row p-2">
+                        <div *ngFor="let tech of techs" class="col-lg-3">
+                            <div class="card card-new p-0 m-2">
+                                <img class="card-img-top" [src]="tech?.techUrl" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{tech?.techName}}
+                                    </h5>
+                                    <p class="card-text">
+                                        {{tech?.techDescription}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
                 <h4 class="mb-4 title-list p-2"><i class="fal fa-images mr-2"></i>Gallery</h4>
-                
+                <div class="container">
+                    <div class="row p-2">
+                        <div *ngFor="let image of gallery" class="col-lg-3">
+                            <div class="card card-img p-0 m-3">
+                                <img class="card-img-top" [src]="image?.galleryUrl" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{image?.galleryName}}
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <footer class="mt-2">
@@ -146,7 +191,8 @@
                     </div>
                     <div class="col-6">
                         <p class="text-right">
-                            Designed by <span class="font-weight-bold" style="color: #395c9c">Le Tuan Khoi</span>, Designer of <span class="font-weight-bold" style="color: #395c9c">GoCodee</span> Co, Ltd.
+                            Designed by <span class="font-weight-bold" style="color: #395c9c">Le Tuan Khoi</span>,
+                            Designer of <span class="font-weight-bold" style="color: #395c9c">GoCodee</span> Co, Ltd.
                         </p>
                     </div>
                 </div>

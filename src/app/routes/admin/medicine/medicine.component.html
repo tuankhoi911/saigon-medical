@@ -31,7 +31,7 @@
               <div class="row">
                 <div class="col-12">
                   <form class="search-container mx-auto">
-                    <input type="text" id="search-bar" placeholder="Nhập tên hoặc mã số bệnh nhân!">
+                    <input type="text" id="search-bar"  (keyup)="searchUpdateMed($event.target.value)" placeholder="Nhập tên hoặc mã số bệnh nhân!">
                     <a><i class="fas fa-search"></i></a>
                   </form>
                 </div>
@@ -42,28 +42,28 @@
               <table class="table ml-2">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">Mã</th>
-                    <th scope="col">Tên thuốc</th>
-                    <th scope="col">Đơn vị</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Ngày sản xuất</th>
-                    <th scope="col">Hạn sử dụng</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Hành động</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Medicine's Name</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Manufactured</th>
+                    <th scope="col">Expired</th>
+                    <th scope="col">Price</th>
+                    <th class="text-center" scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let medicine of medicines; let i=index">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{medicine.tenThuoc}}</td>
-                    <td>{{medicine.donVi}}</td>
-                    <td>{{medicine.soLuong}}</td>
-                    <td>{{medicine.ngaySanXuat}}</td>
-                    <td>{{medicine.hanSuDung}}</td>
-                    <td>{{medicine.gia}}</td>
-                    <td>
-                      <button class="btn mr-2"><i class="fas fa-pencil-alt"></i></button>
-                      <button class="btn btn-danger" (click)="deleteMedicine(medicine)"><i class="fas fa-trash"></i></button>
+                  <tr *ngFor="let medicine of searchedMed; let i=index">
+                    <th scope="row">{{medicine?.maThuoc}}</th>
+                    <td>{{medicine?.tenThuoc}}</td>
+                    <td>{{medicine?.donVi}}</td>
+                    <td>{{medicine?.soLuong}}</td>
+                    <td>{{medicine?.ngaySanXuat}}</td>
+                    <td>{{medicine?.hanSuDung}}</td>
+                    <td>{{medicine?.gia}}</td>
+                    <td class="text-center">
+                      <button class="btn mr-2" style="width: 40px;"><i class="fas fa-pencil-alt"></i></button>
+                      <button class="btn btn-danger" style="width: 40px" (click)="deleteMedicine(medicine)"><i class="fas fa-trash"></i></button>
                     </td>
                   </tr>
                 </tbody>

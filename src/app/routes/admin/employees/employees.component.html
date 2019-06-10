@@ -1,79 +1,83 @@
 <div class="container-fluid">
-    <div class="patient">
-      <div class="row">
-        <div class="col-lg-12 patient-nav">
-          <div class="container">
-            <div class="row">
-              <div class="col-1">
-                <p class="text-center m-0">
-                  <i class="far fa-dna"></i>
-                </p>
-              </div>
-              <div class="col-11">
-                <h4 class="m-0">Nhân Viên</h4>
-                <p class="m-0">Quản lí nhân viên</p>
-              </div>
-            </div>
-          </div>
-  
-        </div>
-      </div>
-      <div class="row bg-nhanviet" *ngIf="isHidden">
-        <div class="col-lg-12">
-          <div class="patient-list">
-            <div class="patient-list-head">
-              <p class="m-0">
-                <button class="btn m-2" [routerLink]="'add-employees'"><a><i class="fas fa-plus-square mr-2"></i>Thêm nhân viên
-                  </a></button>
+  <div class="patient">
+    <div class="row">
+      <div class="col-lg-12 patient-nav">
+        <div class="container">
+          <div class="row">
+            <div class="col-1">
+              <p class="text-center m-0">
+                <i class="far fa-dna"></i>
               </p>
             </div>
-            <div class="search-patient mt-3">
-              <div class="row">
-                <div class="col-12">
-                  <form class="search-container mx-auto">
-                    <input type="text" id="search-bar" placeholder="Nhập tên hoặc mã số nhân viên!">
-                    <a><i class="fas fa-search"></i></a>
-                  </form>
-                </div>
+            <div class="col-11">
+              <h4 class="m-0">Employees</h4>
+              <p class="m-0">Employees Managerment Department</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row bg-nhanviet" *ngIf="isHidden">
+      <div class="col-lg-12">
+        <div class="patient-list">
+          <div class="patient-list-head">
+            <p class="m-0">
+              <button class="btn m-2" [routerLink]="'add-employees'"><a><i class="fas fa-plus-square mr-2"></i>Add
+                  Employees
+                </a></button>
+            </p>
+          </div>
+          <div class="search-patient mt-3">
+            <div class="row">
+              <div class="col-12">
+                <form class="search-container mx-auto">
+                  <input type="text" id="search-bar" (keyup)="searchUpdateForEmployees($event.target.value)"
+                    placeholder="Enter ID or name of employees!">
+                  <a><i class="fas fa-search"></i></a>
+                </form>
               </div>
             </div>
-            <div class="col-12 mt-4 patinent-table p-0">
-              <h4 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách nhân viên</h4>
-              <table class="table ml-2">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Mã</th>
-                    <th scope="col">Tên</th>
-                    <th scope="col">Giới tính</th>
-                    <th scope="col">Ngày sinh</th>
-                    <th scope="col">Địa chỉ</th>
-                    <th scope="col">Chức vụ</th>
-                    <th scope="col">Ngày vào</th>
-                    <th scope="col">Hành động</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let patient of patients; let i=index">
-                    <th scope="row">{{patient.maBenhNhan}}</th>
-                    <td>{{patient.tenBenhNhan}}</td>
-                    <td>{{patient.gioiTinh}}</td>
-                    <td>{{patient.ngaySinh}}</td>
-                    <td>{{patient.ngheNghiep}}</td>
-                    <td style="color: blue"><i class="fas  fa-mobile-android-alt mr-2"></i>{{patient.soDienThoai}}</td>
-                    <td>{{patient.ngayThem}}</td>
-                    <td>
-                      <button class="btn mr-2"><i class="fas fa-pencil-alt"></i></button>
-                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-  
           </div>
+          <div class="col-12 mt-4 patinent-table p-0 mb-4">
+            <h4 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Employees List</h4>
+            <table class="table ml-2">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Date of Birth</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Entrance Date</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of searchedEmployees">
+                  <th scope="row">{{employee?.maNhanVien}}</th>
+                  <td>{{employee?.tenNhanVien}}</td>
+                  <td>{{employee?.gioiTinh}}</td>
+                  <td>{{employee?.ngaySinh}}</td>
+                  <td>{{employee?.diaChi}}</td>
+                  <td>{{employee?.chucVu}}</td>
+                  <td>{{employee?.ngayVao}}</td>
+                  <td>
+                    <button class="btn mr-2" [routerLink]="['update-employees', employee.maNhanVien]"><i
+                        class="fas fa-pencil-alt"></i></button>
+                    <button class="btn btn-danger" (click)="deleteEmployee(employee)"><i
+                        class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
-  
-  <router-outlet></router-outlet>
+</div>
+
+<router-outlet></router-outlet>

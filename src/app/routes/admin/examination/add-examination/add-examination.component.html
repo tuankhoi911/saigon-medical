@@ -5,30 +5,31 @@
         <!-- chỉnh khung divide vào giữa màn hình -->
         <div class="col-lg-12 order-md-1">
           <!-- chỉnh khung divide vào giữa màn hình -->
-          <h4 class="mb-3 text-center mt-3"> <i class="fas fa-users-medical mr-3"></i>Thông Tin Phiếu Khám Bệnh</h4>
+          <h4 class="mb-3 text-center mt-3"> <i class="fas fa-users-medical mr-3"></i>Information of Examination Medical
+          </h4>
           <form class="needs-validation" novalidate>
             <div class="row">
             </div>
             <div class="mb-3">
-              <label for="address2">Triệu chứng</label>
+              <label for="address2">Symptom</label>
               <input type="text" class="form-control" id="address2" placeholder="">
             </div>
             <div class="mb-3">
-              <label for="address2">Chuẩn đoán</label>
+              <label for="address2">Diagnostic</label>
               <input type="text" class="form-control" id="address2" placeholder="">
             </div>
             <div class="mb-3">
-              <label for="address2">Chọn bác sĩ (option)</label>
+              <label for="address2">Doctor</label>
               <input type="text" class="form-control" id="address2" placeholder="">
             </div>
             <div class="mb-3 mt-4 medicine-table">
               <div class="container">
                 <div class="row font-weight-bold text-center" style="background: #395c9c; color: white">
                   <div class="col-8" style="border-right: 1px #fff solid">
-                    Tên Loại Thuốc
+                    Medicine name
                   </div>
                   <div class="col-3">
-                    Số Lượng
+                    Amount
                   </div>
                   <div class="col-1">
                   </div>
@@ -55,45 +56,47 @@
 
 
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block">Lưu</button>
+            <button class="btn btn-lng btn-block">Save</button>
 
             <!-- Alert -->
           </form>
-          <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>Thêm
-              Thuốc</button></p>
+          <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>Add
+              medicine</button></p>
           <div class="row" *ngIf="isAdd">
             <div class="col-lg-12">
-              <div class="patient-list">
-                <div class="search-patient mt-3">
-                  <div class="row">
-                    <div class="col-12">
-                      <form class="search-container mx-auto">
-                        <input type="text" id="search-bar" (keyup)="searchUpdate($event.target.value)" placeholder="Nhập tên dược phẩm!">
-                        <a><i class="fas fa-search"></i></a>
-                      </form>
-                    </div>
+              <div class="search-patient mt-3">
+                <div class="row">
+                  <div class="col-12">
+                    <form class="search-container mx-auto">
+                      <input type="text" id="search-bar" (keyup)="searchUpdateMed($event.target.value)"
+                        placeholder="Enter medicine's name!">
+                      <a><i class="fas fa-search"></i></a>
+                    </form>
                   </div>
                 </div>
-
+              </div>
+              <div class="patient-list mb-4">
                 <div class="col-12 mt-4">
                   <table class="table ml-2">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Tên thuốc</th>
-                        <th scope="col">Số lượng còn lại</th>
-                        <th scope="col text-right">Thêm vào đơn</th>
+                        <th scope="col">Medicine's Name</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Unit</th>
+                        <th scope="col text-right">Add to prescription</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let user of searchedUsers; let index =index">
+                      <tr *ngFor="let user of searchedMed; let index =index">
                         <th scope="row">{{index+1}}</th>
-                        <td>{{user.name}}</td>
-                        <td>{{user.amount}} {{user.unit}}</td>
+                        <td>{{user?.tenThuoc}}</td>
+                        <td>{{user?.soLuong}}</td>
+                        <td>{{user?.donVi}}</td>
                         <td class="text-right"><button class="btn" (click)="show()"><i
                               class="fas fa-folder-plus"></i></button></td>
 
-                        <div class="container" *ngIf="isPopup">
+                        <!-- <div class="container" *ngIf="isPopup">
                           <div class="row">
                             <div class="model-box">
                               <div class="col-12 p-0 head">
@@ -128,7 +131,7 @@
 
                             </div>
                           </div>
-                        </div>
+                        </div> -->
 
                       </tr>
                     </tbody>

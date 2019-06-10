@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AddDrugComponent } from 'src/app/modals/add-drug/add-drug.component';
+import { MedicineService } from 'src/app/services/medicine.service';
 
 @Component({
   selector: 'app-add-examination',
   templateUrl: './add-examination.component.html',
   styleUrls: ['./add-examination.component.scss'],
-  providers: [NgbModal, NgbModalConfig]
+  providers: [NgbModal, NgbModalConfig, MedicineService]
 
 })
 export class AddExaminationComponent implements OnInit {
@@ -21,46 +22,25 @@ export class AddExaminationComponent implements OnInit {
   amountMed: number;
   cachDung: any;
 
-  medicines = [
-    {
-      name: 'Paracetamol 500mg',
-      amount: 10
-    },
-    {
-      name: 'Aspirin',
-      amount: 10
-    },
-    {
-      name: 'CLARIVIDE 500, 500mg (Clarithromycin)',
-      amount: 10
-    },
-    {
-      name: 'Tatanon, 500mg (Paracetamol (Acetaminophen))',
-      amount: 10
-    },
-    {
-      name: 'MELOCICAM, 10^9 CFU (Lactobacillus acidophilus)',
-      amount: 10
-    },
-  ]
+  medicinesAdded = [];
 
 
   delete(index) {
-    return this.medicines.splice(index, 1);
+    return this.medicinesAdded.splice(index, 1);
   }
 
   add(index) {
-    let usersTemp = [...this.searchedUsers];
-    let preAmount = this.searchedUsers[index].amount;
-    let a = { ...this.searchedUsers[index] };
+    let usersTemp = [...this.searchedMed];
+    let preAmount = this.searchedMed[index].amount;
+    let a = { ...this.searchedMed[index] };
 
     if (a.amount >= this.amountMed) {
-      this.searchedUsers[index].amount = this.amountMed;
+      this.searchedMed[index].amount = this.amountMed;
       a.amount = this.amountMed;
-      this.medicines.push(a);
+      this.medicinesAdded.push(a);
       let newAmount = preAmount - this.amountMed;
       usersTemp[index].amount = newAmount;
-      this.searchedUsers = usersTemp;
+      this.searchedMed = usersTemp;
       this.isSuccess = true
       this.isFail = false;
     }
@@ -76,68 +56,46 @@ export class AddExaminationComponent implements OnInit {
   }
 
 
-  users = [
-    {
-      name: 'Paracetamol 500mg',
-      amount: 200,
-    },
-    {
-      name: 'Tatanol 500mg',
-      amount: 200,
-    },
-    {
-      name: 'Expoinetalin 500mg',
-      amount: 200,
-    },
-    {
-      name: 'Benzen 500mg',
-      amount: 200,
-    },
-    {
-      name: 'Alcohotamol 500mg',
-      amount: 200
-    },
-    {
-      name: 'Paracetamol 500mg',
-      amount: 200,
-    },
-    {
-      name: 'Paracetamol 500mg',
-      amount: 200,
-    },
-  ]
-
-  close() {
-    this.isPopup = false;
-    this.isAlert = false;
-  }
+  public users: any;
+  public searchedMed = this.users;
 
   addMedicine() {
     this.isAdd = true;
   }
 
-  searchedUsers = this.users;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, protected medicineService: MedicineService) { }
 
   ngOnInit() {
+    this.getAllMedicine();
+
   }
 
-  public searchUpdate(term: string): void {
+  public searchUpdateMed(term: string): void {
     term = term.trim().toLowerCase();
-    const isMatch = (user: any) => user.name.toLowerCase().includes(term);
-
+    const isMatch = (medicine: any) => medicine.keys.toLowerCase().includes(term);
     if (term == "") {
-      this.searchedUsers = this.users;
+      this.searchedMed = this.users;
     }
-    this.searchedUsers = this.users.filter(isMatch);
-    console.log(this.searchedUsers);
-
-  };
+    // console.log(this.patients);
+    this.searchedMed = this.users.filter(isMatch);
+  }
 
   show() {
     this.modalService.open(AddDrugComponent, { centered: true, windowClass: 'send-message' });
   }
 
+  public getAllMedicine() {
+    this.medicineService
+      .getAll()
+      .subscribe(
+        (medicineData: any) => {
+          medicineData.forEach((medicine) => medicine.keys = JSON.stringify(medicine));
+          this.users = medicineData;
+          this.searchedMed = medicineData;
+          // console.log(this.users)
+        }
+      )
+  }
 
 }

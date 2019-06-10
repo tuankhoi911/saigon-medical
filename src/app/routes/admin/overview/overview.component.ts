@@ -7,6 +7,78 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
+
+  public rewards = [
+    {
+      doctorName: 'Han Sara',
+      doctorDescription: 'The best doctor of the month',
+      doctorUrl: 'assets/images/doc.jpg'
+    },
+    {
+      doctorName: 'Han Sara',
+      doctorDescription: 'The best doctor of the month',
+      doctorUrl: 'assets/images/doc.jpg'
+    },
+    {
+      doctorName: 'Han Sara',
+      doctorDescription: 'The best doctor of the month',
+      doctorUrl: 'assets/images/doc.jpg'
+    },
+    {
+      doctorName: 'Han Sara',
+      doctorDescription: 'The best doctor of the month',
+      doctorUrl: 'assets/images/doc.jpg'
+    },
+  ]
+
+  public techs = [
+    {
+      techName: 'CRISPR',
+      techDescription: '...',
+      techUrl: 'assets/images/tech.jpg'
+    },
+    {
+      techName: 'CRISPR',
+      techDescription: '...',
+      techUrl: 'assets/images/tech.jpg'
+    },
+    {
+      techName: 'CRISPR',
+      techDescription: '...',
+      techUrl: 'assets/images/tech.jpg'
+    },
+    {
+      techName: 'CRISPR',
+      techDescription: '...',
+      techUrl: 'assets/images/tech.jpg'
+    },
+  ]
+
+  public gallery = [
+    {
+      galleryUrl: 'assets/images/tech.jpg',
+      galleryName: 'Test'
+    },
+    {
+      galleryUrl: 'assets/images/tech.jpg',
+      galleryName: 'Test'
+    },
+    {
+      galleryUrl: 'assets/images/tech.jpg',
+      galleryName: 'Test'
+    },
+    {
+      galleryUrl: 'assets/images/tech.jpg',
+      galleryName: 'Test'
+    },
+    {
+      galleryUrl: 'assets/images/tech.jpg',
+      galleryName: 'Test'
+    },
+    
+  ]
+
+
   doanhThus = [
     {
       thang: 'Tháng một',
@@ -60,6 +132,6 @@ export class OverviewComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
 
 }

@@ -16,75 +16,9 @@ export class MedicineComponent implements OnInit {
   isPopup = false;
   logo = 'assets/images/pbLogo.png'
   public medicines: any;
+  public searchedMed = this.medicines;
   public patients: any;
 
-  users = [
-    {
-      name: 'Paracetamol 500mg',
-      img: 'assets/images/para.jpg',
-      amount: '500 ',
-      price: '200,000',
-      nsx: '20/10/2017',
-      hsd: '20/10/2022',
-      unit: 'Viên'
-    },
-    {
-      name: 'Paracetamol 500mg',
-      img: 'assets/images/para.jpg',
-      amount: '500 ',
-      price: '200,000',
-      nsx: '20/10/2017',
-      hsd: '20/10/2022',
-      unit: 'Viên'
-    },
-    {
-      name: 'Paracetamol 500mg',
-      img: 'assets/images/para.jpg',
-      amount: '500 ',
-      price: '200,000',
-      nsx: '20/10/2017',
-      hsd: '20/10/2022',
-      unit: 'Viên'
-    },
-    {
-      name: 'Paracetamol 500mg',
-      img: 'assets/images/para.jpg',
-      amount: '500 ',
-      price: '200,000',
-      nsx: '20/10/2017',
-      hsd: '20/10/2022',
-      unit: 'Viên'
-    },
-    {
-      name: 'Tatanol 500mg',
-      img: 'assets/images/para.jpg',
-      amount: '500 ',
-      price: '200,000',
-      nsx: '20/10/2017',
-      hsd: '20/10/2022',
-      unit: 'Viên'
-    },
-    {
-      name: 'Paracetamol 500mg',
-      img: 'assets/images/para.jpg',
-      amount: '500 ',
-      price: '200,000',
-      nsx: '20/10/2017',
-      hsd: '20/10/2022',
-      unit: 'Viên'
-    },
-    {
-      name: 'Aspirin 500mg',
-      img: 'assets/images/para.jpg',
-      amount: '500 ',
-      price: '200,000',
-      nsx: '20/10/2017',
-      hsd: '20/10/2022',
-      unit: 'Viên'
-    },
-  ]
-
-  searchedUsers = this.users;
 
   constructor(private router: Router, protected medicineService: MedicineService, protected patientService: PatientService) {
     router.events.subscribe((event: Event) => {
@@ -110,14 +44,14 @@ export class MedicineComponent implements OnInit {
     this.getAllMedicine();
   }
 
-  public searchUpdate(term: string): void {
+  public searchUpdateMed(term: string): void {
     term = term.trim().toLowerCase();
-    const isMatch = (user: any) => user.name.toLowerCase().includes(term);
-
+    const isMatch = (medicine: any) => medicine.keys.toLowerCase().includes(term);
     if (term == "") {
-      this.searchedUsers = this.users;
+      this.searchedMed = this.medicines;
     }
-    this.searchedUsers = this.users.filter(isMatch);
+    // console.log(this.patients);
+    this.searchedMed = this.medicines.filter(isMatch);
   }
 
   public getAllMedicine() {
@@ -125,8 +59,10 @@ export class MedicineComponent implements OnInit {
       .getAll()
       .subscribe(
         (medicineData: any) => {
+          medicineData.forEach((medicine) => medicine.keys = JSON.stringify(medicine));
           this.medicines = medicineData;
-          console.log(this.medicines);
+          this.searchedMed = medicineData;
+          console.log(this.medicines)
         }
       )
   }

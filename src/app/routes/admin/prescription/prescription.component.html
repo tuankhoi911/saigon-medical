@@ -10,8 +10,8 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Hóa Đơn</h4>
-              <p class="m-0">Danh sách hóa đơn</p>
+              <h4 class="m-0">Invoice</h4>
+              <p class="m-0">Payment & Invoice Department</p>
             </div>
           </div>
         </div>
@@ -32,42 +32,36 @@
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
-                  <input type="text" id="search-bar" placeholder="Nhập mã số hóa đơn!">
+                  <input type="text" id="search-bar" (keyup)="searchUpdateForInvoice($event.target.value)" placeholder="Enter ID of medical invoice!">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
             </div>
           </div>
-          <div class="col-12 mt-4 patinent-table p-0">
-            <h4 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách bệnh nhân</h4>
+          <div class="col-12 mt-4 patinent-table p-0 mb-4">
+            <h4 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Medical Invoice List</h4>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Mã</th>
-                  <th scope="col">Tên</th>
-                  <th scope="col">Giới tính</th>
-                  <th scope="col">Ngày sinh</th>
-                  <th scope="col">Địa chỉ</th>
-                  <th scope="col">Nghề nghiệp</th>
-                  <th scope="col">Số điện thoại</th>
-                  <th scope="col">Ngày thêm</th>
-                  <th scope="col">Hành động</th>
+                  <th scope="col">Patient ID</th>
+                  <th scope="col">Bill ID</th>
+                  <th scope="col">Cost</th>
+                  <th scope="col">Added Date</th>
+                  <th scope="col">Status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let patient of patients; let i=index">
-                  <th scope="row">{{patient.maBenhNhan}}</th>
-                  <td>{{patient.tenBenhNhan}}</td>
-                  <td>{{patient.gioiTinh}}</td>
-                  <td>{{patient.ngaySinh}}</td>
-                  <td>{{patient.diaChi}}</td>
-                  <td>{{patient.ngheNghiep}}</td>
-                  <td style="color: blue"><i class="fas  fa-mobile-android-alt mr-2"></i>{{patient.soDienThoai}}</td>
-                  <td>{{patient.ngayThem}}</td>
-                  <td>
+                <tr *ngFor="let invoice of searchedInvoices; let i=index">
+                  <th scope="row">{{invoice?.maBenhNhan}}</th>
+                  <td>{{invoice?.maHoaDon}}</td>
+                  <td>{{invoice?.thanhTien}}</td>
+                  <td>{{invoice?.ngayThem}}</td>
+                  <td><span class="badge" [class.badge-success]="invoice?.tinhTrang == 'Đã thanh toán'"
+                      [class.badge-warning]="invoice?.tinhTrang == 'Chưa thanh toán'">{{invoice?.tinhTrang}}</span></td>
+                  <!-- <td>
                     <button class="btn mr-2"><i class="fas fa-pencil-alt"></i></button>
                     <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                  </td>
+                  </td> -->
                 </tr>
               </tbody>
             </table>

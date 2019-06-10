@@ -126,3 +126,24 @@
   border-bottom-left-radius: none;
   border-left: #395c9c solid 5px;
 }
+
+.card-title {
+  color: #395c9c;
+  font-weight: bold;
+}
+
+.card {
+  box-shadow: 0 2px 4px 0 rgba(177,177,177,.5);
+}
+
+.card-new {
+  height: 300px;
+}
+
+.card-img-top {
+  height: 150px !important;
+}
+
+.card-img {
+  height: auto !important;
+}

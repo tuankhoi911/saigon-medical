@@ -1,64 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { InvoiceService } from 'src/app/services/invoice.service';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-prescription',
   templateUrl: './prescription.component.html',
-  styleUrls: ['./prescription.component.scss']
+  styleUrls: ['./prescription.component.scss'],
+  providers: [InvoiceService]
 })
 export class PrescriptionComponent implements OnInit {
 
-  isHidden = false;
-  
+  public isHidden = false;
+  public invoices: any;
+  public searchedInvoices = this.invoices;
 
-
-  users = [
-    {
-      name: 'Monkey D Luffy',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/luffy.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    },
-    {
-      name: 'Charllote Nami',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/user.jpg',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    },
-    {
-      name: 'Nico Robin',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/robin.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    },
-    {
-      name: 'Vinsmoke Sanji',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/sanji.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology',
-    },
-    {
-      name: 'Roronoa Zoro',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/zoro.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    },
-    {
-      name: 'God Usopp',
-      phone: '0123456789', birth: '25-11-1999',
-      img: 'assets/images/usopp.png',
-      no: '000001', sex: 'other', blood: '14:00:00', sick: '30 minutes', email: 'Hematology'
-    }
-  ]
-
-  // viewDetail() {
-  //   this.isHidden = !this.isHidden;
-  // }
-
-  constructor(private router: Router) {
+  constructor(private router: Router, private invoiceService: InvoiceService) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        if (router.url === '/admin/prescription/add-prescription') {
+        if (router.url != '/admin/prescription') {
           this.isHidden = false;
         } else {
           this.isHidden = true;
@@ -68,6 +28,31 @@ export class PrescriptionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllInvoices();
   }
+
+  public getAllInvoices() {
+    this.invoiceService
+      .getAll()
+      .subscribe(
+        (invoiceData: any) => {
+          invoiceData.forEach((invoice) => invoice.keys = JSON.stringify(invoice));
+          this.invoices = invoiceData;
+          this.searchedInvoices = invoiceData;
+          // console.log(this.invoices)
+        }
+      )
+  }
+
+  public searchUpdateForInvoice(term: string): void {
+    term = term.trim().toLowerCase();
+    const isMatch = (invoice: any) => invoice.keys.toLowerCase().includes(term);
+    if (term == "") {
+      this.searchedInvoices = this.invoices;
+    }
+    // console.log(this.registers);
+    this.searchedInvoices = this.invoices.filter(isMatch);
+  }
+
 
 }

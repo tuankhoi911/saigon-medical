@@ -11,7 +11,7 @@ button {
   background: #395c9c;
   box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2) inset;
   color: white;
-  border-radius: 35px !important;
+  border-radius: 5px !important;
 
   &:hover {
     transition-duration: 0.4s;
@@ -33,12 +33,8 @@ button {
 .table {
   border: #e1e6ef 1px solid;
   border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
-
-  img {
-    width: 35px;
-    border-radius: 50%;
-  }
 
   tr {
     &:hover {
@@ -88,4 +84,25 @@ button {
 .table td,
 .table th {
   padding: 0.25rem !important;
+}
+
+// Box
+.verify-box {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+
+  .card {
+    background: white;
+    border: none;
+  }
+
+  .card-header {
+    background: #2c3136;
+    border-bottom: #395c9c solid 5px;
+  }
 }

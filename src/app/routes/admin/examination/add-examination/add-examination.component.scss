@@ -49,6 +49,9 @@
 
 .patient-list {
   margin: 20px;
+  height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   border: 1px solid #e1e6ef;
   border-radius: 5px;
 
@@ -73,135 +76,135 @@
     border-radius: 5px;
   }
 
-  .search-patient {
-    a {
-      position: absolute;
-      top: 8px;
-      right: 275px;
-      font-size: 20px;
-      color: #395c9c;
-    }
-    .search-container {
-      width: auto;
-      display: block;
-      margin: 0 auto;
+  li {
+    list-style-type: none;
+
+    .card-head {
+      background: #395c9c;
+      color: white;
+      padding-left: 5px;
     }
 
-    form {
-      margin-left: 250px !important;
-      margin-right: 250px !important;
-      width: auto;
+    .card-body {
+      img {
+        width: 150px;
+      }
     }
-    input#search-bar {
+  }
+
+  .card {
+    border-radius: 5px !important;
+  }
+
+  .patient-user {
+    cursor: pointer;
+  }
+
+  .model-box {
+    // height: 200px;
+    width: 400px;
+    background: whitesmoke;
+    position: fixed;
+    top: 30%;
+    border: #d0cfce 1px solid;
+    left: 35%;
+    border-radius: 5px;
+
+    img {
+      width: 200px;
+    }
+
+    .head {
+      color: white;
+      background: #395c9c !important;
+    }
+
+    .body {
+      padding: 20px;
+    }
+  }
+
+  .amount {
+    input {
       width: 100%;
-      height: 45px;
-      padding: 0 20px;
-      font-size: 1rem;
-      border: 1px solid #d0cfce;
-      border-radius: 5px;
-      outline: none;
-      &:focus {
-        border: 1px solid #395c9c;
-        transition: 0.35s ease;
-        color: #395c9c;
-        &::-webkit-input-placeholder {
-          transition: opacity 0.45s ease;
-          opacity: 0;
-        }
-        &::-moz-placeholder {
-          transition: opacity 0.45s ease;
-          opacity: 0;
-        }
-        &:-ms-placeholder {
-          transition: opacity 0.45s ease;
-          opacity: 0;
-        }
+    }
+  }
+
+  .instruc {
+    textarea {
+      width: 100%;
+      height: 50px;
+    }
+  }
+
+  .thead-dark {
+    th {
+      background-color: #395c9c !important;
+      border: none !important;
+    }
+  }
+
+  .table {
+    border: #e1e6ef 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+
+    img {
+      width: 250px;
+      border-radius: 50%;
+    }
+
+    tr {
+      &:hover {
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
       }
     }
   }
 }
 
-li {
-  list-style-type: none;
-
-  .card-head {
-    background: #395c9c;
-    color: white;
-    padding-left: 5px;
+.search-patient {
+  a {
+    position: absolute;
+    top: 8px;
+    right: 275px;
+    font-size: 20px;
+    color: #395c9c;
+  }
+  .search-container {
+    width: auto;
+    display: block;
+    margin: 0 auto;
   }
 
-  .card-body {
-    img {
-      width: 150px;
-    }
+  form {
+    margin-left: 250px !important;
+    margin-right: 250px !important;
+    width: auto;
   }
-}
-
-.card {
-  border-radius: 5px !important;
-}
-
-.patient-user {
-  cursor: pointer;
-}
-
-.model-box {
-  // height: 200px;
-  width: 400px;
-  background: whitesmoke;
-  position: fixed;
-  top: 30%;
-  border: #d0cfce 1px solid;
-  left: 35%;
-  border-radius: 5px;
-
-  img {
-    width: 200px;
-  }
-
-  .head {
-    color: white;
-    background: #395c9c !important;
-  }
-
-  .body {
-    padding: 20px;
-  }
-}
-
-.amount {
-  input {
+  input#search-bar {
     width: 100%;
-  }
-}
-
-.instruc {
-  textarea {
-    width: 100%;
-    height: 50px;
-  }
-}
-
-.thead-dark {
-  th {
-    background-color: #395c9c !important;
-    border: none !important;
-  }
-}
-
-.table {
-  border: #e1e6ef 1px solid;
-  border-radius: 5px;
-  cursor: pointer;
-
-  img {
-    width: 250px;
-    border-radius: 50%;
-  }
-
-  tr {
-    &:hover {
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    height: 45px;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: 1px solid #d0cfce;
+    border-radius: 5px;
+    outline: none;
+    &:focus {
+      border: 1px solid #395c9c;
+      transition: 0.35s ease;
+      color: #395c9c;
+      &::-webkit-input-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0;
+      }
+      &::-moz-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0;
+      }
+      &:-ms-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0;
+      }
     }
   }
 }

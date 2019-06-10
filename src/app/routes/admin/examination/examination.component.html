@@ -1,74 +1,4 @@
-<!-- <div class="container">
-  <div class="patient">
-    <div class="row">
-      <div class="col-lg-12 patient-nav">
-        <h3> <i class="fas fa-stethoscope mr-2 ml-2"></i>Quản Lí Khám Bệnh</h3>
-      </div>
-    </div>
-    <div class="row" *ngIf="isHidden">
-      <div class="col-lg-12">
-        <div class="patient-list">
-          <div class="patient-list-head">
-            <p>
-              <button class="btn m-2" [routerLink]="'list-examination'"><a><i class="fas fa-plus-square mr-2"></i>Danh
-                  Sách Phiếu Khám</a></button>
 
-            </p>
-          </div>
-          <div class="search-patient mt-3">
-            <div class="row">
-              <div class="col-12">
-                <form class="search-container mx-auto">
-                  <input type="text" id="search-bar" placeholder="Nhập tên phiếu khám bệnh!">
-                  <a><i class="fas fa-search"></i></a>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 mt-4">
-            <h3 class="text-center">Danh sách đăng ký khám bệnh</h3>
-
-            <table class="table ml-2">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Hình</th>
-                  <th scope="col">Tên</th>
-                  <th scope="col">Địa chỉ</th>
-                  <th scope="col">Ngày sinh</th>
-                  <th scope="col">Ngày khám</th>
-                  <th scope="col">Tình trạng</th>
-                  <th scope="col">Bác sĩ</th>
-                  <th scope="col">Hành động</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let user of users; let i=index">
-                  <th scope="row">{{i+1}}</th>
-                  <td><img [src]="user.img" alt=""></td>
-                  <td>{{user.name}}</td>
-                  <td>{{user.address}}</td>
-                  <td>{{user.date}}</td>
-                  <td>{{user.arrive}}</td>
-               
-                  <td>{{user.doctor}}</td>
-                  <td>
-                    <button class="btn mr-2" [routerLink]="'add-examination'"><i class="fas fa-plus-circle"></i></button>
-                    <button class="btn btn-danger mr-2"><i class="fas fa-trash"></i></button>
-                    <button class="btn btn-success"><i class="fas fa-folder-open"></i></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<router-outlet></router-outlet> -->
 
 <div class="container-fluid">
     <div class="patient">
@@ -82,12 +12,11 @@
                 </p>
               </div>
               <div class="col-11">
-                <h4 class="m-0">Khám Bệnh</h4>
-                <p class="m-0">Quản lí khám bệnh</p>
+                <h4 class="m-0">Examination</h4>
+                <p class="m-0">Examination Management Department</p>
               </div>
             </div>
           </div>
-  
         </div>
       </div>
       <div class="row bg-nhanviet" *ngIf="isHidden">
@@ -95,7 +24,7 @@
           <div class="patient-list">
             <div class="patient-list-head">
               <p class="m-0">
-                <button class="btn m-2" [routerLink]="'list-examination'"><a><i class="fas fa-plus-square mr-2"></i>Danh sách phiếu khám bệnh
+                <button class="btn m-2" [routerLink]="'list-examination'"><a><i class="fas fa-plus-square mr-2"></i>Examination Medical List
                   </a></button>
               </p>
             </div>
@@ -103,48 +32,39 @@
               <div class="row">
                 <div class="col-12">
                   <form class="search-container mx-auto">
-                    <input type="text" id="search-bar" placeholder="Nhập tên hoặc mã số bệnh nhân!">
+                    <input type="text" id="search-bar" (keyup)="searchUpdateForRegister($event.target.value)" placeholder="Enter ID or name of patient!">
                     <a><i class="fas fa-search"></i></a>
                   </form>
                 </div>
               </div>
             </div>
-            <div class="col-12 mt-4 patinent-table p-0">
-              <h4 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách đăng ký khám bệnh</h4>
+            <div class="col-12 mt-4 patinent-table p-0 mb-4">
+              <h4 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Examination Registration List</h4>
               <table class="table ml-2">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">Mã</th>
-                    <th scope="col">Tên</th>
-                    <th scope="col">Giới tính</th>
-                    <th scope="col">Ngày sinh</th>
-                    <th scope="col">Địa chỉ</th>
-                    <th scope="col">Nghề nghiệp</th>
-                    <th scope="col">Tình trạng</th>
-                    <th scope="col">Ngày thêm</th>
-                    <th scope="col">Hành động</th>
+                    <th scope="col">Register ID</th>
+                    <th scope="col">Patient ID</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Add Date</th>
+                    <th scope="col" class=" text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let patient of patients; let i=index">
-                    <th scope="row">{{patient.maBenhNhan}}</th>
-                    <td>{{patient.tenBenhNhan}}</td>
-                    <td>{{patient.gioiTinh}}</td>
-                    <td>{{patient.ngaySinh}}</td>
-                    <td>{{patient.diaChi}}</td>
-                    <td>{{patient.ngheNghiep}}</td>
-                    <td><span class="badge" [class.badge-success]="user.status == 'Đã khám'" [class.badge-warning]="user.status == 'Đang chờ'" >{{user.status}}</span></td>
-                    <td>{{patient.ngayThem}}</td>
-                    <td>
-                        <button class="btn mr-2" [routerLink]="'add-examination'"><i class="fas fa-plus-circle"></i></button>
-                        <button class="btn btn-danger mr-2"><i class="fas fa-trash"></i></button>
-                        <button class="btn btn-success"><i class="fas fa-folder-open"></i></button>
+                  <tr *ngFor="let register of registers">
+                    <th scope="row">{{register?.maDangKi}}</th>
+                    <th scope="row">{{register?.maBenhNhan}}</th>
+                    <td><span class="badge" [class.badge-success]="register?.tinhTrang == 'Đã khám'" [class.badge-warning]="register?.tinhTrang == 'Đang chờ'" >{{register?.tinhTrang}}</span></td>
+                    <td>{{register?.ngayDangKi}}</td>
+                    <td class="text-center">
+                      <button class="btn mr-2" *ngIf="register?.tinhTrang == 'Đang chờ'" [routerLink]="'add-examination'"><i class="fas fa-plus-circle"></i></button>
+                      <button *ngIf="register?.tinhTrang == 'Đã khám'" class="mr-2 btn btn-success"><i class="fas fa-folder-open"></i></button>
+                      <button class="btn btn-danger mr-2"><i class="fas fa-trash"></i></button>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-  
           </div>
         </div>
       </div>

@@ -12,10 +12,6 @@
                 Không để trống họ và tên
               </div>
             </div>
-            <!-- <div class="mb-3">
-              <label for="address2">Mã nhân viên</label>
-              <input type="text" class="form-control" id="address2" placeholder="" [(ngModel)]="employee.">
-            </div> -->
             <div class="mb-3">
               <label for="username">Address</label>
               <div class="input-group">
@@ -35,14 +31,7 @@
             </div>
             <div class="mb-3">
               <label for="address2">Position</label>
-              <select class="custom-select d-block w-100" id="country" name="chucVu" required [(ngModel)]="employee.chucVu">
-                  <option value="">Choose...</option>
-                  <option>Quản lý</option>
-                  <option>Nhân viên</option>
-                  <option>Bác sĩ</option>
-                  <option>Dược sĩ</option>
-                  <!-- <option>Ý tá</option> -->
-                </select>
+              <input type="text" class="form-control" id="address2" placeholder="" name="position" [(ngModel)]="employee.chucVu">
             </div>
             <div class="row">
               <div class="col-md-4 mb-3">
@@ -56,7 +45,7 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="createPatient()">Update</button>
+            <button class="btn btn-lng btn-block" (click)="updateEmployee()">Add</button>
           </form>
         </div>
       </div>

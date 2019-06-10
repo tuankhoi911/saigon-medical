@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/services/patient.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-patient',
@@ -17,14 +18,21 @@ export class AddPatientComponent implements OnInit {
     soDienThoai: ""
   }
 
+  public isSuccess = true;
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService, private router: Router) { }
 
   ngOnInit() {
   }
 
   public createPatient() {
     this.patientService.create(this.patient).subscribe();
+    if (this.isSuccess) {
+      this.router.navigate(['/admin/patient']).then(()=> {
+        window.location.reload();
+      })
+
+    }
   }
 
 }
