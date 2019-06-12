@@ -18,12 +18,13 @@ export class MedicineComponent implements OnInit {
   public medicines: any;
   public searchedMed = this.medicines;
   public patients: any;
+  isDelete: boolean;
 
 
   constructor(private router: Router, protected medicineService: MedicineService, protected patientService: PatientService) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        if (router.url === '/admin/medicine/add-medicine') {
+        if (router.url != '/admin/medicine') {
           this.isHidden = false;
         } else {
           this.isHidden = true;
@@ -62,7 +63,7 @@ export class MedicineComponent implements OnInit {
           medicineData.forEach((medicine) => medicine.keys = JSON.stringify(medicine));
           this.medicines = medicineData;
           this.searchedMed = medicineData;
-          console.log(this.medicines)
+          // console.log(this.medicines)
         }
       )
   }
@@ -73,5 +74,14 @@ export class MedicineComponent implements OnInit {
       .subscribe(() => {
         this.getAllMedicine();
       })
+      this.isDelete = false;
+  }
+
+  public verifyAction() {
+    this.isDelete = true;
+  }
+
+  public cancelAction() {
+    this.isDelete = false;
   }
 }

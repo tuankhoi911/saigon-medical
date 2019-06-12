@@ -1,74 +1,62 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, NgbActiveModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AddDrugComponent } from 'src/app/modals/add-drug/add-drug.component';
+import { ActivatedRoute } from '@angular/router';
 import { MedicineService } from 'src/app/services/medicine.service';
+import { PrescripService } from 'src/app/services/prescrip.service';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { mergeMap } from 'rxjs/operators';
+import { DetailmedsService } from 'src/app/services/detailmeds.service';
+
+interface drugAdded {
+  name: string,
+  amount: number,
+  cachDung: string
+}
 
 @Component({
   selector: 'app-add-examination',
   templateUrl: './add-examination.component.html',
   styleUrls: ['./add-examination.component.scss'],
-  providers: [NgbModal, NgbModalConfig, MedicineService]
+  providers: [NgbModal, NgbModalConfig, MedicineService, PrescripService, EmployeeService]
 
 })
 export class AddExaminationComponent implements OnInit {
 
-  isHidden = false;
-  isPopup = false;
-  isAlert = false;
-  isSuccess = false;
-  isFail = false;
-  isAdd = false;
+
   logo = 'assets/images/pbLogo.png';
-  amountMed: number;
-  cachDung: any;
-
-  medicinesAdded = [];
-
-
-  delete(index) {
-    return this.medicinesAdded.splice(index, 1);
-  }
-
-  add(index) {
-    let usersTemp = [...this.searchedMed];
-    let preAmount = this.searchedMed[index].amount;
-    let a = { ...this.searchedMed[index] };
-
-    if (a.amount >= this.amountMed) {
-      this.searchedMed[index].amount = this.amountMed;
-      a.amount = this.amountMed;
-      this.medicinesAdded.push(a);
-      let newAmount = preAmount - this.amountMed;
-      usersTemp[index].amount = newAmount;
-      this.searchedMed = usersTemp;
-      this.isSuccess = true
-      this.isFail = false;
-    }
-
-    else {
-      this.isFail = true;
-      this.isSuccess = false;
-    }
-
-    this.isPopup = false;
-    this.isAlert = true;
-
+  id = null;
+  public phieuKhamBenh = {
+    trieuChung: null,
+    chuanDoan: null,
+    maDangKi: null,
+    maBacSi: null
   }
 
 
+  public isAdd = false;
   public users: any;
   public searchedMed = this.users;
-
-  addMedicine() {
-    this.isAdd = true;
-  }
+  public doctorList = [];
+  public medicinesAdded: drugAdded[] = [];
 
 
-  constructor(private modalService: NgbModal, protected medicineService: MedicineService) { }
+
+
+  constructor(
+    private route: ActivatedRoute,
+    private modalService: NgbModal,
+    protected prescripService: PrescripService,
+    protected medicineService: MedicineService,
+    protected employeeService: EmployeeService,
+    protected detailPress: DetailmedsService
+
+  ) { }
 
   ngOnInit() {
     this.getAllMedicine();
-
+    this.getAllDoctor();
+    this.route.params.subscribe(params => { this.phieuKhamBenh.maDangKi = params['id'] })
   }
 
   public searchUpdateMed(term: string): void {
@@ -77,12 +65,59 @@ export class AddExaminationComponent implements OnInit {
     if (term == "") {
       this.searchedMed = this.users;
     }
-    // console.log(this.patients);
     this.searchedMed = this.users.filter(isMatch);
   }
 
-  show() {
-    this.modalService.open(AddDrugComponent, { centered: true, windowClass: 'send-message' });
+  public addMedicine() {
+    this.isAdd = true;
+  }
+
+  delete(index) {
+    return this.medicinesAdded.splice(index, 1);
+  }
+
+  show(index) {
+    let addDrug = this.modalService.open(AddDrugComponent, { centered: true });
+    addDrug.result.then(
+      (result) => {
+        // console.log(result);
+        if (result) {
+          let add: drugAdded = { ...this.searchedMed[index] };
+          add.amount = result.amount;
+          add.cachDung = result.instruc
+          this.medicinesAdded.push(add);
+          // console.log(this.medicinesAdded);
+
+        }
+      }
+    )
+
+  }
+
+  public onCreate(value) {
+    const addInfo = (info)=> (drug) => {
+      drug.maHoaDon = info.maHoaDon;
+      drug.maPhieuKham = info.maPhieuKham;
+      drug.soLuong = drug.amount;
+      console.log(drug);
+      return drug;
+    }
+    this.prescripService.create(this.phieuKhamBenh).pipe(
+      mergeMap((res) => {
+        let addInfoToDrug = addInfo(res);
+        let drugs = this.medicinesAdded.map(addInfoToDrug);
+        console.log(drugs);
+        
+        return this.detailPress.create(drugs); 
+      })
+    )
+    .subscribe(
+      (res => {
+        console.log(res);
+      })
+    )
+    // console.log(this.phieuKhamBenh);
+    
   }
 
   public getAllMedicine() {
@@ -98,4 +133,15 @@ export class AddExaminationComponent implements OnInit {
       )
   }
 
+  public getAllDoctor() {
+    const isDoctor = (employee => employee.chucVu == 'Bác sĩ')
+    this.employeeService
+      .getAll()
+      .subscribe(
+        (mainData: any) => {
+          mainData = mainData.filter(isDoctor);
+          this.doctorList = mainData
+        }
+      )
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,13 @@ import { Router } from '@angular/router';
 })
 export class AddDrugComponent implements OnInit {
 
-  logo = 'assets/images/pbLogo.png'
+  public medAdded = {
+    verify: false,
+    amount: null,
+    instruc: null
+  }
+  public logo = 'assets/images/pbLogo.png'
+
   constructor(public activeModal: NgbActiveModal, private router: Router) {
   }
 
@@ -18,13 +24,14 @@ export class AddDrugComponent implements OnInit {
   ngOnInit() {
   }
 
-  close() {
+  public close() {
     this.activeModal.dismiss('forget');
   }
 
-  logout() {
-    this.router.navigate(['/']);
-    this.activeModal.dismiss('forget');
+  public verifyAdded(value) {
+    this.medAdded = value;
+    this.medAdded.verify = true;
+    this.activeModal.close(this.medAdded);
   }
 
 }

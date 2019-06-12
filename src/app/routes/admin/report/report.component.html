@@ -35,7 +35,7 @@
                         <label for="month">Month</label>
                         <select class="custom-select d-block w-100" id="month" name="month" required
                           [(ngModel)]="reportPatient.month">
-                          <option value="">Choose...</option>
+                          <option selected value="">Choose...</option>
                           <option *ngFor="let month of months">
                             {{month}}
                           </option>
@@ -46,10 +46,10 @@
                   <div class="col-4">
                     <div class="form-group w-100">
                       <div class="input-group w-100">
-                        <label for="month">Year</label>
+                        <label for="year">Year</label>
                         <select class="custom-select d-block w-100" id="year" name="year" required
                           [(ngModel)]="reportPatient.year">
-                          <option value="">Choose...</option>
+                          <option selected="true">Choose...</option>
                           <option *ngFor="let year of years">
                             {{year}}
                           </option>

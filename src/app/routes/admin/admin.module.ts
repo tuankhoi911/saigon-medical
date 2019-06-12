@@ -13,7 +13,8 @@ import { BarChartModule } from 'src/app/components/bar-chart/bar-chart.module';
 import { PieChartModule } from 'src/app/components/pie-chart/pie-chart.module';
 import { ReportModule } from './report/report.module';
 import { FormsModule } from '@angular/forms';
-import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { SuccessModule } from 'src/app/modals/success/success.module';
 
 @NgModule({
   declarations: [PatientComponent,
@@ -33,7 +34,9 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
     PieChartModule,
     FormsModule,
     ReportModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    NgbModalModule,
+    SuccessModule
   ]
 })
 export class AdminModule { }

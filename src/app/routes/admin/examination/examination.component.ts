@@ -13,6 +13,8 @@ export class ExaminationComponent implements OnInit {
   isHidden = false;
   public registers: any;
   public searchedRegis = this.registers;
+  isDelete: boolean;
+  public logo = 'assets/images/pbLogo.png';
 
   constructor(private router: Router, protected registerService: RegisterService) {
     router.events.subscribe((event: Event) => {
@@ -37,10 +39,10 @@ export class ExaminationComponent implements OnInit {
         registerData.forEach((register) => register.keys = JSON.stringify(register));
         this.registers = registerData;
         this.searchedRegis = registerData;
-        // console.log(this.registers);
+        console.log(this.registers);
       })
-      
-      
+
+
   }
 
   public updateRegister(register) {
@@ -57,19 +59,25 @@ export class ExaminationComponent implements OnInit {
       .subscribe(() => {
         this.getAllRegisters();
       })
+    this.isDelete = false;
   }
 
-  public searchUpdateForRegister(term : string): void {
+
+  public verifyAction() {
+    this.isDelete = true;
+  }
+
+  public cancelAction() {
+    this.isDelete = false;
+  }
+
+  public searchUpdateForRegister(term: string): void {
     term = term.trim().toLowerCase();
-
     const isMatch = (register: any) => register.keys.toLowerCase().includes(term);
-
-
     if (term == "") {
       this.searchedRegis = this.registers;
     }
     console.log(this.registers);
-
     this.searchedRegis = this.registers.filter(isMatch);
   }
 

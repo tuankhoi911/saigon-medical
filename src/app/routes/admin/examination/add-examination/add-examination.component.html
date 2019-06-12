@@ -7,26 +7,32 @@
           <!-- chỉnh khung divide vào giữa màn hình -->
           <h4 class="mb-3 text-center mt-3"> <i class="fas fa-users-medical mr-3"></i>Information of Examination Medical
           </h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" #formExams="ngForm">
             <div class="row">
             </div>
             <div class="mb-3">
               <label for="address2">Symptom</label>
-              <input type="text" class="form-control" id="address2" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="" name="trieuChung" [(ngModel)]="phieuKhamBenh.trieuChung">
             </div>
             <div class="mb-3">
               <label for="address2">Diagnostic</label>
-              <input type="text" class="form-control" id="address2" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="" name="chuanDoan" [(ngModel)]="phieuKhamBenh.chuanDoan">
             </div>
             <div class="mb-3">
               <label for="address2">Doctor</label>
-              <input type="text" class="form-control" id="address2" placeholder="">
+              <select class="custom-select d-block w-100" id="gender" name="bacSi" required
+                [(ngModel)]="phieuKhamBenh.maBacSi">
+                <option *ngFor="let doc of doctorList" [value]="doc.maNhanVien">{{doc?.tenNhanVien}}</option>
+              </select>
             </div>
             <div class="mb-3 mt-4 medicine-table">
               <div class="container">
                 <div class="row font-weight-bold text-center" style="background: #395c9c; color: white">
-                  <div class="col-8" style="border-right: 1px #fff solid">
+                  <div class="col-5" style="border-right: 1px #fff solid">
                     Medicine name
+                  </div>
+                  <div class="col-3" style="border-right: 1px #fff solid">
+                    Instruction
                   </div>
                   <div class="col-3">
                     Amount
@@ -36,11 +42,14 @@
                 </div>
               </div>
               <ul class="p-0">
-                <li class="col-12 pl-0 pr-0 pt-2 pb-2" *ngFor="let medicine of medicines; let index = index">
+                <li class="col-12 pl-0 pr-0 pt-2 pb-2" *ngFor="let medicine of medicinesAdded; let index = index">
                   <div class="container">
                     <div class="row">
-                      <div class="col-8 pt-1" style="border: 1px #000 solid">
-                        {{medicine.name}}
+                      <div class="col-5 pt-1" style="border: 1px #000 solid">
+                        {{medicine.tenThuoc}}
+                      </div>
+                      <div class="col-3 pt-1" style="border: 1px #000 solid">
+                        {{medicine.instruc}}
                       </div>
                       <div class="col-3 pt-1" style="border: 1px #000 solid">
                         {{medicine.amount}}
@@ -56,7 +65,7 @@
 
 
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block">Save</button>
+            <button class="btn btn-lng btn-block" (click)="onCreate(formExams.value)">Create</button>
 
             <!-- Alert -->
           </form>
@@ -93,45 +102,8 @@
                         <td>{{user?.tenThuoc}}</td>
                         <td>{{user?.soLuong}}</td>
                         <td>{{user?.donVi}}</td>
-                        <td class="text-right"><button class="btn" (click)="show()"><i
+                        <td class="text-right"><button class="btn" (click)="show(index)"><i
                               class="fas fa-folder-plus"></i></button></td>
-
-                        <!-- <div class="container" *ngIf="isPopup">
-                          <div class="row">
-                            <div class="model-box">
-                              <div class="col-12 p-0 head">
-                                <p class="logo text-center m-0"><img [src]="logo" alt=""></p>
-                                <p class="text-center m-0 font-weight-bold title">
-                                  PHÒNG KHÁM ĐA KHOA SAIGON MEDICAL
-                                </p>
-                              </div>
-                              <div class="col-12 body">
-                                <form action="" #formMed="ngForm">
-                                  <div class="amount">
-                                    <label for="">Số lượng:</label>
-                                    <input type="text" name="amountMed" id="" placeholder="Số lượng thuốc"
-                                      [(ngModel)]="amountMed" required>
-                                  </div>
-
-                                  <div class="instruc">
-                                    <label for="">Cách dùng:</label>
-                                    <textarea name="cachDung" id="" placeholder="Cách dùng" [(ngModel)]="cachDung"
-                                      required></textarea>
-                                  </div>
-                                  <div class="col-12">
-                                    <p class="text-right">
-                                      <button class="btn btn-danger mr-2" (click)="close()"> <i
-                                          class="fas fa-times-square mr-2"></i>Đóng</button>
-                                      <button class="btn btn-success" [disabled]="formMed.invalid" (click)="add(index)">
-                                        <i class="fas fa-check-square mr-2"></i>Thêm</button>
-                                    </p>
-                                  </div>
-                                </form>
-                              </div>
-
-                            </div>
-                          </div>
-                        </div> -->
 
                       </tr>
                     </tbody>

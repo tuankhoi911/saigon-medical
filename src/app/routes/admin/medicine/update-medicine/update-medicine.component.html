@@ -27,24 +27,6 @@
               <input type="text" class="form-control" id="address2" placeholder="" name="donVi"
                 [(ngModel)]="medicine.donVi">
             </div>
-            <!-- <div class="mb-3 input-group">
-              <label for="address2" class="w-100">Manufactured</label>
-              <input class="form-control" placeholder="yyyy-mm-dd" name="ngaySinh" [(ngModel)]="medicine.ngaySanXuat"
-                ngbDatepicker #d1="ngbDatepicker">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"><i
-                    class="fal fa-calendar-alt"></i></button>
-              </div>
-            </div>
-            <div class="mb-3 input-group">
-              <label for="address2" class="w-100">Expired</label>
-              <input class="form-control" placeholder="yyyy-mm-dd" name="ngaySinh" [(ngModel)]="medicine.hanSuDung"
-                ngbDatepicker #d2="ngbDatepicker">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><i
-                    class="fal fa-calendar-alt"></i></button>
-              </div>
-            </div> -->
             <div class="mb-3">
               <label for="address2">Ngày sản xuất</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="ngaySanXuat"
@@ -61,7 +43,7 @@
                 [(ngModel)]="medicine.gia">
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="createMedicine()">Save</button>
+            <button class="btn btn-lng btn-block" (click)="updateMedicine()">Save</button>
 
             <!-- Alert -->
           </form>

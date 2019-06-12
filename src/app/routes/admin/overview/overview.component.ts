@@ -10,121 +10,39 @@ export class OverviewComponent implements OnInit {
 
   public rewards = [
     {
-      doctorName: 'Han Sara',
-      doctorDescription: 'The best doctor of the month',
+      doctorName: 'Nguyễn Thị Phi Yến',
+      doctorDescription: 'Bác sĩ giỏi nhất tháng.',
       doctorUrl: 'assets/images/doc.jpg'
-    },
-    {
-      doctorName: 'Han Sara',
-      doctorDescription: 'The best doctor of the month',
-      doctorUrl: 'assets/images/doc.jpg'
-    },
-    {
-      doctorName: 'Han Sara',
-      doctorDescription: 'The best doctor of the month',
-      doctorUrl: 'assets/images/doc.jpg'
-    },
-    {
-      doctorName: 'Han Sara',
-      doctorDescription: 'The best doctor of the month',
-      doctorUrl: 'assets/images/doc.jpg'
-    },
+    }
   ]
 
   public techs = [
     {
       techName: 'CRISPR',
-      techDescription: '...',
+      techDescription: 'CRISPR là một họ các trình tự DNA ở trong vi khuẩn và vi khuẩn cổ...',
       techUrl: 'assets/images/tech.jpg'
-    },
-    {
-      techName: 'CRISPR',
-      techDescription: '...',
-      techUrl: 'assets/images/tech.jpg'
-    },
-    {
-      techName: 'CRISPR',
-      techDescription: '...',
-      techUrl: 'assets/images/tech.jpg'
-    },
-    {
-      techName: 'CRISPR',
-      techDescription: '...',
-      techUrl: 'assets/images/tech.jpg'
-    },
+    }
   ]
 
   public gallery = [
     {
-      galleryUrl: 'assets/images/tech.jpg',
-      galleryName: 'Test'
-    },
-    {
-      galleryUrl: 'assets/images/tech.jpg',
-      galleryName: 'Test'
-    },
-    {
-      galleryUrl: 'assets/images/tech.jpg',
-      galleryName: 'Test'
-    },
-    {
-      galleryUrl: 'assets/images/tech.jpg',
-      galleryName: 'Test'
-    },
-    {
-      galleryUrl: 'assets/images/tech.jpg',
-      galleryName: 'Test'
-    },
-    
+      galleryUrl: 'assets/images/hoatri.jpg',
+      galleryName: 'Bệnh nhân ung thư được hóa trị bằng Alkylating'
+    }
   ]
 
 
   doanhThus = [
     {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
+      thang: 'Tháng / 2019',
+      soTien: '250,000,000vnd',
       ghiChu: 'Tăng 20%'
     },
     {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng một',
-      soTien: '200,000,000vnd',
-      ghiChu: 'Tăng 20%'
-    },
+      thang: 'Tháng 05 / 2019',
+      soTien: '100,000,000vnd',
+      ghiChu: 'Giảm gần 50%'
+    }
 
   ]
   constructor() { }

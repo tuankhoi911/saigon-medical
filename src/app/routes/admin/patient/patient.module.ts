@@ -13,7 +13,7 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
         CommonModule,
         PatientRoutingModule,
         FormsModule,
-        NgbDatepickerModule
+        NgbDatepickerModule,
     ]
 })
 export class PatientModule { }

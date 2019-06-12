@@ -13,8 +13,10 @@ export class EmployeesComponent implements OnInit {
 
 
   public isHidden = false;
+  public isDelete = false;
   public employees: any;
   public searchedEmployees = this.employees;
+  public logo = 'assets/images/pbLogo.png';
 
 
   constructor(private router: Router, protected employeeService: EmployeeService) {
@@ -41,10 +43,10 @@ export class EmployeesComponent implements OnInit {
           employeeData.forEach((employee) => employee.keys = JSON.stringify(employee));
           this.employees = employeeData;
           this.searchedEmployees = employeeData;
-          console.log(this.employees);
+          // console.log(this.employees);
         }
       )
-        
+
   }
 
   public deleteEmployee(employee) {
@@ -53,6 +55,7 @@ export class EmployeesComponent implements OnInit {
       .subscribe(() => {
         this.getAllEmployees();
       })
+      this.isDelete = false;
   }
 
   public searchUpdateForEmployees(term: string): void {
@@ -69,6 +72,12 @@ export class EmployeesComponent implements OnInit {
     this.searchedEmployees = this.employees.filter(isMatch);
   }
 
+  public verifyAction() {
+    this.isDelete = true;
+  }
 
+  public cancelAction() {
+    this.isDelete = false;
+  }
 
 }

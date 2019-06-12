@@ -10,7 +10,7 @@ const routes: Routes = [
         component: AddPrescriptionComponent
     },
     {
-        path: 'prescription-detail',
+        path: 'prescription-detail/:id',
         component: PrescriptionDetailComponent
     }
 ];

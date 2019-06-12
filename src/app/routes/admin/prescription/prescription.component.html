@@ -32,7 +32,8 @@
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
-                  <input type="text" id="search-bar" (keyup)="searchUpdateForInvoice($event.target.value)" placeholder="Enter ID of medical invoice!">
+                  <input type="text" id="search-bar" (keyup)="searchUpdateForInvoice($event.target.value)"
+                    placeholder="Enter ID of medical invoice!">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
@@ -43,11 +44,12 @@
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Patient ID</th>
+                  <th scope="col">Patient Name</th>
                   <th scope="col">Bill ID</th>
                   <th scope="col">Cost</th>
                   <th scope="col">Added Date</th>
                   <th scope="col">Status</th>
+                  <th scope="col">Detail</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,19 +60,17 @@
                   <td>{{invoice?.ngayThem}}</td>
                   <td><span class="badge" [class.badge-success]="invoice?.tinhTrang == 'Đã thanh toán'"
                       [class.badge-warning]="invoice?.tinhTrang == 'Chưa thanh toán'">{{invoice?.tinhTrang}}</span></td>
-                  <!-- <td>
-                    <button class="btn mr-2"><i class="fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                  </td> -->
+                  <td>
+                    <button class="btn-success mr-2" [routerLink]="['prescription-detail', invoice.maHoaDon]"><i
+                        class="fas fa-folder-open"></i></button>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <app-update-patient></app-update-patient> -->
 <router-outlet></router-outlet>
