@@ -10,8 +10,8 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Employees</h4>
-              <p class="m-0">Employees Managerment Department</p>
+              <h4 class="m-0">Nhân viên</h4>
+              <p class="m-0">Chức năng quản lí và điều chỉnh nhân sự</p>
             </div>
           </div>
         </div>
@@ -23,8 +23,7 @@
         <div class="patient-list">
           <div class="patient-list-head">
             <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-employees'"><a><i class="fas fa-plus-square mr-2"></i>Add
-                  Employees
+              <button class="btn m-2" [routerLink]="'add-employees'"><a><i class="fas fa-plus-square mr-2"></i>Thêm nhân viên
                 </a></button>
             </p>
           </div>
@@ -33,25 +32,25 @@
               <div class="col-12">
                 <form class="search-container mx-auto">
                   <input type="text" id="search-bar" (keyup)="searchUpdateForEmployees($event.target.value)"
-                    placeholder="Enter ID or name of employees!">
+                    placeholder="Nhập để tìm kiếm!">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
             </div>
           </div>
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Employees List</h5>
+            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách nhân viên của phòng khám</h5>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Gender</th>
-                  <th scope="col">Date of Birth</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Position</th>
-                  <th scope="col">Entrance Date</th>
-                  <th scope="col" class="text-center">Action</th>
+                  <th scope="col">Mã</th>
+                  <th scope="col">Tên</th>
+                  <th scope="col">Giới tính</th>
+                  <th scope="col">Ngày sinh</th>
+                  <th scope="col">Địa chỉ</th>
+                  <th scope="col">Chức vụ</th>
+                  <th scope="col">Ngày vào</th>
+                  <th scope="col" class="text-center">Hành động</th>
                 </tr>
               </thead>
               <tbody>

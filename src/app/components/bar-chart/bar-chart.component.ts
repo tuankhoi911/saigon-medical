@@ -12,12 +12,12 @@ export class BarChartComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels = ['Precious 1', 'Precious 2', 'Precious 3', 'Precious 4'];
+  public barChartLabels = ['Quý 1', 'Quý 2', 'Quý 3', 'Quý 4'];
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Male'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Female'}
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Nam'},
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Nữ'}
   ];
   ngOnInit() {
   }

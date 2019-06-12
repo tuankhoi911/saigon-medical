@@ -34,13 +34,13 @@ export class OverviewComponent implements OnInit {
 
   doanhThus = [
     {
-      thang: 'Tháng / 2019',
-      soTien: '250,000,000vnd',
+      thang: 'Tháng 04 / 2019',
+      soTien: '250,000,000 vnd',
       ghiChu: 'Tăng 20%'
     },
     {
       thang: 'Tháng 05 / 2019',
-      soTien: '100,000,000vnd',
+      soTien: '100,000,000 vnd',
       ghiChu: 'Giảm gần 50%'
     }
 

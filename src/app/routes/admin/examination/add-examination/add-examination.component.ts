@@ -7,6 +7,7 @@ import { PrescripService } from 'src/app/services/prescrip.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { mergeMap } from 'rxjs/operators';
 import { DetailmedsService } from 'src/app/services/detailmeds.service';
+import { SuccessComponent } from 'src/app/modals/success/success.component';
 
 interface drugAdded {
   name: string,
@@ -95,7 +96,7 @@ export class AddExaminationComponent implements OnInit {
   }
 
   public onCreate(value) {
-    const addInfo = (info)=> (drug) => {
+    const addInfo = (info) => (drug) => {
       drug.maHoaDon = info.maHoaDon;
       drug.maPhieuKham = info.maPhieuKham;
       drug.soLuong = drug.amount;
@@ -107,17 +108,21 @@ export class AddExaminationComponent implements OnInit {
         let addInfoToDrug = addInfo(res);
         let drugs = this.medicinesAdded.map(addInfoToDrug);
         console.log(drugs);
-        
-        return this.detailPress.create(drugs); 
+
+        return this.detailPress.create(drugs);
       })
     )
-    .subscribe(
-      (res => {
-        console.log(res);
-      })
-    )
-    // console.log(this.phieuKhamBenh);
-    
+      .subscribe(
+        (res => {
+          console.log(res);
+        })
+      )
+    this.modalService.open(SuccessComponent, { centered: true });
+    // if (this.isSuccess) {
+    //   this.router.navigate(['/admin/examination']).then(() => {
+    //     window.location.reload();
+    //   })
+    // }
   }
 
   public getAllMedicine() {

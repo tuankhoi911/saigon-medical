@@ -5,10 +5,10 @@
         <!-- chỉnh khung divide vào giữa màn hình -->
         <div class="col-lg-12 order-md-1">
           <!-- chỉnh khung divide vào giữa màn hình -->
-          <h4 class="mb-3 text-center"><i class="fal fa-user-edit mr-3 mt-4"></i>Update Patient Information</h4>
-          <form class="needs-validation" novalidate>
+          <h4 class="mb-3 text-center"><i class="fal fa-user-edit mr-3 mt-4"></i>Cập nhật thông tin bệnh nhân</h4>
+          <form class="needs-validation" #formExams="ngForm">
             <div class="mb-3">
-              <label for="firstName">Full Name</label>
+              <label for="firstName">Họ và tên</label>
               <input type="text" class="form-control" id="firstName" name="tenBenhNhan" placeholder=""
                 [(ngModel)]="patient.tenBenhNhan" required>
               <div class="invalid-feedback">
@@ -16,12 +16,12 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="address2">Phone Number</label>
+              <label for="address2">Số điện thoại</label>
               <input type="text" class="form-control" id="address2" name="soDienThoai" placeholder=""
                 [(ngModel)]="patient.soDienThoai">
             </div>
             <div class="mb-3">
-              <label for="username">Address</label>
+              <label for="username">Địa chỉ</label>
               <div class="input-group">
                 <input type="text" class="form-control" id="username" name="diaChi" placeholder="" required
                   [(ngModel)]="patient.diaChi">
@@ -40,18 +40,18 @@
               </div>
             </div> -->
             <div class="mb-3">
-              <label for="address2">Date of Birth</label>
+              <label for="address2">Ngày sinh</label>
               <input type="text" class="form-control" id="address2" name="ngaySinh" placeholder=""
                 [(ngModel)]="patient.ngaySinh">
             </div>
             <div class="mb-3">
-              <label for="address2">Career</label>
+              <label for="address2">Nghề nghiệp</label>
               <input type="text" class="form-control" id="address2" name="ngheNghiep" placeholder=""
                 [(ngModel)]="patient.ngheNghiep">
             </div>
             <div class="row">
               <div class="col-md-4 mb-3">
-                <label for="country">Gender</label>
+                <label for="country">Giới tính</label>
                 <select class="custom-select d-block w-100" id="country" name="gioiTinh" required
                   [(ngModel)]="patient.gioiTinh">
                   <option value="Nam">Nam</option>
@@ -60,7 +60,7 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="updatePatient()">Save</button>
+            <button class="btn btn-lng btn-block" (click)="updatePatient()" [disabled]="formExams.invalid" [class.ban]="formExams.invalid">Cập nhật</button>
           </form>
         </div>
       </div>

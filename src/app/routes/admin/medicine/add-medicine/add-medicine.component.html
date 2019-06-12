@@ -5,11 +5,11 @@
         <!-- chỉnh khung divide vào giữa màn hình -->
         <div class="col-lg-12 order-md-1">
           <!-- chỉnh khung divide vào giữa màn hình -->
-          <h4 class="mb-3 text-center"> <i class="fas fa-prescription-bottle-alt mr-3"></i>Information Of Medicine</h4>
-          <form class="needs-validation" novalidate>
+          <h4 class="mb-3 text-center"> <i class="fas fa-prescription-bottle-alt mr-3 mt-4"></i>Thông tin dược phẩm</h4>
+          <form class="needs-validation" #formMed="ngForm">
             <div class="row">
               <div class="col-12 mb-3">
-                <label for="firstName">Medicine's Name</label>
+                <label for="firstName">Tên dược phẩm</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required name="tenThuoc"
                   [(ngModel)]="medicine.tenThuoc">
                 <div class="invalid-feedback">
@@ -18,12 +18,12 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="address2">Amount</label>
+              <label for="address2">Số lượng</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="soLuong"
                 [(ngModel)]="medicine.soLuong">
             </div>
             <div class="mb-3">
-              <label for="address2">Unit</label>
+              <label for="address2">Đơn vị</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="donVi"
                 [(ngModel)]="medicine.donVi">
             </div>
@@ -56,12 +56,12 @@
                 [(ngModel)]="medicine.hanSuDung">
             </div>
             <div class="mb-3">
-              <label for="address2">Price</label>
+              <label for="address2">Giá</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="gia"
                 [(ngModel)]="medicine.gia">
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="createMedicine()">Save</button>
+            <button class="btn btn-lng btn-block" (click)="createMedicine()" [disabled]="formMed.invalid" [class.ban]="formMed.invalid">Thêm mới</button>
 
             <!-- Alert -->
           </form>

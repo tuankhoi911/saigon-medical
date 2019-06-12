@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AddDrugModule } from 'src/app/modals/add-drug/add-drug.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExaminationDetailComponent } from './examination-detail/examination-detail.component';
+import { SuccessModule } from 'src/app/modals/success/success.module';
 
 @NgModule({
   declarations: [AddExaminationComponent, ExaminationDetailComponent],
@@ -14,7 +15,8 @@ import { ExaminationDetailComponent } from './examination-detail/examination-det
     ExaminationRoutingModule,
     FormsModule,
     NgbModalModule,
-    AddDrugModule
+    AddDrugModule,
+    SuccessModule
   ],
   exports: [AddExaminationComponent]
 })
