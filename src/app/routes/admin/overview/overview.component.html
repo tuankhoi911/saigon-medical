@@ -10,8 +10,12 @@
                             </p>
                         </div>
                         <div class="col-11">
-                            <h4 class="m-0">Tổng quan</h4>
-                            <p class="m-0">Tình hỉnh và thông tinh tổng quan về phòng khám Nhân Việt</p>
+                            <h4 class="m-0">
+                                {{'overview.title' | translate}}
+                            </h4>
+                            <p class="m-0">
+                                {{'overview.description' | translate}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -27,7 +31,7 @@
                                 <i class="fal fa-file-medical survey-icon"></i>
                             </div>
                             <div class="col-8 p-0">
-                                <p class="don-kham m-0">Đơn khám bệnh</p>
+                                <p class="don-kham m-0"> {{'overview.exams' | translate}}</p>
                                 <h3 class="so-luong pl-2">215</h3>
                             </div>
                         </div>
@@ -42,7 +46,7 @@
                                 <i class="fal fa-procedures survey-icon"></i>
                             </div>
                             <div class="col-8 p-0">
-                                <p class="don-kham m-0">Bệnh nhân mới </p>
+                                <p class="don-kham m-0"> {{'overview.newpatient' | translate}}</p>
                                 <h3 class="so-luong pl-2">35</h3>
                             </div>
                         </div>
@@ -57,7 +61,7 @@
                                 <i class="fal fa-scalpel-path survey-icon"></i>
                             </div>
                             <div class="col-8 p-0">
-                                <p class="don-kham m-0">Nhân viên mới</p>
+                                <p class="don-kham m-0">{{'overview.newemploy' | translate}}</p>
                                 <h3 class="so-luong pl-2">10</h3>
                             </div>
                         </div>
@@ -72,7 +76,7 @@
                                 <i class="fal fa-hand-holding-usd survey-icon"></i>
                             </div>
                             <div class="col-8 p-0">
-                                <p class="don-kham m-0">Doanh thu</p>
+                                <p class="don-kham m-0">{{'overview.revenue' | translate}}</p>
                                 <h3 class="so-luong pl-2">300  triệu</h3>
                             </div>
                         </div>
@@ -82,29 +86,29 @@
 
             <div class="col-6 bar-chart m-3">
                 <h4 class="text-left mt-2">
-                   Tỉ lệ bệnh nhân
+                    {{'overview.ptnrate' | translate}}
                 </h4>
-                <label for="">Lượng chênh lệch giới tính bệnh nhân</label>
+                <label for="">{{'overview.ptndescription' | translate}}</label>
                 <app-bar-chart></app-bar-chart>
             </div>
             <div class="col-5 pie-chart m-3">
                 <h4 class="text-left mt-2">
-                   Tỉ lệ khoa tiếp nhận
+                    {{'overview.dptrate' | translate}}
                 </h4>
-                <label for="">Thống kê chênh lệnh các khoa khám trong phòng khám</label>
+                <label for="">{{'overview.dptdescription' | translate}}</label>
                 <app-pie-chart></app-pie-chart>
             </div>
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-file-invoice-dollar mr-2"></i>Doanh thu theo tháng</h4>
+                <h4 class="mb-4 title-list p-2"><i class="fal fa-file-invoice-dollar mr-2"></i>{{'overview.incomemonth' | translate}}</h4>
                 <table class="table ml-2">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Tháng</th>
-                            <th scope="col">Doanh thu</th>
-                            <th scope="col">Ghi chú</th>
+                            <th scope="col">{{'overview.month' | translate}}</th>
+                            <th scope="col">{{'overview.revenue' | translate}}</th>
+                            <th scope="col">{{'overview.note' | translate}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,7 +124,7 @@
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-medal mr-2"></i>Thành tựu y tế</h4>
+                <h4 class="mb-4 title-list p-2"><i class="fal fa-medal mr-2"></i>{{'overview.achiev' | translate}}</h4>
                 <div class="container">
                     <div class="row p-2">
                         <div *ngFor="let reward of rewards" class="col-lg-3">
@@ -142,7 +146,7 @@
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-head-side-brain mr-2"></i>Công nghệ y tế mới</h4>
+                <h4 class="mb-4 title-list p-2"><i class="fal fa-head-side-brain mr-2"></i>{{'overview.tech' | translate}}</h4>
                 <div class="container">
                     <div class="row p-2">
                         <div *ngFor="let tech of techs" class="col-lg-3">
@@ -164,7 +168,7 @@
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-images mr-2"></i>Thư viện ảnh</h4>
+                <h4 class="mb-4 title-list p-2"><i class="fal fa-images mr-2"></i>{{'overview.gallery' | translate}}</h4>
                 <div class="container">
                     <div class="row p-2">
                         <div *ngFor="let image of gallery" class="col-lg-3">

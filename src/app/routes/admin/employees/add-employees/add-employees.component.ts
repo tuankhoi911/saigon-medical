@@ -25,7 +25,7 @@ export class AddEmployeesComponent implements OnInit {
   ngOnInit() {
   }
 
-  public createPatient() {
+  public createEmployee() {
     this.employeeService.create(this.employee).subscribe();
     if (this.isSuccess) {
       this.router.navigate(['/admin/employees']).then(() => {

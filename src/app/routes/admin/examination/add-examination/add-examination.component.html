@@ -3,21 +3,24 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 order-md-1">
-          <h4 class="mb-3 text-center mt-3"> <i class="fas fa-users-medical mr-3"></i>Thông tin phiếu khám bệnh
+          <h4 class="mb-3 text-center mt-3"> <i class="fas fa-users-medical mr-3"></i>
+            {{'examination.detailname' | translate}}
           </h4>
           <form class="needs-validation" #formExams="ngForm">
             <div class="row">
             </div>
             <div class="mb-3">
-              <label for="address2">Triệu chứng</label>
-              <input type="text" class="form-control" id="" placeholder="" name="trieuChung" [(ngModel)]="phieuKhamBenh.trieuChung">
+              <label for="address2"> {{'examination.sympton' | translate}}</label>
+              <input type="text" class="form-control" id="" placeholder="" name="trieuChung"
+                [(ngModel)]="phieuKhamBenh.trieuChung">
             </div>
             <div class="mb-3">
-              <label for="address2">Chuẩn đoán</label>
-              <input type="text" class="form-control" id="" placeholder="" name="chuanDoan" [(ngModel)]="phieuKhamBenh.chuanDoan">
+              <label for="address2"> {{'examination.diagnosis' | translate}}</label>
+              <input type="text" class="form-control" id="" placeholder="" name="chuanDoan"
+                [(ngModel)]="phieuKhamBenh.chuanDoan">
             </div>
             <div class="mb-3">
-              <label for="address2">Bác sĩ</label>
+              <label for="address2"> {{'examination.doctor' | translate}}</label>
               <select class="custom-select d-block w-100" id="gender" name="bacSi" required
                 [(ngModel)]="phieuKhamBenh.maBacSi">
                 <option *ngFor="let doc of doctorList" [value]="doc.maNhanVien">{{doc?.tenNhanVien}}</option>
@@ -27,13 +30,13 @@
               <div class="container">
                 <div class="row font-weight-bold text-center" style="background: #395c9c; color: white">
                   <div class="col-5" style="border-right: 1px #fff solid">
-                    Loại thuốc
+                    {{'examination.drugname' | translate}}
                   </div>
                   <div class="col-3" style="border-right: 1px #fff solid">
-                    Liều dùng
+                    {{'examination.usage' | translate}}
                   </div>
                   <div class="col-3">
-                    Số lượng
+                    {{'examination.amount' | translate}}
                   </div>
                   <div class="col-1">
                   </div>
@@ -47,7 +50,7 @@
                         {{medicine.tenThuoc}}
                       </div>
                       <div class="col-3 pt-1" style="border: 1px #000 solid">
-                        {{medicine.instruc}}
+                        {{medicine.cachDung}}
                       </div>
                       <div class="col-3 pt-1" style="border: 1px #000 solid">
                         {{medicine.amount}}
@@ -63,11 +66,13 @@
 
 
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="onCreate(formExams.value)" [disabled]="formExams.invalid" [class.ban]="formExams.invalid">Tạo phiếu khám</button>
+            <button class="btn btn-lng btn-block" (click)="onCreate(formExams.value)" [disabled]="formExams.invalid"
+              [class.ban]="formExams.invalid"> {{'examination.create' | translate}}</button>
 
             <!-- Alert -->
           </form>
-          <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>Chọn thuốc (Nhấp vào kéo xuống)</button></p>
+          <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>
+              {{'examination.addrx' | translate}}</button></p>
           <div class="row" *ngIf="isAdd">
             <div class="col-lg-12">
               <div class="search-patient mt-3">
@@ -75,7 +80,7 @@
                   <div class="col-12">
                     <form class="search-container mx-auto">
                       <input type="text" id="search-bar" (keyup)="searchUpdateMed($event.target.value)"
-                        placeholder="Nhập để tìm kiếm!">
+                        placeholder=" {{'examination.search' | translate}}">
                       <a><i class="fas fa-search"></i></a>
                     </form>
                   </div>
@@ -87,10 +92,10 @@
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Tên thuốc</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">Đơn vị</th>
-                        <th scope="col text-right">Thêm vào đơn thuốc</th>
+                        <th scope="col"> {{'examination.drugname' | translate}}</th>
+                        <th scope="col"> {{'examination.amount' | translate}}</th>
+                        <th scope="col"> {{'examination.unit' | translate}}</th>
+                        <th scope="col text-right"> {{'examination.addtopres' | translate}}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -115,25 +120,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="container" *ngIf="isAlert">
-  <div class="row">
-    <div class="model-box">
-      <div class="col-12 p-0 head">
-        <p class="logo text-center m-0"><img [src]="logo" alt=""></p>
-        <p class="text-center m-0 font-weight-bold title">
-          Phòng khám Nhân Việt Medical
-        </p>
-      </div>
-      <div class="col-12 body text-center">
-        <h5 *ngIf="isSuccess">Thêm vào thành công!</h5>
-        <h5 *ngIf="isFail">Số lượng thuốc trong kho không đủ! Vui lòng giảm số lượng.</h5>
-      </div>
-      <div class="col-12">
-        <p class="text-right">
-          <button class="btn btn-danger mr-2" (click)="close()"> <i class="fas fa-times-square mr-2"></i>Đóng</button>
-        </p>
-      </div>
-    </div>
-  </div>
-</div> -->

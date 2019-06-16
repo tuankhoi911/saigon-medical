@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pie-chart',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PieChartComponent implements OnInit {
 
-  public pieChartLabels = ['Ung bướu', 'Nha khoa', 'Huyết học', 'Thần kinh', 'Tiêu hóa'];
+  constructor(private translate: TranslateService) { }
+  public pieChartLabels = [
+    this.translate.instant('overview.tumor'),
+    this.translate.instant('overview.dentist'),
+    this.translate.instant('overview.blood'),
+    this.translate.instant('overview.nerve'),
+    this.translate.instant('overview.digest')
+  ];
   public pieChartData = [120, 150, 180, 45, 45];
   public pieChartType = 'pie';
-
-  constructor() { }
 
   ngOnInit() {
   }

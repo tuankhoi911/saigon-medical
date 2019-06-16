@@ -11,58 +11,58 @@
                 </div>
                 <div class="col-6 p-0">
                   <p class="text-white text-right m-0">
-                    Địa chỉ: 189 Lê Văn Việt, Phường Hiệp Phú, Quận 9,
-                    ĐIện thoại: (028) 62808656
-                    Website: https://www.phongkhamnhanviet.com
+                    {{'examination.clinicaddress' | translate}}: 189 Lê Văn Việt, Phường Hiệp Phú, Quận 9,<br>
+                    {{'examination.clinicphone' | translate}}: (028) 62808656,<br>
+                    {{'examination.clinicweb' | translate}}: https://www.phongkhamnhanviet.com
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <h1 class="text-center">Chi tiết đơn thuốc số: {{exam?.maPhieuKham}}</h1>
+            <h1 class="text-center"> {{'examination.detailpres' | translate}}: {{exam?.maPhieuKham}}</h1>
             <div class="container">
               <div class="row mt-4">
                 <div class="col-6 p-0">
-                  <p>Tên bệnh nhân:
+                  <p> {{'examination.patientname' | translate}}:
                     <span class="font-weight-bold">
                       {{exam?.tenBenhNhan}}
                     </span>
                   </p>
-                  <p>Địa chỉ:
+                  <p> {{'examination.address' | translate}}:
                     <span class="font-weight-bold">
                       {{exam?.diaChi}}
                     </span>
                   </p>
-                  <p>Triệu chứng:
+                  <p> {{'examination.sympton' | translate}}:
                     <span class="font-weight-bold">
                       {{exam?.trieuChung}}
                     </span>
                   </p>
-                  <p>Chuẩn đoán:
+                  <p> {{'examination.diagnosis' | translate}}:
                     <span class="font-weight-bold">
                       {{exam?.chuanDoan}}
                     </span>
                   </p>
                 </div>
                 <div class="col-6 p-0">
-                  <p>Mã phiếu khám:
+                  <p> {{'examination.examsid' | translate}}:
                     {{exam?.maPhieuKham}}
                   </p>
-                  <p>Tên bác sĩ:
+                  <p> {{'examination.doctor' | translate}}:
                     {{exam?.tenBacSi}}
                   </p>
                 </div>
 
                 <div class="col-12 med-box p-0 mb-4">
-                  <h5 class="text-center">Chi tiết đơn thuốc</h5>
+                  <h5 class="text-center"> {{'examination.prescription' | translate}}</h5>
                   <table class="table ml-2">
                     <thead class="thead-dark">
                       <tr>
-                        <th scope="col">Số.</th>
-                        <th scope="col">Tên thuốc</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">Cách dùng</th>
+                        <th scope="col"> {{'examination.no' | translate}}.</th>
+                        <th scope="col"> {{'examination.drugname' | translate}}</th>
+                        <th scope="col"> {{'examination.amount' | translate}}</th>
+                        <th scope="col"> {{'examination.usage' | translate}}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -76,15 +76,15 @@
                   </table>
                 </div>
                 <div class="col-6 text-center p-0 mt-4">
-                  <p class="font-weight-bold m-0">Bệnh nhân</p>
-                  <p class="pb-4">(Ký và ghi rõ họ tên)</p>
+                  <p class="font-weight-bold m-0"> {{'examination.patient' | translate}}</p>
+                  <p class="pb-4">( {{'examination.sign' | translate}})</p>
                 </div>
                 <div class="col-6 text-center p-0 mt-4">
-                  <p class="m-0">Tp. Hồ Chí Minh:
+                  <p class="m-0"> {{'examination.city' | translate}}:
                     {{exam?.ngayThem}}
                   </p>
-                  <p class="font-weight-bold m-0">Người tạo</p>
-                  <p class="pb-4">(Ký và ghi rõ họ tên)</p>
+                  <p class="font-weight-bold m-0"> {{'examination.creator' | translate}}</p>
+                  <p class="pb-4">( {{'examination.sign' | translate}})</p>
                 </div>
               </div>
             </div>
@@ -92,9 +92,11 @@
           </div>
           <div class="card-footer">
             <p class="text-right m-0">
-              <button class="btn btn-danger mr-2" (click)="close()"> <i
-                  class="fas fa-undo-alt mr-2"></i>Đóng</button>
-              <a class="btn btn-success ml-2" [href]="'http://localhost:8080/baocao/phieukhambenh/' + exam?.maPhieuKham " target="_blank"> <i class="fal fa-print mr-2"></i>In hóa đơn</a>
+              <button class="btn btn-danger mr-2" (click)="close()"> <i class="fas fa-undo-alt mr-2"></i>
+                {{'examination.close' | translate}}</button>
+              <a class="btn btn-success ml-2"
+                [href]="'http://localhost:8080/baocao/phieukhambenh/' + exam?.maPhieuKham " target="_blank"> <i
+                  class="fal fa-print mr-2"></i> {{'examination.print' | translate}}</a>
             </p>
           </div>
         </div>

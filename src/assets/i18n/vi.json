@@ -1,0 +1,16 @@
+{
+    "sidebar": {
+        "overview": "Tổng quan",
+        "patient": "Bệnh nhân",
+        "examination": "Khám bệnh",
+        "employees": "Nhân viên",
+        "medicine": "Dược phẩm",
+        "invoice": "Hóa đơn",
+        "report": "Báo cáo",
+        "setting": "Cài đặt",
+        "logout": "Đăng xuất"
+    },
+    "login": {
+        "email": "sadfsfd"
+    }
+}

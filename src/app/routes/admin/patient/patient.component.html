@@ -10,8 +10,8 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Bệnh nhân</h4>
-              <p class="m-0">Quản lí bệnh nhân và công tác khám chữa bệnh</p>
+              <h4 class="m-0">{{'patient.title' | translate}}</h4>
+              <p class="m-0">{{'patient.description' | translate}}</p>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="patient-list">
           <div class="patient-list-head">
             <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-patient'"><a><i class="fas fa-plus-square mr-2"></i>Thêm bệnh nhân
+              <button class="btn m-2" [routerLink]="'add-patient'"><a><i class="fas fa-plus-square mr-2"></i>{{'patient.addpatient' | translate}}
                 </a></button>
             </p>
           </div>
@@ -31,26 +31,26 @@
               <div class="col-12">
                 <form class="search-container mx-auto">
                   <input type="text" id="search-bar" (keyup)="searchUpdate($event.target.value)"
-                    placeholder="Nhập để tìm kiếm!">
+                    placeholder="{{'patient.search' | translate}}">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
             </div>
           </div>
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách bệnh nhân</h5>
+            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>{{'patient.list' | translate}}</h5>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Tên</th>
-                  <th scope="col">Giới tính</th>
-                  <th scope="col">Ngày sinh</th>
-                  <th scope="col">Địa chỉ</th>
-                  <th scope="col">Ngày thêm</th>
-                  <th scope="col">Số điện thoại</th>
-                  <th scope="col">Ngày thêm</th>
-                  <th scope="col" class="text-center">Hành động</th>
+                  <th scope="col">{{'patient.name' | translate}}</th>
+                  <th scope="col">{{'patient.sex' | translate}}</th>
+                  <th scope="col">{{'patient.birthday' | translate}}</th>
+                  <th scope="col">{{'patient.address' | translate}}</th>
+                  <th scope="col">{{'patient.job' | translate}}</th>
+                  <th scope="col">{{'patient.phone' | translate}}</th>
+                  <th scope="col">{{'patient.adddate' | translate}}</th>
+                  <th scope="col" class="text-center">{{'patient.action' | translate}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -81,14 +81,14 @@
                               </div>
                             </div>
                             <div class="card-body">
-                              <p class="text-center mt-4">Bạn có chắc chắn muốn xóa bệnh nhân này không?</p>
+                              <p class="text-center mt-4">{{'patient.verify' | translate}}</p>
                             </div>
                             <div class="card-footer">
                               <p class="text-right m-0">
                                 <button class="btn btn-success mr-2" (click)="cancelAction()"> <i
-                                    class="fas fa-undo-alt mr-2"></i>Hủy bỏ</button>
+                                    class="fas fa-undo-alt mr-2"></i>{{'patient.cancel' | translate}}</button>
                                 <button class="btn btn-danger ml-2" (click)="deletePatient(patient)"> <i
-                                    class="fas fa-user-slash mr-2"></i>Xóa bệnh nhân</button>
+                                    class="fas fa-user-slash mr-2"></i>{{'patient.delete' | translate}}</button>
                               </p>
                             </div>
                           </div>

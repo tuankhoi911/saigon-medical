@@ -10,8 +10,12 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Khám bệnh</h4>
-              <p class="m-0">Quản lí khám chữa bệnh và tình trạng bệnh nhân</p>
+              <h4 class="m-0">
+                {{'examination.title' | translate}}
+              </h4>
+              <p class="m-0">
+                {{'examination.description' | translate}}
+              </p>
             </div>
           </div>
         </div>
@@ -25,22 +29,22 @@
               <div class="col-12">
                 <form class="search-container mx-auto">
                   <input type="text" id="search-bar" (keyup)="searchUpdateForRegister($event.target.value)"
-                    placeholder="Nhập để tìm kiếm!">
+                    placeholder=" {{'examination.search' | translate}}">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
             </div>
           </div>
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách đăng ký khám bệnh</h5>
+            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i> {{'examination.list' | translate}}</h5>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Mã đăng kí</th>
-                  <th scope="col">Tên bệnh nhân</th>
-                  <th scope="col">Tình trạng</th>
-                  <th scope="col">Ngày thêm</th>
-                  <th scope="col" class=" text-center">Action</th>
+                  <th scope="col"> {{'examination.registid' | translate}}</th>
+                  <th scope="col"> {{'examination.name' | translate}}</th>
+                  <th scope="col"> {{'examination.status' | translate}}</th>
+                  <th scope="col"> {{'examination.adddate' | translate}}</th>
+                  <th scope="col" class=" text-center"> {{'examination.action' | translate}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -56,8 +60,7 @@
                     <button class="mr-2 btn btn-success" *ngIf="register?.tinhTrang == 'Đã khám'"
                       [routerLink]="['examination-detail', register.maPhieuKham]"><i
                         class="fas fa-folder-open"></i></button>
-                    <button class="btn btn-danger mr-2" (click)="verifyAction()"><i
-                        class="fas fa-trash"></i></button>
+                    <button class="btn btn-danger mr-2" (click)="verifyAction()"><i class="fas fa-trash"></i></button>
                   </td>
                   <div *ngIf="isDelete" class="verify-box">
                     <div class="container h-100">
@@ -70,14 +73,14 @@
                               </div>
                             </div>
                             <div class="card-body">
-                              <p class="text-center mt-4">Bạn có chắc chắn muốn xóa phiếu khám bệnh này không?</p>
+                              <p class="text-center mt-4"> {{'examination.verify' | translate}}</p>
                             </div>
                             <div class="card-footer">
                               <p class="text-right m-0">
                                 <button class="btn btn-success mr-2" (click)="cancelAction()"> <i
-                                    class="fas fa-undo-alt mr-2"></i>Hủy bỏ</button>
+                                    class="fas fa-undo-alt mr-2"></i> {{'examination.cancel' | translate}}</button>
                                 <button class="btn btn-danger ml-2" (click)="deleteRegister(register)"> <i
-                                    class="fas fa-user-slash mr-2"></i>Xóa</button>
+                                    class="fas fa-user-slash mr-2"></i> {{'examination.delete' | translate}}</button>
                               </p>
                             </div>
                           </div>

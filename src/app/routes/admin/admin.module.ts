@@ -15,6 +15,7 @@ import { ReportModule } from './report/report.module';
 import { FormsModule } from '@angular/forms';
 import { NgbDatepickerModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { SuccessModule } from 'src/app/modals/success/success.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [PatientComponent,
@@ -36,7 +37,8 @@ import { SuccessModule } from 'src/app/modals/success/success.module';
     ReportModule,
     NgbDatepickerModule,
     NgbModalModule,
-    SuccessModule
+    SuccessModule,
+    TranslateModule
   ]
 })
 export class AdminModule { }

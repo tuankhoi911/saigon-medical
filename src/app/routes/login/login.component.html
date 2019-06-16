@@ -14,17 +14,18 @@
     <form autocomplete="off" class="p-4" (ngSubmit)="emailLogin()">
       <div class="input-area row">
         <i class="fal fa-user icon px-0"></i>
-        <input autocomplete="off" type="text" class="input-login" [(ngModel)]="email" placeholder="Tài khoản" name="email"
-          (change)="validateEmail($event.target.value)">
+        <input autocomplete="off" type="text" class="input-login" [(ngModel)]="email"
+          placeholder="{{'login.email' | translate}}" name="email" (change)="validateEmail($event.target.value)">
       </div>
       <div class="input-area row">
         <i class="fal fa-key icon px-0"></i>
-        <input type="password" [(ngModel)]="password" placeholder="Mật khẩu" class="input-login" name="password">
+        <input type="password" [(ngModel)]="password" placeholder="{{'login.password' | translate}}" class="input-login"
+          name="password">
       </div>
-      <button type="submit" class="login-button" (click)="emailLogin()">Đăng nhập</button>
+      <button type="submit" class="login-button" (click)="emailLogin()">{{'login.login' | translate}}</button>
     </form>
     <p class="text-center" style="color: white">
-      Copyright &copy; 2019 <span class="font-weight-bold">GoCodee</span>
+      {{'login.copyright' | translate}} &copy; 2019 <span class="font-weight-bold">GoCodee</span>
     </p>
   </div>
 </div>

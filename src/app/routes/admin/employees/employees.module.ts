@@ -5,6 +5,7 @@ import { EmployeesRoutingModule } from './employees.routing';
 import { FormsModule } from '@angular/forms';
 import { UpdateEmployeesComponent } from './update-employees/update-employees.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AddEmployeesComponent, UpdateEmployeesComponent],
@@ -12,7 +13,8 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     EmployeesRoutingModule,
     FormsModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    TranslateModule
   ]
 })
 export class EmployeesModule { }

@@ -3,10 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 order-md-1">
-          <h4 class="mb-3 text-center"> <i class="fas fa-users-medical mr-3 mt-4"></i>Chỉnh sửa thông tin nhân viên</h4>
-          <form class="needs-validation" novalidate>
+          <h4 class="mb-3 text-center"> <i class="fas fa-users-medical mr-3 mt-4"></i>
+            {{'employee.updateinfor' | translate}}</h4>
+          <form class="needs-validation" #formEmp="ngForm">
             <div class="mb-3">
-              <label for="firstName">Họ và tên</label>
+              <label for="firstName"> {{'employee.name' | translate}}</label>
               <input type="text" class="form-control" id="firstName" placeholder="" required name="fullName"
                 [(ngModel)]="employee.tenNhanVien">
               <div class="invalid-feedback">
@@ -14,7 +15,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="username">Địa chỉ</label>
+              <label for="username"> {{'employee.address' | translate}}</label>
               <div class="input-group">
                 <input type="text" class="form-control" id="username" placeholder="" name="diaChi" required
                   [(ngModel)]="employee.diaChi">
@@ -42,40 +43,39 @@
               </div>
             </div> -->
             <div class="mb-3">
-              <label for="address2">Ngày vào làm</label>
+              <label for="address2"> {{'employee.entrancedate' | translate}}</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="ngayVao"
                 [(ngModel)]="employee.ngayVao">
             </div>
             <div class="mb-3">
-              <label for="address2">Ngày sinh</label>
+              <label for="address2"> {{'employee.birthday' | translate}}</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="ngaySinh"
                 [(ngModel)]="employee.ngaySinh">
             </div>
             <div class="mb-3">
-              <label for="address2">Chức vụ</label>
+              <label for="address2"> {{'employee.rank' | translate}}</label>
               <select class="custom-select d-block w-100" id="country" name="chucVu" required
                 [(ngModel)]="employee.chucVu">
-                <option value="">Chọn...</option>
-                <option>Quản lý</option>
-                <option>Nhân viên</option>
-                <option>Bác sĩ</option>
-                <option>Dược sĩ</option>
+                <option value=""> {{'employee.choose' | translate}}</option>
+                <option> {{'employee.admin' | translate}}</option>
+                <option> {{'employee.employees' | translate}}</option>
+                <option> {{'employee.doctor' | translate}}</option>
+                <option> {{'employee.pharmacist' | translate}}</option>
               </select>
             </div>
             <div class="row">
               <div class="col-md-4 mb-3">
-                <label for="country">Giới tính</label>
+                <label for="country"> {{'employee.sex' | translate}}</label>
                 <select class="custom-select d-block w-100" id="country" name="gender" required
                   [(ngModel)]="employee.gioiTinh">
-                  <option value="">Chọn...</option>
-                  <option value="Nam">Nam</option>
-                  <option value="Nữ">Nữ</option>
-                  <option value="Khác">Khác</option>
+                  <option value=""> {{'employee.choose' | translate}}</option>
+                  <option value="Nam"> {{'employee.male' | translate}}</option>
+                  <option value="Nữ"> {{'employee.female' | translate}}</option>
                 </select>
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="updateEmployee()">Cập nhật</button>
+            <button class="btn btn-lng btn-block" (click)="updateEmployee()" [class.ban]="formEmp.invalid" disabled="formEmp.invalid"> {{'employee.update' | translate}}</button>
           </form>
         </div>
       </div>

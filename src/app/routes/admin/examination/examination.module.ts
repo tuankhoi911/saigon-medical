@@ -7,6 +7,7 @@ import { AddDrugModule } from 'src/app/modals/add-drug/add-drug.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExaminationDetailComponent } from './examination-detail/examination-detail.component';
 import { SuccessModule } from 'src/app/modals/success/success.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AddExaminationComponent, ExaminationDetailComponent],
@@ -16,7 +17,8 @@ import { SuccessModule } from 'src/app/modals/success/success.module';
     FormsModule,
     NgbModalModule,
     AddDrugModule,
-    SuccessModule
+    SuccessModule,
+    TranslateModule
   ],
   exports: [AddExaminationComponent]
 })
