@@ -10,8 +10,10 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Hóa đơn</h4>
-              <p class="m-0">Thanh toán & Hóa đơn</p>
+              <h4 class="m-0">
+                {{'invoice.title' | translate}}
+              </h4>
+              <p class="m-0"> {{'invoice.description' | translate}}</p>
             </div>
           </div>
         </div>
@@ -33,23 +35,23 @@
               <div class="col-12">
                 <form class="search-container mx-auto">
                   <input type="text" id="search-bar" (keyup)="searchUpdateForInvoice($event.target.value)"
-                    placeholder="Nhập để tìm kiếm!">
+                    placeholder="  {{'invoice.search' | translate}}">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
             </div>
           </div>
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách hóa đơn</h5>
+            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i> {{'invoice.list' | translate}}</h5>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Tên bệnh nhân</th>
-                  <th scope="col">Mã hóa đơn</th>
-                  <th scope="col">Thành tiền</th>
-                  <th scope="col">Ngày thêm</th>
-                  <th scope="col">Tình trạng</th>
-                  <th scope="col">Chi tiết</th>
+                  <th scope="col"> {{'invoice.name' | translate}}</th>
+                  <th scope="col"> {{'invoice.billsid' | translate}}</th>
+                  <th scope="col"> {{'invoice.cost' | translate}}</th>
+                  <th scope="col"> {{'invoice.adddate' | translate}}</th>
+                  <th scope="col"> {{'invoice.status' | translate}}</th>
+                  <th scope="col"> {{'invoice.detail' | translate}}</th>
                 </tr>
               </thead>
               <tbody>

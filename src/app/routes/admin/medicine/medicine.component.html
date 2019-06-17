@@ -10,8 +10,12 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Dược phẩm</h4>
-              <p class="m-0">Quản lí thuốc và thực phẩm chức năng</p>
+              <h4 class="m-0">
+                {{'medicine.title' | translate}}
+              </h4>
+              <p class="m-0">
+                {{'medicine.description' | translate}}
+              </p>
             </div>
           </div>
         </div>
@@ -23,8 +27,8 @@
         <div class="patient-list">
           <div class="patient-list-head">
             <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-medicine'"><a><i class="fas fa-plus-square mr-2"></i>Thêm dược
-                  phẩm
+              <button class="btn m-2" [routerLink]="'add-medicine'"><a><i class="fas fa-plus-square mr-2"></i>
+                {{'medicine.addmed' | translate}}
                 </a></button>
             </p>
           </div>
@@ -33,25 +37,25 @@
               <div class="col-12">
                 <form class="search-container mx-auto">
                   <input type="text" id="search-bar" (keyup)="searchUpdateMed($event.target.value)"
-                    placeholder="Nhập để tìm kiếm!">
+                    placeholder="{{'medicine.search' | translate}}">
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
             </div>
           </div>
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>Danh sách thuốc trong kho</h5>
+            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>{{'medicine.list' | translate}}</h5>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Mã</th>
-                  <th scope="col">Tên thuốc</th>
-                  <th scope="col">Đơn vị</th>
-                  <th scope="col">Số lượng</th>
-                  <th scope="col">Ngày sản xuất</th>
-                  <th scope="col">Hạn sử dụng</th>
-                  <th scope="col">Giá</th>
-                  <th class="text-center" scope="col">Hành động</th>
+                  <th scope="col">#</th>
+                  <th scope="col">{{'medicine.name' | translate}}</th>
+                  <th scope="col">{{'medicine.unit' | translate}}</th>
+                  <th scope="col">{{'medicine.amount' | translate}}</th>
+                  <th scope="col">{{'medicine.nsx' | translate}}</th>
+                  <th scope="col">{{'medicine.hsd' | translate}}</th>
+                  <th scope="col">{{'medicine.cost' | translate}}</th>
+                  <th class="text-center" scope="col">{{'medicine.action' | translate}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -64,9 +68,8 @@
                   <td>{{medicine?.hanSuDung}}</td>
                   <td>{{medicine?.gia}}</td>
                   <td class="text-center">
-                    <button class="btn text-white mr-2"
-                      [routerLink]="['update-medicine' , medicine.maThuoc]" style="width: 40px;"><i
-                        class="fas fa-pencil-alt"></i></button>
+                    <button class="btn text-white mr-2" [routerLink]="['update-medicine' , medicine.maThuoc]"
+                      style="width: 40px;"><i class="fas fa-pencil-alt"></i></button>
                     <button class="btn btn-danger" style="width: 40px" (click)="verifyAction()"><i
                         class="fas fa-trash"></i></button>
                   </td>
@@ -81,14 +84,14 @@
                               </div>
                             </div>
                             <div class="card-body">
-                              <p class="text-center mt-4">Bạn có chắc chắn muốn xóa loại thuốc này?</p>
+                              <p class="text-center mt-4">{{'medicine.verify' | translate}}</p>
                             </div>
                             <div class="card-footer">
                               <p class="text-right m-0">
                                 <button class="btn btn-success mr-2" (click)="cancelAction()"> <i
-                                    class="fas fa-undo-alt mr-2"></i>Hủy bỏ</button>
+                                    class="fas fa-undo-alt mr-2"></i>{{'medicine.cancel' | translate}}</button>
                                 <button class="btn btn-danger ml-2" (click)="deleteMedicine(medicine)"> <i
-                                    class="fas fa-user-slash mr-2"></i>Xóa dược phẩm</button>
+                                    class="fas fa-user-slash mr-2"></i>{{'medicine.delete' | translate}}</button>
                               </p>
                             </div>
                           </div>

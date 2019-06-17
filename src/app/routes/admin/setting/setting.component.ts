@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -12,15 +13,16 @@ export class SettingComponent implements OnInit {
   jp = 'assets/images/icon/japan.svg';
   en = 'assets/images/icon/uk.svg';
   vi = 'assets/images/icon/vi.svg';
-  // jp = 'assets/images/icon/japan.svg';
-  // jp = 'assets/images/icon/japan.svg';
-  // jp = 'assets/images/icon/japan.svg';
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private router: Router) {
   }
 
   useLanguage(language: string) {
     this.translate.use(language);
+  }
+
+  public save() {
+    this.router.navigate(['admin', 'overview'])
   }
 
   ngOnInit() {

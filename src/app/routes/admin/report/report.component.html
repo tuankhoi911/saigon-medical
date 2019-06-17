@@ -10,12 +10,13 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Báo cáo</h4>
-              <p class="m-0">Quản lí báo cáo của phòng khám</p>
+              <h4 class="m-0">
+                {{'report.title' | translate}}
+              </h4>
+              <p class="m-0">{{'report.description' | translate}}</p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <div class="row bg-nhanviet">
@@ -24,17 +25,17 @@
           <div class="patient-list-head">
           </div>
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-2 title-list p-2"><i class="fal fa-stretcher mr-2"></i>Báo cáo số bệnh nhân theo tháng</h5>
+            <h5 class="mb-2 title-list p-2"><i class="fal fa-stretcher mr-2"></i>{{'report.reportpatient' | translate}}
+            </h5>
             <form action="" class="form-inline">
               <div class="container mb-2">
                 <div class="row">
                   <div class="col-4">
                     <div class="form-group w-100">
                       <div class="input-group w-100">
-                        <label for="month">Tháng</label>
+                        <label for="month">{{'report.month' | translate}}</label>
                         <select class="custom-select d-block w-100" id="month" name="month" required
                           [(ngModel)]="reportPatient.month">
-                          <option selected value="">Chọn...</option>
                           <option *ngFor="let month of months">
                             {{month}}
                           </option>
@@ -45,10 +46,9 @@
                   <div class="col-4">
                     <div class="form-group w-100">
                       <div class="input-group w-100">
-                        <label for="year">Năm</label>
+                        <label for="year">{{'report.year' | translate}}</label>
                         <select class="custom-select d-block w-100" id="year" name="year" required
                           [(ngModel)]="reportPatient.year">
-                          <option selected="true">Chọn...</option>
                           <option *ngFor="let year of years">
                             {{year}}
                           </option>
@@ -58,9 +58,10 @@
                   </div>
                   <div class="col-4">
                     <p class="text-center mt-4">
-                      <a [href]="'http://localhost:8080/baocao/benhnhan?thangThem=' + reportPatient.month + '&namThem=' + reportPatient.year " target="_blank" class="btn" type="submit">
+                      <a [href]="'http://localhost:8080/baocao/benhnhan?thangThem=' + reportPatient.month + '&namThem=' + reportPatient.year "
+                        target="_blank" class="btn" type="submit">
                         <i class="fal fa-plus-octagon mr-2"></i>
-                        Tạo báo cáo
+                        {{'report.create' | translate}}
                       </a>
                     </p>
                   </div>
@@ -69,17 +70,17 @@
             </form>
           </div>
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-2 title-list p-2"><i class="fal fa-journal-whills mr-2"></i>Báo cáo số thuốc đã sử dụng theo tháng</h5>
+            <h5 class="mb-2 title-list p-2"><i
+                class="fal fa-journal-whills mr-2"></i>{{'report.reportdrug' | translate}}</h5>
             <form class="form-inline">
               <div class="container mb-2">
                 <div class="row">
                   <div class="col-4">
                     <div class="form-group w-100">
                       <div class="input-group w-100">
-                        <label for="month">Tháng</label>
+                        <label for="month">{{'report.month' | translate}}</label>
                         <select class="custom-select d-block w-100" id="month" name="month" required
                           [(ngModel)]="reportMedicine.month">
-                          <option value="">Chọn...</option>
                           <option *ngFor="let month of months">
                             {{month}}
                           </option>
@@ -90,10 +91,9 @@
                   <div class="col-4">
                     <div class="form-group w-100">
                       <div class="input-group w-100">
-                        <label for="month">Năm</label>
+                        <label for="month">{{'report.year' | translate}}</label>
                         <select class="custom-select d-block w-100" id="year" name="year" required
                           [(ngModel)]="reportMedicine.year">
-                          <option value="">Chọn...</option>
                           <option *ngFor="let year of years">
                             {{year}}
                           </option>
@@ -103,18 +103,17 @@
                   </div>
                   <div class="col-4">
                     <p class="text-center mt-4">
-                      <a [href]="'http://localhost:8080/baocao/thuocdadung?thangBaoCao=' + reportMedicine.month + '&namBaoCao=' + reportMedicine.year " target="_blank" class="btn" type="submit">
+                      <a [href]="'http://localhost:8080/baocao/thuocdadung?thangBaoCao=' + reportMedicine.month + '&namBaoCao=' + reportMedicine.year "
+                        target="_blank" class="btn" type="submit">
                         <i class="fal fa-plus-octagon mr-2"></i>
-                        Tạo báo cáo
+                        {{'report.create' | translate}}
                       </a>
-                      
                     </p>
                   </div>
                 </div>
               </div>
-            </form>     
+            </form>
           </div>
-
         </div>
       </div>
     </div>

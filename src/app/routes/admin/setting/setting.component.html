@@ -10,12 +10,15 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">Cài Đặt</h4>
-              <p class="m-0">Tùy chỉnh hiển thị của người dùng</p>
+              <h4 class="m-0">
+                {{'setting.title' | translate}}
+              </h4>
+              <p class="m-0">
+                {{'setting.description' | translate}}
+              </p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <div class="row bg-nhanviet">
@@ -23,23 +26,23 @@
         <div class="patient-list">
           <div class="patient-list-head">
             <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-patient'"><a><i class="fal fa-save mr-2"></i>Lưu cài đặt
+              <button class="btn m-2" (click)="save()"><a><i
+                    class="fal fa-save mr-2"></i>{{'setting.save' | translate}}
                 </a></button>
             </p>
           </div>
           <div class="col-12 mt-4 patinent-table p-0">
-            <h5 class="mb-2 title-list p-2"><i class="fal fa-id-card-alt mr-2"></i>Màu sắc giao diện</h5>
+            <h5 class="mb-2 title-list p-2"><i class="fal fa-id-card-alt mr-2"></i> {{'setting.Theme' | translate}}</h5>
             <div class="color-picker p-2">
-             <button id="btn-1" class="btn mr-2"></button>
-             <button id="btn-2" class="btn mr-2"></button>
-             <button id="btn-3" class="btn mr-2"></button>
-             <button id="btn-4" class="btn mr-2"></button>
-             <button id="btn-5" class="btn mr-2"></button>
+              <button id="btn-1" class="btn mr-2"></button>
+              <button id="btn-2" class="btn mr-2"></button>
+              <button id="btn-3" class="btn mr-2"></button>
+              <button id="btn-4" class="btn mr-2"></button>
+              <button id="btn-5" class="btn mr-2"></button>
             </div>
           </div>
-
-          <div class="col-12 mt-4 patinent-table p-0">
-            <h5 class="mb-2 title-list p-2"><i class="fal fa-language mr-2"></i>Ngôn ngữ</h5>
+          <div class="col-12 mt-4 patinent-table p-0 mb-4">
+            <h5 class="mb-2 title-list p-2"><i class="fal fa-language mr-2"></i> {{'setting.language' | translate}}</h5>
             <div class="language p-2">
               <button class="btn mr-2" (click)="useLanguage('jp')"> <img [src]="jp" alt="#"> 日本人</button>
               <button class="btn mr-2" (click)="useLanguage('vi')"> <img [src]="vi" alt="#"> Tiếng Việt</button>
@@ -47,7 +50,6 @@
               <!-- <button class="btn mr-2" (click)="useLanguage('kr')"> <img [src]="kr" alt="#"> </button>/ -->
             </div>
           </div>
-
         </div>
       </div>
     </div>

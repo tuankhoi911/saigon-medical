@@ -5,6 +5,7 @@ import { MedicineRoutingModule } from './medicine.routing';
 import { FormsModule } from '@angular/forms';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateMedicineComponent } from './update-medicine/update-medicine.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AddMedicineComponent, UpdateMedicineComponent],
@@ -12,7 +13,8 @@ import { UpdateMedicineComponent } from './update-medicine/update-medicine.compo
     CommonModule,
     MedicineRoutingModule,
     FormsModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    TranslateModule
   ]
 })
 export class MedicineModule { }
