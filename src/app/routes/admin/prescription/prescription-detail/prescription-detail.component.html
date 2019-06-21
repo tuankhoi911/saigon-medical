@@ -101,8 +101,9 @@
             <p class="text-right m-0">
               <button class="btn btn-danger mr-2" (click)="close()"> <i class="fas fa-undo-alt mr-2"></i>
                 {{'invoice.close' | translate}}</button>
-              <button class="btn btn-success ml-2" (click)="updateStatusAndPrintBill()"> <i
-                  class="fal fa-print mr-2"></i> {{'invoice.print' | translate}}</button>
+              <a class="btn btn-success ml-2 btn-print"
+                [href]="'http://localhost:8080/baocao/hoadon/' + invoice?.maHoaDon " target="_blank"> <i
+                  class="fal fa-print mr-2"></i> {{'invoice.print' | translate}}</a>
             </p>
           </div>
         </div>
