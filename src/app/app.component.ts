@@ -9,6 +9,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'hospital';
   constructor(private translate: TranslateService) {
-    translate.setDefaultLang('jp');
+    translate.setDefaultLang('vi');
   }
 }

@@ -20,17 +20,10 @@
 
       </div>
     </div>
-    <div class="row bg-nhanviet" *ngIf="isHidden">
-      <div class="col-lg-12">
+    <div class="row" *ngIf="isHidden">
+      <div class="col-lg-12 mb-1 bg-gradient">
         <div class="patient-list">
-          <!-- <div class="patient-list-head">
-            <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-patient'"><a><i class="fas fa-plus-square mr-2"></i>Thêm bệnh
-                  nhân
-                </a></button>
-            </p>
-          </div> -->
-          <div class="search-patient mt-3">
+          <div class="search-patient">
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
@@ -41,6 +34,10 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-lg-12 bg-nhanviet">
+        <div class="patient-list">
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
             <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i> {{'invoice.list' | translate}}</h5>
             <table class="table ml-2">

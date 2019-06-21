@@ -9,7 +9,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       }
     })
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

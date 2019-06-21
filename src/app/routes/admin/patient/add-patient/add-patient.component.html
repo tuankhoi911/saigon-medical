@@ -1,14 +1,18 @@
-<div class="add-patient pt-4">
+<div class="add-patient pt-4 bg-gradient">
   <div class="bg-light register-option">
     <div class="container">
       <div class="row">
         <!-- chỉnh khung divide vào giữa màn hình -->
         <div class="col-lg-12 order-md-1">
           <!-- chỉnh khung divide vào giữa màn hình -->
-          <h4 class="mb-3 text-center"> <i class="fal fa-user-plus mr-3 mt-4"></i>Thông tin bệnh nhân</h4>
+          <h4 class="mb-3 text-center"> <i class="fal fa-user-plus mr-3 mt-4"></i>
+            {{'patient.addinfor' | translate}}
+          </h4>
           <form class="needs-validation" #formPat="ngForm">
             <div class="mb-3">
-              <label for="firstName">Họ và tên</label>
+              <label for="firstName">
+                {{'patient.name' | translate}}
+              </label>
               <input type="text" class="form-control" id="firstName" name="hoTen" placeholder="" value="" required
                 [(ngModel)]="patient.tenBenhNhan">
               <div class="invalid-feedback">
@@ -16,12 +20,12 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="address2">Số điện thoại</label>
+              <label for="address2">  {{'patient.phone' | translate}}</label>
               <input type="text" class="form-control" id="address2" name="soDienThoai" placeholder=""
                 [(ngModel)]="patient.soDienThoai">
             </div>
             <div class="mb-3">
-              <label for="username">Địa chỉ</label>
+              <label for="username">  {{'patient.address' | translate}}</label>
               <div class="input-group">
                 <input type="text" class="form-control" id="username" name="diaChi" placeholder="" required
                   [(ngModel)]="patient.diaChi">
@@ -40,18 +44,18 @@
               </div>
             </div> -->
             <div class="mb-3">
-              <label for="address2">Ngày sinh</label>
+              <label for="address2">  {{'patient.birthday' | translate}}</label>
               <input type="text" class="form-control" id="address2" name="ngaySinh" placeholder=""
                 [(ngModel)]="patient.ngaySinh">
             </div>
             <div class="mb-3">
-              <label for="address2">Nghề nghiệp</label>
+              <label for="address2">  {{'patient.job' | translate}}</label>
               <input type="text" class="form-control" id="address2" name="ngheNghiep" placeholder=""
                 [(ngModel)]="patient.ngheNghiep">
             </div>
             <div class="row">
               <div class="col-md-4 mb-3">
-                <label for="gender">Giới tính</label>
+                <label for="gender">  {{'patient.sex' | translate}}</label>
                 <select class="custom-select d-block w-100" id="gender" name="gioiTinh" required
                   [(ngModel)]="patient.gioiTinh">
                   <option value="Nam">Nam</option>
@@ -61,7 +65,8 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="createPatient()" [disabled]="formPat.invalid" [class.ban]="formPat.invalid">Tạo bệnh nhân</button>
+            <button class="btn btn-lng btn-block w-25 float-right" (click)="createPatient()" [disabled]="formPat.invalid"
+              [class.ban]="formPat.invalid">  {{'patient.create' | translate}}</button>
 
             <!-- Alert -->
           </form>

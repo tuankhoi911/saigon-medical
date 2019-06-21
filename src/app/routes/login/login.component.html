@@ -1,25 +1,24 @@
 <div class="background">
   <div class="area-login">
     <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>Đăng nhập thất bại!</strong><br>Vui lòng kiểm tra tài khoản!
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <strong>
+          {{'login.fail' | translate}}
+      </strong><br> {{'login.recheck' | translate}}
     </div>
     <div class="pt-4 m-4">
       <p class="text-center m-0">
         <img style="cursor: pointer;" class="w-100 img" [src]="pbLogo" [routerLink]="['/']" alt="">
       </p>
     </div>
-    <form autocomplete="off" class="p-4" (ngSubmit)="emailLogin()">
+    <form autocomplete="off" class="p-4">
       <div class="input-area row">
         <i class="fal fa-user icon px-0"></i>
-        <input autocomplete="off" type="text" class="input-login" [(ngModel)]="email"
-          placeholder="{{'login.email' | translate}}" name="email" (change)="validateEmail($event.target.value)">
+        <input autocomplete="off" type="text" class="input-login" [(ngModel)]="user.username"
+          placeholder="{{'login.email' | translate}}" name="username" (change)="validateEmail($event.target.value)">
       </div>
       <div class="input-area row">
         <i class="fal fa-key icon px-0"></i>
-        <input type="password" [(ngModel)]="password" placeholder="{{'login.password' | translate}}" class="input-login"
+        <input type="password" [(ngModel)]="user.password" placeholder="{{'login.password' | translate}}" class="input-login"
           name="password">
       </div>
       <button type="submit" class="login-button" (click)="emailLogin()">{{'login.login' | translate}}</button>

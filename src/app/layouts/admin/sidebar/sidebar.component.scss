@@ -10,6 +10,7 @@
   z-index: 100; /* Behind the navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   background: #2c3136;
+  border-radius: 5px;
 }
 
 .sidebar-sticky {
@@ -23,6 +24,7 @@
 }
 
 .sidebar-logo {
+  border-top-left-radius: 5px;
   background: #3e454c;
 }
 
@@ -31,21 +33,13 @@
   font-size: 14px;
   color: #a6a6a6;
 
-  &:active {
-    background: #555b63;
-    color: white;
-  }
-
-  &:focus {
-    transition-duration: 0.2s;
-    background: #555b63;
-    color: white;
-  }
-
+  &:active,
+  &:focus,
   &:hover {
-    transition-duration: 0.2s;
-    background: #555b63;
-    color: white;
+    // transition-duration: 0.4s;
+    background-image: linear-gradient(to right, #36d1dc, #5b86e5);
+    border-radius: 35px;
+    color: #2c3136;
   }
 }
 

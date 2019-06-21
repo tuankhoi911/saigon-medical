@@ -6,6 +6,7 @@ import "rxjs/add/operator/takeUntil";
 import { RegisterService } from 'src/app/services/register.service';
 import { SuccessComponent } from 'src/app/modals/success/success.component';
 import { NgbModal, NgbModalConfig, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-patient',
@@ -22,6 +23,7 @@ export class PatientComponent implements OnInit, OnDestroy {
   public patients: any;
   public searchedUsers = this.patients;
   private onDestroy = new Subject<void>();
+  public headerJsonWebToken = `Bearer ${localStorage.getItem(environment.accessToken)}`;
 
   constructor(private router: Router, protected patientService: PatientService, protected registerService: RegisterService, private modalService: NgbModal) {
     router.events.subscribe((event: Event) => {
@@ -37,6 +39,8 @@ export class PatientComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getAllPatients();
+    // console.log(this.headerJsonWebToken);
+    
   }
 
   ngOnDestroy() {

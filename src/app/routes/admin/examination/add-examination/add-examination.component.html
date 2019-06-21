@@ -55,8 +55,8 @@
                       <div class="col-3 pt-1" style="border: 1px #000 solid">
                         {{medicine.amount}}
                       </div>
-                      <div class="col-1">
-                        <button class="btn btn-danger" (click)="delete(index)"><i class="fas fa-trash-alt"></i></button>
+                      <div class="col-1 btn-action">
+                        <button class="btn btn-danger" style="width: 45px; height: 45px;" (click)="delete(index)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </div>
                   </div>
@@ -104,7 +104,7 @@
                         <td>{{user?.tenThuoc}}</td>
                         <td>{{user?.soLuong}}</td>
                         <td>{{user?.donVi}}</td>
-                        <td class="text-right"><button class="btn" (click)="show(index)"><i
+                        <td class="text-right btn-action"><button class="btn" (click)="show(index)"><i
                               class="fas fa-folder-plus"></i></button></td>
 
                       </tr>

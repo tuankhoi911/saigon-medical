@@ -14,7 +14,9 @@
         "email": "Username",
         "password": "Password",
         "login": "Log-in",
-        "copyright": "Copyright"
+        "copyright": "Copyright",
+        "fail": "Login failed!",
+        "recheck": "Please check out your account!"
     },
     "overview": {
         "title": "Overview",
@@ -130,7 +132,7 @@
         "admin": "Admin",
         "employees": "Employee",
         "doctor": "Doctor",
-        "pharmacist": "Pharacist",
+        "pharmacist": "Pharmacist",
         "male": "Male",
         "female": "Female"
     },

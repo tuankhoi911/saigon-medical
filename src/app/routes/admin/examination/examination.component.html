@@ -21,10 +21,10 @@
         </div>
       </div>
     </div>
-    <div class="row bg-nhanviet" *ngIf="isHidden">
-      <div class="col-lg-12">
+    <div class="row" *ngIf="isHidden">
+      <div class="col-lg-12 mb-1 bg-gradient">
         <div class="patient-list">
-          <div class="search-patient mt-3">
+          <div class="search-patient">
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
@@ -35,6 +35,11 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 bg-nhanviet">
+        <div class="patient-list">
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
             <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i> {{'examination.list' | translate}}</h5>
             <table class="table ml-2">
@@ -54,7 +59,7 @@
                   <td><span class="badge" [class.badge-success]="register?.tinhTrang == 'Đã khám'"
                       [class.badge-warning]="register?.tinhTrang == 'Đang chờ'">{{register?.tinhTrang}}</span></td>
                   <td>{{register?.ngayDangKi}}</td>
-                  <td class="text-center btn-box">
+                  <td class="text-center btn-action">
                     <button class="btn mr-2" *ngIf="register?.tinhTrang == 'Đang chờ'"
                       [routerLink]="['add-examination', register.maDangKi]"><i class="fas fa-plus-circle"></i></button>
                     <button class="mr-2 btn btn-success" *ngIf="register?.tinhTrang == 'Đã khám'"

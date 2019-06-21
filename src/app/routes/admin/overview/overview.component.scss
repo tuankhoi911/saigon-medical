@@ -1,5 +1,6 @@
 .patient {
-  margin-left: 230px;
+  margin-left: 237px;
+  margin-right: 5px;
 }
 
 .patient-nav {
@@ -8,7 +9,7 @@
 
   i {
     font-size: 50px;
-    color: #395c9c;
+    color: #36d1dc;
   }
 }
 
@@ -18,7 +19,7 @@
     top: 8px;
     right: 275px;
     font-size: 20px;
-    color: #395c9c;
+    color: #36d1dc;
   }
   .search-container {
     width: auto;
@@ -40,9 +41,9 @@
     border-radius: 5px;
     outline: none;
     &:focus {
-      border: 1px solid #395c9c;
+      border: 1px solid #36d1dc;
       transition: 0.35s ease;
-      color: #395c9c;
+      color: #36d1dc;
       &::-webkit-input-placeholder {
         transition: opacity 0.45s ease;
         opacity: 0;
@@ -56,13 +57,6 @@
         opacity: 0;
       }
     }
-  }
-}
-
-.thead-dark {
-  th {
-    background-color: #395c9c !important;
-    border: none !important;
   }
 }
 
@@ -97,12 +91,12 @@
   }
 
   .so-luong {
-    color: #395c9c;
+    color: #36d1dc;
   }
 }
 .survey-icon {
   font-size: 50px;
-  color: #395c9c;
+  color: #36d1dc;
 }
 
 .card {
@@ -124,11 +118,11 @@
 .title-list {
   border-top-left-radius: none;
   border-bottom-left-radius: none;
-  border-left: #395c9c solid 5px;
+  color: #212529;
 }
 
 .card-title {
-  color: #395c9c;
+  color: #36d1dc;
   font-weight: bold;
 }
 

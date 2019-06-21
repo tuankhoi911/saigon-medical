@@ -22,17 +22,10 @@
 
       </div>
     </div>
-    <div class="row bg-nhanviet" *ngIf="isHidden">
-      <div class="col-lg-12">
+    <div class="row" *ngIf="isHidden">
+      <div class="col-lg-12 mb-1 bg-gradient">
         <div class="patient-list">
-          <div class="patient-list-head">
-            <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-medicine'"><a><i class="fas fa-plus-square mr-2"></i>
-                {{'medicine.addmed' | translate}}
-                </a></button>
-            </p>
-          </div>
-          <div class="search-patient mt-3">
+          <div class="search-patient">
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
@@ -43,8 +36,19 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-lg-12 bg-nhanviet">
+        <div class="patient-list">
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>{{'medicine.list' | translate}}</h5>
+            <h5 class="mb-2 title-list p-2"> <i class="fas fa-list mr-2"></i>{{'medicine.list' | translate}}</h5>
+            <div class="patient-list-head mb-2">
+              <p class="m-0">
+                <button class="btn m-2" [routerLink]="'add-medicine'"><a><i class="fas fa-plus-square mr-2"></i>
+                    {{'medicine.addmed' | translate}}
+                  </a></button>
+              </p>
+            </div>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
@@ -67,11 +71,10 @@
                   <td>{{medicine?.ngaySanXuat}}</td>
                   <td>{{medicine?.hanSuDung}}</td>
                   <td>{{medicine?.gia}}</td>
-                  <td class="text-center">
-                    <button class="btn text-white mr-2" [routerLink]="['update-medicine' , medicine.maThuoc]"
-                      style="width: 40px;"><i class="fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger" style="width: 40px" (click)="verifyAction()"><i
-                        class="fas fa-trash"></i></button>
+                  <td class="text-center btn-action">
+                    <button class="btn text-white mr-2" [routerLink]="['update-medicine' , medicine.maThuoc]"><i
+                        class="fas fa-pencil-alt"></i></button>
+                    <button class="btn btn-danger" (click)="verifyAction()"><i class="fas fa-trash"></i></button>
                   </td>
                   <div *ngIf="isDelete" class="verify-box">
                     <div class="container h-100">

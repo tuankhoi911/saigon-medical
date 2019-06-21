@@ -17,16 +17,10 @@
         </div>
       </div>
     </div>
-    <div class="row bg-nhanviet" *ngIf="isHidden">
-      <div class="col-lg-12">
+    <div class="row" *ngIf="isHidden">
+      <div class="col-lg-12 mb-1 bg-gradient">
         <div class="patient-list">
-          <div class="patient-list-head">
-            <p class="m-0">
-              <button class="btn m-2" [routerLink]="'add-patient'"><a><i class="fas fa-plus-square mr-2"></i>{{'patient.addpatient' | translate}}
-                </a></button>
-            </p>
-          </div>
-          <div class="search-patient mt-3">
+          <div class="search-patient">
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
@@ -37,8 +31,20 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 bg-nhanviet">
+        <div class="patient-list">
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i>{{'patient.list' | translate}}</h5>
+            <h5 class=" mb-2 title-list p-2"> <i class="fas fa-list mr-2"></i>{{'patient.list' | translate}}</h5>
+            <div class="patient-list-head mb-2">
+              <p class="m-0">
+                <button class="btn m-2" [routerLink]="'add-patient'"><a><i
+                      class="fas fa-plus-square mr-2"></i>{{'patient.addpatient' | translate}}
+                  </a></button>
+              </p>
+            </div>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
@@ -61,13 +67,13 @@
                   <td>{{patient.ngaySinh}}</td>
                   <td>{{patient.diaChi}}</td>
                   <td>{{patient.ngheNghiep}}</td>
-                  <td style="color: blue"><i class="fas  fa-mobile-android-alt mr-2"></i>{{patient.soDienThoai}}</td>
+                  <td style="color: #5b86e5"><i class="fas  fa-mobile-android-alt mr-2"></i>{{patient.soDienThoai}}</td>
                   <td>{{patient.ngayThem}}</td>
                   <td class="btn-action text-center">
                     <button class="btn mr-2" (click)="registerExams(patient)"><i
-                        class="fal fa-plus-circle"></i></button>
-                    <button class="btn btn-warning mr-2 text-white" [routerLink]="['update-patient', patient.maBenhNhan]"><i
-                        class="fas fa-pencil-alt"></i></button>
+                        class="fas fa-plus-square"></i></button>
+                    <button class="btn btn-warning mr-2 text-white"
+                      [routerLink]="['update-patient', patient.maBenhNhan]"><i class="fas fa-pencil-alt"></i></button>
                     <button class="btn btn-danger" (click)="verifyAction()"><i class="fas fa-trash"></i></button>
                   </td>
                   <div *ngIf="isDelete" class="verify-box">

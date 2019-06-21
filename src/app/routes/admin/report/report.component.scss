@@ -1,20 +1,17 @@
 .patient {
-  margin-left: 230px;
+  margin-left: 237px;
+  margin-right: 5px;
 
   a {
-    background: #395c9c;
-    box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2) inset;
-    color: white;
+    background: #36d1dc;
+    color: black;
+    cursor: pointer;
+    border-color: transparent;
     border-radius: 5px !important;
-
-    &:hover {
-      color: white;
-      transition-duration: 0.4s;
-      background: #5384df;
-    }
-
-    &:focus {
-      box-shadow: none;
+    &:hover,
+    &:focus,
+    &:active {
+      background: darken(#36d1dc, 20%);
     }
   }
 }

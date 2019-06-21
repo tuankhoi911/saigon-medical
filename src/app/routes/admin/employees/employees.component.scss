@@ -1,5 +1,6 @@
 .patient {
-  margin-left: 230px;
+  margin-left: 237px;
+  margin-right: 5px;
 }
 
 .patient-nav {
@@ -8,11 +9,12 @@
 
   i {
     font-size: 50px;
-    color: #395c9c;
+    color: darken(#36d1dc, 6%);
   }
 }
 
 .search-patient {
+  margin: 50px;
   a {
     position: absolute;
     top: 8px;
@@ -59,13 +61,6 @@
   }
 }
 
-.thead-dark {
-  th {
-    background-color: #395c9c !important;
-    border: none !important;
-  }
-}
-
 .table {
   border: #e1e6ef 1px solid;
   border-radius: 5px;
@@ -82,10 +77,4 @@
   border: 1px solid #d0cfce;
   border-radius: 5px;
   background: white;
-}
-
-.verify-box {
-  .card {
-    height: 270px;
-  }
 }

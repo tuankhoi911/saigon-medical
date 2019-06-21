@@ -6,7 +6,10 @@ export const environment = {
   production: false,
 
   // URL of development API
-  apiUrl: 'http://localhost:8080/api'
+  apiUrl: 'http://localhost:8080/api',
+  apiAuthUrl: 'http://localhost:8080/api/auth/signin',
+  accessToken: 'Access Token',
+  role: 'Role'
 };
 
 /*

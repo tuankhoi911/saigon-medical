@@ -22,7 +22,7 @@
 
             </div>
         </div>
-        <div class="row bg-nhanviet survey pt-3">
+        <div class="row bg-gradient survey br-5 pt-3 pb-3">
             <div class="col-3">
                 <div class="card">
                     <div class="container">
@@ -58,7 +58,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-4 p-0">
-                                <i class="fal fa-scalpel-path survey-icon"></i>
+                                <i class="fal fa-user-nurse survey-icon"></i>
                             </div>
                             <div class="col-8 p-0">
                                 <p class="don-kham m-0">{{'overview.newemploy' | translate}}</p>
@@ -77,31 +77,35 @@
                             </div>
                             <div class="col-8 p-0">
                                 <p class="don-kham m-0">{{'overview.revenue' | translate}}</p>
-                                <h3 class="so-luong pl-2">300  triệu</h3>
+                                <h3 class="so-luong pl-2">300 triệu</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row bg-gradient mt-4 br-5">
 
-            <div class="col-6 bar-chart m-3">
+            <div class="col-5 bar-chart mx-auto mt-4 mb-4">
                 <h4 class="text-left mt-2">
                     {{'overview.ptnrate' | translate}}
                 </h4>
                 <label for="">{{'overview.ptndescription' | translate}}</label>
                 <app-bar-chart></app-bar-chart>
             </div>
-            <div class="col-5 pie-chart m-3">
+            <div class="col-5 pie-chart mx-auto mt-4 mb-4">
                 <h4 class="text-left mt-2">
                     {{'overview.dptrate' | translate}}
                 </h4>
                 <label for="">{{'overview.dptdescription' | translate}}</label>
                 <app-pie-chart></app-pie-chart>
             </div>
+
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-file-invoice-dollar mr-2"></i>{{'overview.incomemonth' | translate}}</h4>
+                <h4 class="mb-4 title-list p-2 bg-gradient"><i
+                        class="fal fa-file-invoice-dollar mr-2"></i>{{'overview.incomemonth' | translate}}</h4>
                 <table class="table ml-2">
                     <thead class="thead-dark">
                         <tr>
@@ -124,7 +128,7 @@
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-medal mr-2"></i>{{'overview.achiev' | translate}}</h4>
+                <h4 class="bg-gradient mb-4 title-list p-2"><i class="fal fa-medal mr-2"></i>{{'overview.achiev' | translate}}</h4>
                 <div class="container">
                     <div class="row p-2">
                         <div *ngFor="let reward of rewards" class="col-lg-3">
@@ -146,7 +150,8 @@
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-head-side-brain mr-2"></i>{{'overview.tech' | translate}}</h4>
+                <h4 class="bg-gradient mb-4 title-list p-2"><i
+                        class="fal fa-head-side-brain mr-2"></i>{{'overview.tech' | translate}}</h4>
                 <div class="container">
                     <div class="row p-2">
                         <div *ngFor="let tech of techs" class="col-lg-3">
@@ -168,7 +173,8 @@
         </div>
         <div class="row">
             <div class="col-12 mt-4 patinent-table p-0">
-                <h4 class="mb-4 title-list p-2"><i class="fal fa-images mr-2"></i>{{'overview.gallery' | translate}}</h4>
+                <h4 class="bg-gradient mb-4 title-list p-2"><i class="fal fa-images mr-2"></i>{{'overview.gallery' | translate}}
+                </h4>
                 <div class="container">
                     <div class="row p-2">
                         <div *ngFor="let image of gallery" class="col-lg-3">
@@ -190,13 +196,13 @@
                 <div class="row">
                     <div class="col-6">
                         <p class="text-left">
-                            Copyright &copy; 2019 <span class="font-weight-bold" style="color: #395c9c">GoCodee</span>
+                            Copyright &copy; 2019 <span class="font-weight-bold" style="color: #36d1dc">GoCodee</span>
                         </p>
                     </div>
                     <div class="col-6">
                         <p class="text-right">
-                            Designed by <span class="font-weight-bold" style="color: #395c9c">Le Tuan Khoi</span>,
-                            Designer of <span class="font-weight-bold" style="color: #395c9c">GoCodee</span> Co, Ltd.
+                            Designed by <span class="font-weight-bold" style="color: #36d1dc">Le Tuan Khoi</span>,
+                            Designer of <span class="font-weight-bold" style="color: #36d1dc">GoCodee</span> Co, Ltd.
                         </p>
                     </div>
                 </div>

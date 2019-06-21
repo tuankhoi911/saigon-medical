@@ -1,4 +1,4 @@
-<div class="add-patient pt-4">
+<div class="add-patient bg-gradient pt-4">
   <div class="bg-light register-option">
     <div class="container">
       <div class="row">
@@ -75,8 +75,8 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="createEmployee()" [class.ban]="formEmp.invalid"
-              disabled="formEmp.invalid"> {{'employee.create' | translate}}</button>
+            <button class="btn btn-lng btn-block w-25 float-right" (click)="createEmployee()" [class.ban]="formEmp.invalid"
+              [disabled]="formEmp.invalid"> {{'employee.create' | translate}}</button>
           </form>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { LogOutComponent } from 'src/app/modals/log-out/log-out.component';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { LogOutComponent } from 'src/app/modals/log-out/log-out.component';
   providers: [NgbModalConfig, NgbModal, NgbActiveModal]
 })
 export class SidebarComponent implements OnInit {
+  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) { }
 
   logo = 'assets/images/pbLogo.png'
 
@@ -20,7 +22,28 @@ export class SidebarComponent implements OnInit {
     { title: 'Quản lí đơn thuốc', link: '/admin/prescription' }
   ]
 
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) { }
+  isPharmacist = false;
+  isAdmin = false;
+  isDoctor = false;
+  isEmployee = false;
+  role = localStorage.getItem(environment.role);
+
+  roleAuth() {
+    if (this.role == 'ROLE_ADMIN') {
+      this.isAdmin = true;
+    }
+    if (this.role == 'ROLE_EMPLOYEE') {
+      this.isEmployee = true;
+    }
+    if (this.role == 'ROLE_DOCTOR') {
+      this.isDoctor = true;
+    }
+    if (this.role == 'ROLE_PHARMACIST') {
+      this.isPharmacist = true;
+    }
+  }
+
+
 
   show() {
     this.modalService.open(LogOutComponent, { centered: true, windowClass: 'send-message' });
@@ -28,6 +51,7 @@ export class SidebarComponent implements OnInit {
 
 
   ngOnInit() {
+    this.roleAuth();
   }
 
 }

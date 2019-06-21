@@ -1,4 +1,4 @@
-<div class="add-patient pt-4">
+<div class="add-patient bg-gradient pt-4">
   <div class="bg-light register-option">
     <div class="container">
       <div class="row">
@@ -61,7 +61,7 @@
                 [(ngModel)]="medicine.gia">
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="updateMedicine()" [disabled]="formMed.invalid" [class.ban]="formMed.invalid">{{'medicine.add' | translate}}</button>
+            <button class="btn btn-lng btn-block w-25 float-right" (click)="updateMedicine()" [disabled]="formMed.invalid" [class.ban]="formMed.invalid">{{'medicine.add' | translate}}</button>
 
             <!-- Alert -->
           </form>

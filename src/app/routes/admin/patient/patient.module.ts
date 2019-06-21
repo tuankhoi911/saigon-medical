@@ -5,6 +5,7 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
 import { FormsModule } from '@angular/forms';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
         PatientRoutingModule,
         FormsModule,
         NgbDatepickerModule,
+        TranslateModule
     ]
 })
 export class PatientModule { }

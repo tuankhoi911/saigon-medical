@@ -1,5 +1,6 @@
 .patient {
-  margin-left: 230px;
+  margin-left: 237px;
+  margin-right: 5px;
 }
 
 .patient-nav {
@@ -8,11 +9,11 @@
 
   i {
     font-size: 50px;
-    color: #395c9c;
   }
 }
 
 .search-patient {
+  margin: 50px;
   a {
     position: absolute;
     top: 8px;
@@ -59,12 +60,6 @@
   }
 }
 
-.thead-dark {
-  th {
-    background-color: #395c9c !important;
-    border: none !important;
-  }
-}
 
 .table {
   border: #e1e6ef 1px solid;
@@ -86,8 +81,4 @@
 
 .verify-box {
   background: rgba(0, 0, 0, 0.05) !important;
-
-  .card {
-    height: 270px;
-  }
 }

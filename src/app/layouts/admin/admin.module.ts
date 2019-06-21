@@ -7,6 +7,7 @@ import { HomeModule } from 'src/app/routes/home/home.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { LogOutModule } from 'src/app/modals/log-out/log-out.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 
 @NgModule({
   declarations: [AdminComponent, SidebarComponent],
@@ -16,7 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
     HomeModule,
     NgbModalModule,
     LogOutModule,
-    TranslateModule
+    TranslateModule,
+    NavbarModule
   ],
   exports: [AdminRoutingModule]
 })
