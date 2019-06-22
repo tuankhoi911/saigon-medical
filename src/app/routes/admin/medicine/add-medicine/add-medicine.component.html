@@ -22,11 +22,14 @@
             <div class="mb-3">
               <label for="address2">{{'medicine.amount' | translate}}</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="soLuong" required
-                [(ngModel)]="medicine.soLuong">
+                [(ngModel)]="medicine.soLuong" pattern="^[1-9][0-9]*$">
               <p class="form-validation m-0"
                 *ngIf="formMed.controls?.soLuong?.invalid && (formMed.controls?.soLuong?.dirty || formMed.controls?.soLuong?.touched) && !formMed.controls?.soLuong?.errors?.minlength">
                 {{'validate.required' | translate}}
               </p>
+              <p class="form-validation mb-0"
+                *ngIf="formMed.controls?.soLuong?.errors && formMed.controls?.soLuong?.errors?.pattern">
+                {{'validate.invalid' | translate}}</p>
             </div>
             <div class="mb-3">
               <label for="address2">{{'medicine.unit' | translate}}</label>
@@ -67,15 +70,18 @@
             <div class="mb-3">
               <label for="address2">{{'medicine.cost' | translate}}</label>
               <input type="text" class="form-control" id="address2" placeholder="" name="gia" required
-                [(ngModel)]="medicine.gia">
+                [(ngModel)]="medicine.gia" pattern="^[1-9][0-9]*$">
               <p class="form-validation m-0"
                 *ngIf="formMed.controls?.gia?.invalid && (formMed.controls?.gia?.dirty || formMed.controls?.gia?.touched) && !formMed.controls?.gia?.errors?.minlength">
                 {{'validate.required' | translate}}
               </p>
+              <p class="form-validation mb-0"
+                *ngIf="formMed.controls?.gia?.errors && formMed.controls?.gia?.errors?.pattern">
+                {{'validate.invalid' | translate}}</p>
             </div>
             <hr class="mb-4">
             <button class="btn btn-lng btn-block w-25 float-right" (click)="createMedicine()"
-               [class.ban]="formMed.invalid">{{'medicine.add' | translate}}</button>
+              [disabled]="formMed.invalid" [class.ban]="formMed.invalid">{{'medicine.add' | translate}}</button>
 
             <!-- Alert -->
           </form>
