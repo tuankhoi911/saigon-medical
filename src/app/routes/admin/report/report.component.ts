@@ -17,6 +17,16 @@ export class ReportComponent implements OnInit {
     years: ''
   }
 
+  public reportRevenue = {
+    month: '',
+    years: ''
+  }
+
+  public reportExams = {
+    month: '',
+    years: ''
+  }
+
   public now = new Date();
   public currentYeary = this.now.getFullYear();
 

@@ -167,6 +167,7 @@
         "adddate": "Added date",
         "status": "Status",
         "detail": "Detail",
+        "search": "Enter any key word to searching!",
         "clinicaddress": "Address",
         "clinicphone": "Phone",
         "clinicweb": "Website",
@@ -192,6 +193,8 @@
         "reportpatient": "Report of patients by month",
         "create": "Create report",
         "reportdrug": "Report of drugs used by month",
+        "reportrevenue": "Report of revenue by month",
+        "reportexams": "Report of examinations by month",
         "month": "Month",
         "year": "Year"
     },
@@ -231,6 +234,6 @@
         "instruccheck": "*This field maximum is 100 characters!",
         "nsxhsd": "*Manufactured date must be smaller than expired date!",
         "invalid": "*This field is invalid",
-        "alert":"*Amount of medicines in store is not enough, please decrease the amount of drugs!"
+        "alert": "*Amount of medicines in store is not enough, please decrease the amount of drugs!"
     }
 }

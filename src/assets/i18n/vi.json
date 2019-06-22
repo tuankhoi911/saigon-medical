@@ -175,6 +175,7 @@
         "amount": "Số lượng",
         "note": "Ghi chú",
         "pres": "Đơn thuốc",
+        "search": "Nhập để tìm kiếm!",
         "exfee": "Phí khám",
         "medfee": "Tiền thuốc",
         "totalcost": "Tổng tiền",
@@ -193,7 +194,9 @@
         "create": "Tạo báo cáo",
         "reportdrug": "Báo cáo số thuốc được sử dụng trong tháng",
         "month": "Tháng",
-        "year": "Năm"
+        "year": "Năm",
+        "reportrevenue": "Báo cáo doanh thu theo tháng",
+        "reportexams": "Báo cáo số đơn khám bệnh theo tháng"
     },
     "setting": {
         "title": "Cài đặt",
@@ -219,5 +222,18 @@
             "ok": "Giao tác hoàn tức!",
             "close": "Đóng"
         }
+    },
+    "validate": {
+        "required": "*Không được bỏ trống trường này!",
+        "namelength": "*Tên phải từ 6 -50 ký tự!",
+        "idcheck": "Trường này tối đa 11 ký tự!",
+        "dateinvalid": "*Ngày không hợp lệ!",
+        "birthdaycheck": "*Ngày sinh phải nhỏ hơn ngày vào làm!",
+        "birthdaycheckpatient": "*Ngày sinh phải nhỏ hơn ngày hiện tại!",
+        "medmax": "*Giá trị không hợp lệ!",
+        "instruccheck": "*Trường này tối đa 100 ký tự!",
+        "nsxhsd": "*Ngày sản xuất phải nhỏ hạn sử dụng!",
+        "invalid": "*Trường này không hợp lệ!",
+        "alert": "*Số lượng thuốc trong kho không đủ cho loại này, vui lòng giảm số lượng!"
     }
 }
