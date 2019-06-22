@@ -9,6 +9,7 @@ import { mergeMap } from 'rxjs/operators';
 import { DetailmedsService } from 'src/app/services/detailmeds.service';
 import { SuccessComponent } from 'src/app/modals/success/success.component';
 import { TranslateService } from '@ngx-translate/core';
+import { VerifyDrugComponent } from 'src/app/modals/verify-drug/verify-drug.component';
 
 interface drugAdded {
   name: string,
@@ -24,8 +25,6 @@ interface drugAdded {
 
 })
 export class AddExaminationComponent implements OnInit {
-
-
   logo = 'assets/images/pbLogo.png';
   id = null;
   public phieuKhamBenh = {
@@ -35,15 +34,11 @@ export class AddExaminationComponent implements OnInit {
     maBacSi: null
   }
 
-
   public isAdd = false;
   public users: any;
   public searchedMed = this.users;
   public doctorList = [];
   public medicinesAdded: drugAdded[] = [];
-
-
-
 
   constructor(
     private route: ActivatedRoute,
@@ -83,7 +78,6 @@ export class AddExaminationComponent implements OnInit {
     let addDrug = this.modalService.open(AddDrugComponent, { centered: true });
     addDrug.result.then(
       (result) => {
-        // console.log(result);
         if (result) {
           let add: drugAdded = { ...this.searchedMed[index] };
           add.amount = result.amount;
@@ -94,13 +88,9 @@ export class AddExaminationComponent implements OnInit {
           else {
             this.alertAmount();
           }
-          // console.log(this.medicinesAdded);
-
         }
       }
     )
-
-
   }
 
   public onCreate(value) {
@@ -108,29 +98,23 @@ export class AddExaminationComponent implements OnInit {
       drug.maHoaDon = info.maHoaDon;
       drug.maPhieuKham = info.maPhieuKham;
       drug.soLuong = drug.amount;
-      console.log(drug);
+      // console.log(drug);
       return drug;
     }
     this.prescripService.create(this.phieuKhamBenh).pipe(
       mergeMap((res) => {
         let addInfoToDrug = addInfo(res);
         let drugs = this.medicinesAdded.map(addInfoToDrug);
-        console.log(drugs);
+        // console.log(drugs);
 
         return this.detailPress.create(drugs);
       })
     )
       .subscribe(
         (res => {
-          console.log(res);
         })
       )
     this.modalService.open(SuccessComponent, { centered: true });
-    // if (this.isSuccess) {
-    //   this.router.navigate(['/admin/examination']).then(() => {
-    //     window.location.reload();
-    //   })
-    // }
   }
 
   public getAllMedicine() {
@@ -141,7 +125,6 @@ export class AddExaminationComponent implements OnInit {
           medicineData.forEach((medicine) => medicine.keys = JSON.stringify(medicine));
           this.users = medicineData;
           this.searchedMed = medicineData;
-          // console.log(this.users)
         }
       )
   }
@@ -159,7 +142,7 @@ export class AddExaminationComponent implements OnInit {
   }
 
   public alertAmount() {
-    alert(this.translate.instant('validate.alert'));
+    this.modalService.open(VerifyDrugComponent, { centered: true })
   }
 
 }

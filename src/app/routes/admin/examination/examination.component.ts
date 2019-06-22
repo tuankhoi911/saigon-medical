@@ -39,7 +39,7 @@ export class ExaminationComponent implements OnInit {
         registerData.forEach((register) => register.keys = JSON.stringify(register));
         this.registers = registerData;
         this.searchedRegis = registerData;
-        console.log(this.registers);
+        // console.log(this.registers);
       })
 
 
@@ -77,7 +77,7 @@ export class ExaminationComponent implements OnInit {
     if (term == "") {
       this.searchedRegis = this.registers;
     }
-    console.log(this.registers);
+    // console.log(this.registers);
     this.searchedRegis = this.registers.filter(isMatch);
   }
 

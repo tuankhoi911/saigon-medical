@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { OverviewService } from 'src/app/services/overview.service';
 
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
+  providers: [OverviewService]
 })
 export class OverviewComponent implements OnInit {
 
@@ -31,25 +33,34 @@ export class OverviewComponent implements OnInit {
     }
   ]
 
-
-  doanhThus = [
-    {
-      thang: 'Tháng 04 / 2019',
-      soTien: '250,000,000 vnd',
-      ghiChu: 'Tăng 20%'
-    },
-    {
-      thang: 'Tháng 05 / 2019',
-      soTien: '100,000,000 vnd',
-      ghiChu: 'Giảm gần 50%'
-    }
-
-  ]
-  constructor() { }
+  cardInfor: any;
+  genderRate: any;
+  departRate: any;
+  totalRevenue: any;
+  constructor(private overviewService: OverviewService) { }
 
   ngOnInit() {
+    this.getAllCardInfor();
+    this.getAllRevenue();
   }
 
+  getAllCardInfor() {
+    this.overviewService
+      .getAllCard()
+      .subscribe((data: any) => {
+        this.cardInfor = data
+        // console.log(data);
+        
+      })
+  }
 
+  getAllRevenue() {
+    this.overviewService
+      .getAllRevenue()
+      .subscribe((data: any) => {
+        this.totalRevenue = data
+        // console.log(data);
+      })
+  }
 
 }

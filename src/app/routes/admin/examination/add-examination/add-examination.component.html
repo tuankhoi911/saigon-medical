@@ -76,13 +76,9 @@
                 </li>
               </ul>
             </div>
-
-
             <hr class="mb-4">
             <button class="btn btn-lng btn-block" (click)="onCreate(formExams.value)" [disabled]="formExams.invalid"
               [class.ban]="formExams.invalid"> {{'examination.create' | translate}}</button>
-
-            <!-- Alert -->
           </form>
           <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>
               {{'examination.addrx' | translate}}</button></p>
@@ -108,7 +104,7 @@
                         <th scope="col"> {{'examination.drugname' | translate}}</th>
                         <th scope="col"> {{'examination.amount' | translate}}</th>
                         <th scope="col"> {{'examination.unit' | translate}}</th>
-                        <th scope="col text-right"> {{'examination.addtopres' | translate}}</th>
+                        <th scope="col" class="text-center"> {{'examination.addtopres' | translate}}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -117,14 +113,12 @@
                         <td>{{user?.tenThuoc}}</td>
                         <td>{{user?.soLuong}}</td>
                         <td>{{user?.donVi}}</td>
-                        <td class="text-right btn-action"><button class="btn" (click)="show(index, user)"><i
+                        <td class="btn-action text-center"><button class="btn" (click)="show(index, user)"><i
                               class="fas fa-folder-plus"></i></button></td>
-
                       </tr>
                     </tbody>
                   </table>
                 </div>
-
               </div>
             </div>
           </div>

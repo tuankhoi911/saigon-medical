@@ -8,6 +8,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExaminationDetailComponent } from './examination-detail/examination-detail.component';
 import { SuccessModule } from 'src/app/modals/success/success.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { VerifyDrugModule } from 'src/app/modals/verify-drug/verify-drug.module';
 
 @NgModule({
   declarations: [AddExaminationComponent, ExaminationDetailComponent],
@@ -18,7 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
     NgbModalModule,
     AddDrugModule,
     SuccessModule,
-    TranslateModule
+    TranslateModule,
+    VerifyDrugModule
   ],
   exports: [AddExaminationComponent]
 })
