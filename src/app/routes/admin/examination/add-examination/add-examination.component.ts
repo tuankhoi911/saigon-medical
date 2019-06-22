@@ -8,6 +8,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import { mergeMap } from 'rxjs/operators';
 import { DetailmedsService } from 'src/app/services/detailmeds.service';
 import { SuccessComponent } from 'src/app/modals/success/success.component';
+import { TranslateService } from '@ngx-translate/core';
 
 interface drugAdded {
   name: string,
@@ -50,7 +51,8 @@ export class AddExaminationComponent implements OnInit {
     protected prescripService: PrescripService,
     protected medicineService: MedicineService,
     protected employeeService: EmployeeService,
-    protected detailPress: DetailmedsService
+    protected detailPress: DetailmedsService,
+    private translate: TranslateService
 
   ) { }
 
@@ -77,7 +79,7 @@ export class AddExaminationComponent implements OnInit {
     return this.medicinesAdded.splice(index, 1);
   }
 
-  show(index) {
+  show(index, user) {
     let addDrug = this.modalService.open(AddDrugComponent, { centered: true });
     addDrug.result.then(
       (result) => {
@@ -85,13 +87,19 @@ export class AddExaminationComponent implements OnInit {
         if (result) {
           let add: drugAdded = { ...this.searchedMed[index] };
           add.amount = result.amount;
-          add.cachDung = result.instruc
-          this.medicinesAdded.push(add);
+          add.cachDung = result.instruc;
+          if (add.amount <= user.soLuong) {
+            this.medicinesAdded.push(add);
+          }
+          else {
+            this.alertAmount();
+          }
           // console.log(this.medicinesAdded);
 
         }
       }
     )
+
 
   }
 
@@ -149,4 +157,9 @@ export class AddExaminationComponent implements OnInit {
         }
       )
   }
+
+  public alertAmount() {
+    alert(this.translate.instant('validate.alert'));
+  }
+
 }

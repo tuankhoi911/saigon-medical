@@ -21,6 +21,7 @@ export class PatientComponent implements OnInit, OnDestroy {
   public isSuccess = true;
   public logo = 'assets/images/pbLogo.png';
   public patients: any;
+  public trash: any;
   public searchedUsers = this.patients;
   private onDestroy = new Subject<void>();
   public headerJsonWebToken = `Bearer ${localStorage.getItem(environment.accessToken)}`;
@@ -70,9 +71,9 @@ export class PatientComponent implements OnInit, OnDestroy {
       })
   }
 
-  public deletePatient(patient) {
+  public deletePatient() {
     this.patientService
-      .delete(patient.maBenhNhan)
+      .delete(this.trash.maBenhNhan)
       .takeUntil(this.onDestroy)
       .subscribe(() => {
         this.getAllPatients();
@@ -98,7 +99,8 @@ export class PatientComponent implements OnInit, OnDestroy {
 
   }
 
-  public verifyAction() {
+  public verifyAction(patient) {
+    this.trash = patient;
     this.isDelete = true;
   }
 

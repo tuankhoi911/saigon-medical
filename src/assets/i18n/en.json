@@ -219,5 +219,18 @@
             "ok": "Action successful!",
             "close": "Close"
         }
+    },
+    "validate": {
+        "required": "*This field is required!",
+        "namelength": "*This must be 6 - 50 characters!",
+        "idcheck": "This field maximum is 11 characters!",
+        "dateinvalid": "*Date is invalid!",
+        "birthdaycheck": "*Date of birth must be smaller than added date!",
+        "birthdaycheckpatient": "*Date of birth must be smaller than current date!",
+        "medmax": "*Amount of drugs is invalid!",
+        "instruccheck": "*This field maximum is 100 characters!",
+        "nsxhsd": "*Manufactured date must be smaller than expired date!",
+        "invalid": "*This field is invalid",
+        "alert":"*Amount of medicines in store is not enough, please decrease the amount of drugs!"
     }
 }

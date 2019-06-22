@@ -19,7 +19,8 @@ export class UpdatePatientComponent implements OnInit {
     soDienThoai: ""
   }
 
-  public isSuccess = true
+  public isSuccess = true;
+  isDateValid: boolean;
 
   constructor(private route: ActivatedRoute, private patientService: PatientService, private router: Router) {
     this.route.params.pipe(
@@ -29,15 +30,39 @@ export class UpdatePatientComponent implements OnInit {
     })
   }
 
-  ngOnInit() {  
+  ngOnInit() {
+  }
+
+
+  public parseDate(date) {
+    let temp = date.split("-");
+    let stringDate = `${temp[2]}-${temp[1]}-${temp[0]}`
+    let mydate = new Date(stringDate);
+    return mydate;
+  }
+
+  public compareDate() {
+    let ngaySinh = this.parseDate(this.patient.ngaySinh);
+    let hientai = new Date();
+    if (ngaySinh > hientai) {
+      this.isDateValid = true;
+      this.isSuccess = false;
+    }
+    if (ngaySinh < hientai) {
+      this.isDateValid = false;
+      this.isSuccess = true;
+    }
   }
 
   public updatePatient() {
-    this.patientService.update(this.patient).subscribe();
-    if (this.isSuccess) {
-      this.router.navigate(['/admin/patient']).then(() => {
-        window.location.reload();
-      })
+    this.compareDate();
+    if (this.isSuccess === true) {
+      this.patientService.update(this.patient).subscribe();
+      if (this.isSuccess) {
+        this.router.navigate(['/admin/patient']).then(() => {
+          window.location.reload();
+        })
+      }
     }
   }
 }

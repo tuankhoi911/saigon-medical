@@ -1,86 +1,96 @@
 <div class="add-patient bg-gradient pt-4">
-  <div class="bg-light register-option">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 order-md-1">
-          <h4 class="mb-3 text-center"> <i class="fas fa-users-medical mr-3 mt-4"></i>
-            {{'employee.updateinfor' | translate}}</h4>
-          <form class="needs-validation" #formEmp="ngForm">
-            <div class="mb-3">
-              <label for="firstName"> {{'employee.name' | translate}}</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" required name="fullName"
-                [(ngModel)]="employee.tenNhanVien">
-              <div class="invalid-feedback">
-                Không để trống họ và tên
+    <div class="bg-light register-option">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 order-md-1">
+            <h4 class="mb-3 text-center"> <i class="fas fa-users-medical mr-3 mt-4"></i>
+              {{'employee.updateinfor' | translate}}</h4>
+            <form class="needs-validation" #formEmp="ngForm">
+              <div class="mb-3">
+                <label for="firstName"> {{'employee.name' | translate}}</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" required name="fullName"
+                  [(ngModel)]="employee.tenNhanVien" minlength="6">
+                <p class="form-validation m-0" *ngIf="formEmp.controls?.fullName?.errors?.minlength">
+                  {{'validate.namelength' | translate}}
+                </p>
+                <p class="form-validation m-0"
+                  *ngIf="formEmp.controls?.fullName?.invalid && (formEmp.controls?.fullName?.dirty || formEmp.controls?.fullName?.touched) && !formEmp.controls?.fullName?.errors?.minlength">
+                  {{'validate.required' | translate}}
+                </p>
               </div>
-            </div>
-            <div class="mb-3">
-              <label for="username"> {{'employee.address' | translate}}</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="username" placeholder="" name="diaChi" required
-                  [(ngModel)]="employee.diaChi">
-                <div class="invalid-feedback" style="width: 100%;">
-                  Không để trống địa chỉ.
+              <div class="mb-3">
+                <label for="username"> {{'employee.address' | translate}}</label>
+                <div class="input-group">
+                  <input type="text" class="form-control w-100" id="username" placeholder="" name="diaChi" required
+                    [(ngModel)]="employee.diaChi">
+                  <p class="form-validation m-0" *ngIf="formEmp.controls?.diaChi?.errors?.minlength">
+                    {{'validate.namelength' | translate}}
+                  </p>
+                  <p class="form-validation m-0"
+                    *ngIf="formEmp.controls?.diaChi?.invalid && (formEmp.controls?.diaChi?.dirty || formEmp.controls?.diaChi?.touched) && !formEmp.controls?.diaChi?.errors?.minlength">
+                    {{'validate.required' | translate}}
+                  </p>
                 </div>
               </div>
-            </div>
-            <!-- <div class="mb-3 input-group">
-              <label for="address2" class="w-100">Entrance Date</label>
-              <input class="form-control" placeholder="yyyy-mm-dd" name="entranceDate" [(ngModel)]="employee.ngayVao"
-                ngbDatepicker #d="ngbDatepicker">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
-                    class="fal fa-calendar-alt"></i></button>
+              <div class="mb-3">
+                <label for="address2"> {{'employee.entrancedate' | translate}}</label>
+                <input type="text" class="form-control" id="address2" placeholder="dd-mm-yyyy" name="ngayVao"
+                  [(ngModel)]="employee.ngayVao" required
+                  pattern="([0-2][0-9]|(3)[0-1])(\-)(((0)[0-9])|((1)[0-2]))(\-)\d{4}$">
+                <p class="form-validation m-0"
+                  *ngIf="formEmp.controls?.ngayVao?.invalid && (formEmp.controls?.ngayVao?.dirty || formEmp.controls?.ngayVao?.touched) && !formEmp.controls?.ngayVao?.errors?.minlength">
+                  {{'validate.required' | translate}}
+                </p>
+                <p class="form-validation mb-0"
+                  *ngIf="formEmp.controls?.ngayVao?.errors && formEmp.controls?.ngayVao?.errors?.pattern">
+                  {{'validate.dateinvalid' | translate}}</p>
               </div>
-            </div>
-            <div class="mb-3 input-group">
-              <label for="address2" class="w-100">Date of Birth</label>
-              <input class="form-control" placeholder="yyyy-mm-dd" name="entranceDate" [(ngModel)]="employee.ngaySinh"
-                ngbDatepicker #d="ngbDatepicker">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
-                    class="fal fa-calendar-alt"></i></button>
+              <div class="mb-3">
+                <label for="address2"> {{'employee.birthday' | translate}}</label>
+                <input type="text" class="form-control" id="address2" placeholder="dd-mm-yyyy" name="ngaySinh"
+                  [(ngModel)]="employee.ngaySinh" required
+                  pattern="([0-2][0-9]|(3)[0-1])(\-)(((0)[0-9])|((1)[0-2]))(\-)\d{4}$">
+                <p class="form-validation m-0"
+                  *ngIf="formEmp.controls?.ngaySinh?.invalid && (formEmp.controls?.ngaySinh?.dirty || formEmp.controls?.ngaySinh?.touched) && !formEmp.controls?.ngaySinh?.errors?.minlength">
+                  {{'validate.required' | translate}}
+                </p>
+                <p *ngIf="isDateValid" class="form-validation m-0">
+                  {{'validate.birthdaycheck' | translate}}
+                </p>
+                <p class="form-validation mb-0"
+                  *ngIf="formEmp.controls?.ngaySinh?.errors && formEmp.controls?.ngaySinh?.errors?.pattern">
+                  {{'validate.dateinvalid' | translate}}</p>
               </div>
-            </div> -->
-            <div class="mb-3">
-              <label for="address2"> {{'employee.entrancedate' | translate}}</label>
-              <input type="text" class="form-control" id="address2" placeholder="" name="ngayVao"
-                [(ngModel)]="employee.ngayVao">
-            </div>
-            <div class="mb-3">
-              <label for="address2"> {{'employee.birthday' | translate}}</label>
-              <input type="text" class="form-control" id="address2" placeholder="" name="ngaySinh"
-                [(ngModel)]="employee.ngaySinh">
-            </div>
-            <div class="mb-3">
-              <label for="address2"> {{'employee.rank' | translate}}</label>
-              <select class="custom-select d-block w-100" id="country" name="chucVu" required
-                [(ngModel)]="employee.chucVu">
-                <option value=""> {{'employee.choose' | translate}}</option>
-                <option> {{'employee.admin' | translate}}</option>
-                <option> {{'employee.employees' | translate}}</option>
-                <option> {{'employee.doctor' | translate}}</option>
-                <option> {{'employee.pharmacist' | translate}}</option>
-              </select>
-            </div>
-            <div class="row">
-              <div class="col-md-4 mb-3">
-                <label for="country"> {{'employee.sex' | translate}}</label>
-                <select class="custom-select d-block w-100" id="country" name="gender" required
-                  [(ngModel)]="employee.gioiTinh">
+              <div class="mb-3">
+                <label for="address2"> {{'employee.rank' | translate}}</label>
+                <select class="custom-select d-block w-100" id="country" name="chucVu" required
+                  [(ngModel)]="employee.chucVu">
                   <option value=""> {{'employee.choose' | translate}}</option>
-                  <option value="Nam"> {{'employee.male' | translate}}</option>
-                  <option value="Nữ"> {{'employee.female' | translate}}</option>
+                  <option> {{'employee.admin' | translate}}</option>
+                  <option> {{'employee.employees' | translate}}</option>
+                  <option> {{'employee.doctor' | translate}}</option>
+                  <option> {{'employee.pharmacist' | translate}}</option>
                 </select>
               </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-lng btn-block w-25 float-right" (click)="updateEmployee()" [class.ban]="formEmp.invalid" disabled="formEmp.invalid"> {{'employee.update' | translate}}</button>
-          </form>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <label for="country"> {{'employee.sex' | translate}}</label>
+                  <select class="custom-select d-block w-100" id="country" name="gender" required
+                    [(ngModel)]="employee.gioiTinh">
+                    <option value=""> {{'employee.choose' | translate}}</option>
+                    <option value="Nam"> {{'employee.male' | translate}}</option>
+                    <option value="Nữ"> {{'employee.female' | translate}}</option>
+                  </select>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <button class="btn btn-lng btn-block w-25 float-right" (click)="updateEmployee()"
+                [class.ban]="formEmp.invalid"> {{'employee.update' | translate}}</button>
+            </form>
+          </div>
         </div>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+        </footer>
       </div>
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-      </footer>
     </div>
   </div>
-</div>

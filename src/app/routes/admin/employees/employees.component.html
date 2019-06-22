@@ -59,7 +59,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let employee of searchedEmployees">
+                <tr *ngFor="let employee of searchedEmployees; let i = index">
                   <th scope="row">{{employee?.maNhanVien}}</th>
                   <td>{{employee?.tenNhanVien}}</td>
                   <td>{{employee?.gioiTinh}}</td>
@@ -70,34 +70,36 @@
                   <td class="text-center btn-action">
                     <button class="btn mr-2" [routerLink]="['update-employees', employee.maNhanVien]"><i
                         class="fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger" (click)="verifyAction()"><i class="fas fa-trash"></i></button>
-                  </td>
-                  <div *ngIf="isDelete" class="verify-box">
-                    <div class="container h-100">
-                      <div class="row h-100">
-                        <div class="col-6 my-auto mx-auto">
-                          <div class="card">
-                            <div class="card-header">
-                              <div class="col-12 p-0">
-                                <p class="logo text-center m-0"><img class="w-75" [src]="logo" alt=""></p>
+                    <button class="btn btn-danger" (click)="verifyAction(employee)"><i
+                        class="fas fa-trash"></i></button>
+                    <section *ngIf="isDelete" class="verify-box">
+                      <div class="container h-100">
+                        <div class="row h-100">
+                          <div class="col-6 my-auto mx-auto">
+                            <div class="card">
+                              <div class="card-header">
+                                <div class="col-12 p-0">
+                                  <p class="logo text-center m-0"><img class="w-75" [src]="logo" alt=""></p>
+                                </div>
                               </div>
-                            </div>
-                            <div class="card-body">
-                              <p class="text-center mt-4"> {{'employee.verify' | translate}}</p>
-                            </div>
-                            <div class="card-footer">
-                              <p class="text-right m-0">
-                                <button class="btn btn-success mr-2" (click)="cancelAction()"> <i
-                                    class="fas fa-undo-alt mr-2"></i> {{'employee.cancel' | translate}}</button>
-                                <button class="btn btn-danger ml-2" (click)="deleteEmployee(employee)"> <i
-                                    class="fas fa-user-slash mr-2"></i> {{'employee.delete' | translate}}</button>
-                              </p>
+                              <div class="card-body">
+                                <p class="text-center mt-4"> {{'employee.verify' | translate}}</p>
+                              </div>
+                              <div class="card-footer">
+                                <p class="text-right m-0">
+                                  <button class="btn btn-success btn-verify mr-2" (click)="cancelAction()"> <i
+                                      class="fas fa-undo-alt mr-2"></i> {{'employee.cancel' | translate}}</button>
+                                  <button class="btn btn-danger btn-verify ml-2"
+                                    (click)="deleteEmployee()"> <i
+                                      class="fas fa-user-slash mr-2"></i> {{'employee.delete' | translate}}</button>
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    </section>
+                  </td>
                 </tr>
               </tbody>
             </table>

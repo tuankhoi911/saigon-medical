@@ -17,6 +17,7 @@ export class EmployeesComponent implements OnInit {
   public employees: any;
   public searchedEmployees = this.employees;
   public logo = 'assets/images/pbLogo.png';
+  public trash: any;
 
 
   constructor(private router: Router, protected employeeService: EmployeeService) {
@@ -43,41 +44,34 @@ export class EmployeesComponent implements OnInit {
           employeeData.forEach((employee) => employee.keys = JSON.stringify(employee));
           this.employees = employeeData;
           this.searchedEmployees = employeeData;
-          // console.log(this.employees);
         }
       )
-
   }
 
-  public deleteEmployee(employee) {
+  public deleteEmployee() {
     this.employeeService
-      .delete(employee.maNhanVien)
+      .delete(this.trash.maNhanVien)
       .subscribe(() => {
         this.getAllEmployees();
       })
-      this.isDelete = false;
+    this.isDelete = false;
   }
 
   public searchUpdateForEmployees(term: string): void {
     term = term.trim().toLowerCase();
-
     const isMatch = (employee: any) => employee.keys.toLowerCase().includes(term);
-
-
     if (term == "") {
       this.searchedEmployees = this.employees;
     }
-    console.log(this.employees);
-
     this.searchedEmployees = this.employees.filter(isMatch);
   }
 
-  public verifyAction() {
-    this.isDelete = true;
+  public verifyAction(employee) {
+    this.trash = employee;
+    this.isDelete = true; 
   }
 
   public cancelAction() {
     this.isDelete = false;
   }
-
 }

@@ -74,7 +74,7 @@
                         class="fas fa-plus-square"></i></button>
                     <button class="btn btn-warning mr-2 text-white"
                       [routerLink]="['update-patient', patient.maBenhNhan]"><i class="fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger" (click)="verifyAction()"><i class="fas fa-trash"></i></button>
+                    <button class="btn btn-danger" (click)="verifyAction(patient)"><i class="fas fa-trash"></i></button>
                   </td>
                   <div *ngIf="isDelete" class="verify-box">
                     <div class="container h-100">
@@ -93,7 +93,7 @@
                               <p class="text-right m-0">
                                 <button class="btn btn-success mr-2" (click)="cancelAction()"> <i
                                     class="fas fa-undo-alt mr-2"></i>{{'patient.cancel' | translate}}</button>
-                                <button class="btn btn-danger ml-2" (click)="deletePatient(patient)"> <i
+                                <button class="btn btn-danger ml-2" (click)="deletePatient()"> <i
                                     class="fas fa-user-slash mr-2"></i>{{'patient.delete' | translate}}</button>
                               </p>
                             </div>

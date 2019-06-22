@@ -18,21 +18,44 @@ export class AddPatientComponent implements OnInit {
     soDienThoai: ""
   }
 
-  public isSuccess = true;
+  public isSuccess: boolean;
+  public isDateValid: boolean;
 
   constructor(private patientService: PatientService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  public createPatient() {
-    this.patientService.create(this.patient).subscribe();
-    if (this.isSuccess) {
-      this.router.navigate(['/admin/patient']).then(()=> {
-        window.location.reload();
-      })
+  public parseDate(date) {
+    let temp = date.split("-");
+    let stringDate = `${temp[2]}-${temp[1]}-${temp[0]}`
+    let mydate = new Date(stringDate);
+    return mydate;
+  }
 
+  public compareDate() {
+    let ngaySinh = this.parseDate(this.patient.ngaySinh);
+    let hientai = new Date();
+    if (ngaySinh > hientai) {
+      this.isDateValid = true;
+      this.isSuccess = false;
+    }
+    if (ngaySinh < hientai) {
+      this.isDateValid = false;
+      this.isSuccess = true;
     }
   }
 
+  public createPatient() {
+    this.compareDate();
+    if (this.isSuccess === true) {
+      this.patientService.create(this.patient).subscribe();
+      if (this.isSuccess) {
+        this.router.navigate(['/admin/patient']).then(() => {
+          window.location.reload();
+        })
+
+      }
+    }
+  }
 }

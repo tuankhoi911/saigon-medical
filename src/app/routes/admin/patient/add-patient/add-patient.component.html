@@ -2,9 +2,7 @@
   <div class="bg-light register-option">
     <div class="container">
       <div class="row">
-        <!-- chỉnh khung divide vào giữa màn hình -->
         <div class="col-lg-12 order-md-1">
-          <!-- chỉnh khung divide vào giữa màn hình -->
           <h4 class="mb-3 text-center"> <i class="fal fa-user-plus mr-3 mt-4"></i>
             {{'patient.addinfor' | translate}}
           </h4>
@@ -14,59 +12,75 @@
                 {{'patient.name' | translate}}
               </label>
               <input type="text" class="form-control" id="firstName" name="hoTen" placeholder="" value="" required
-                [(ngModel)]="patient.tenBenhNhan">
-              <div class="invalid-feedback">
-                Không để trống họ và tên
-              </div>
+                [(ngModel)]="patient.tenBenhNhan" minlength="6" maxlength="50">
+              <p class="form-validation m-0" *ngIf="formPat.controls?.hoTen?.errors?.minlength">
+                {{'validate.namelength' | translate}}
+              </p>
+              <p class="form-validation m-0"
+                *ngIf="formPat.controls?.hoTen?.invalid && (formPat.controls?.hoTen?.dirty || formPat.controls?.hoTen?.touched) && !formPat.controls?.hoTen?.errors?.minlength">
+                {{'validate.required' | translate}}
+              </p>
             </div>
             <div class="mb-3">
-              <label for="address2">  {{'patient.phone' | translate}}</label>
-              <input type="text" class="form-control" id="address2" name="soDienThoai" placeholder=""
+              <label for="address2"> {{'patient.phone' | translate}}</label>
+              <input type="text" class="form-control" id="address2" required name="soDienThoai" placeholder=""
                 [(ngModel)]="patient.soDienThoai">
+              <p class="form-validation m-0"
+                *ngIf="formPat.controls?.soDienThoai?.invalid && (formPat.controls?.soDienThoai?.dirty || formPat.controls?.soDienThoai?.touched) && !formPat.controls?.soDienThoai?.errors?.minlength">
+                {{'validate.required' | translate}}
+              </p>
             </div>
             <div class="mb-3">
-              <label for="username">  {{'patient.address' | translate}}</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="username" name="diaChi" placeholder="" required
-                  [(ngModel)]="patient.diaChi">
-                <div class="invalid-feedback" style="width: 100%;">
-                  Không để trống địa chỉ.
-                </div>
-              </div>
-            </div>
-            <!-- <div class="mb-3 input-group">
-              <label for="address2" class="w-100">Date of Birth</label>
-              <input class="form-control" placeholder="yyyy-mm-dd" name="ngaySinh" [(ngModel)]="patient.ngaySinh"
-                ngbDatepicker #d="ngbDatepicker">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
-                    class="fal fa-calendar-alt"></i></button>
-              </div>
-            </div> -->
-            <div class="mb-3">
-              <label for="address2">  {{'patient.birthday' | translate}}</label>
-              <input type="text" class="form-control" id="address2" name="ngaySinh" placeholder=""
-                [(ngModel)]="patient.ngaySinh">
+              <label for="username"> {{'patient.address' | translate}}</label>
+              <input type="text" class="form-control" id="username" name="diaChi" placeholder="" required
+                [(ngModel)]="patient.diaChi">
+              <p class="form-validation m-0"
+                *ngIf="formPat.controls?.diaChi?.invalid && (formPat.controls?.diaChi?.dirty || formPat.controls?.diaChi?.touched) && !formPat.controls?.diaChi?.errors?.minlength">
+                {{'validate.required' | translate}}
+              </p>
             </div>
             <div class="mb-3">
-              <label for="address2">  {{'patient.job' | translate}}</label>
-              <input type="text" class="form-control" id="address2" name="ngheNghiep" placeholder=""
+              <label for="address2"> {{'patient.birthday' | translate}}</label>
+              <input type="text" class="form-control" id="address2" name="ngaySinh" required placeholder=""
+                [(ngModel)]="patient.ngaySinh" pattern="([0-2][0-9]|(3)[0-1])(\-)(((0)[0-9])|((1)[0-2]))(\-)\d{4}$">
+              <p class="form-validation m-0"
+                *ngIf="formPat.controls?.ngaySinh?.invalid && (formPat.controls?.ngaySinh?.dirty || formPat.controls?.ngaySinh?.touched) && !formPat.controls?.ngaySinh?.errors?.minlength">
+                {{'validate.required' | translate}}
+              </p>
+              <p *ngIf="isDateValid" class="form-validation m-0">
+                {{'validate.birthdaycheckpatient' | translate}}
+              </p>
+              <p class="form-validation mb-0"
+                *ngIf="formPat.controls?.ngaySinh?.errors && formPat.controls?.ngaySinh?.errors?.pattern">
+                {{'validate.dateinvalid' | translate}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="address2"> {{'patient.job' | translate}}</label>
+              <input type="text" class="form-control" id="address2" required name="ngheNghiep" placeholder=""
                 [(ngModel)]="patient.ngheNghiep">
+              <p class="form-validation m-0"
+                *ngIf="formPat.controls?.ngheNghiep?.invalid && (formPat.controls?.ngheNghiep?.dirty || formPat.controls?.ngheNghiep?.touched) && !formPat.controls?.ngheNghiep?.errors?.minlength">
+                {{'validate.required' | translate}}
+              </p>
             </div>
             <div class="row">
               <div class="col-md-4 mb-3">
-                <label for="gender">  {{'patient.sex' | translate}}</label>
+                <label for="gender"> {{'patient.sex' | translate}}</label>
                 <select class="custom-select d-block w-100" id="gender" name="gioiTinh" required
                   [(ngModel)]="patient.gioiTinh">
                   <option value="Nam">Nam</option>
                   <option value="Nữ">Nữ
                   </option>
                 </select>
+                <p class="form-validation m-0"
+                  *ngIf="formPat.controls?.gioiTinh?.invalid && (formPat.controls?.gioiTinh?.dirty || formPat.controls?.gioiTinh?.touched) && !formPat.controls?.gioiTinh?.errors?.minlength">
+                  {{'validate.required' | translate}}
+                </p>
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-lng btn-block w-25 float-right" (click)="createPatient()" [disabled]="formPat.invalid"
-              [class.ban]="formPat.invalid">  {{'patient.create' | translate}}</button>
+            <button class="btn btn-lng btn-block w-25 float-right" (click)="createPatient()"
+              [disabled]="formPat.invalid" [class.ban]="formPat.invalid"> {{'patient.create' | translate}}</button>
 
             <!-- Alert -->
           </form>
