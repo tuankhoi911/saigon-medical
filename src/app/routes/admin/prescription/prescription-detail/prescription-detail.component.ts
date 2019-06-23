@@ -20,7 +20,7 @@ export class PrescriptionDetailComponent implements OnInit {
   }
 
   public presDetail: any;
-  public isSuccess: any;
+  public isSuccess = true;
 
   constructor(private route: ActivatedRoute, private invoiceService: InvoiceService, private router: Router) {
     this.route.params.pipe(
@@ -42,11 +42,11 @@ export class PrescriptionDetailComponent implements OnInit {
     this.invoiceService
       .update(this.invoice).subscribe();
     if (this.isSuccess) {
+      // window.open("'http://localhost:8080/baocao/hoadon/' + invoice?.maHoaDon ", '_blank')
       this.router.navigate(['/admin/prescription']).then(() => {
         window.location.reload();
       })
     }
-
   }
 
 

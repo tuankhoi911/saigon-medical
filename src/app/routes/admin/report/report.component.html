@@ -147,7 +147,7 @@
                   </div>
                   <div class="col-4">
                     <p class="text-center mt-4">
-                      <a [href]="'http://localhost:8080/baocao/thuocdadung?thangBaoCao=' + reportMedicine.month + '&namBaoCao=' + reportMedicine.year "
+                      <a [href]="'http://localhost:8080/baocao/doanhthu?thangBaoCao=' + reportRevenue.month + '&namBaoCao=' + reportRevenue.year "
                         target="_blank" class="btn" type="submit">
                         <i class="fas fa-plus-square mr-2"></i>
                         {{'report.create' | translate}}
@@ -168,7 +168,7 @@
                       <div class="input-group w-100">
                         <label for="month" class="mb-2">{{'report.month' | translate}}</label>
                         <select class="custom-select d-block w-100" id="month" name="month" required
-                          [(ngModel)]="reportMedicine.reportExams">
+                          [(ngModel)]="reportExams.month">
                           <option *ngFor="let month of months">
                             {{month}}
                           </option>
@@ -181,7 +181,7 @@
                       <div class="input-group w-100">
                         <label for="month" class="mb-2">{{'report.year' | translate}}</label>
                         <select class="custom-select d-block w-100" id="year" name="year" required
-                          [(ngModel)]="reportMedicine.reportExams">
+                          [(ngModel)]="reportExams.year">
                           <option *ngFor="let year of years">
                             {{year}}
                           </option>
@@ -191,7 +191,7 @@
                   </div>
                   <div class="col-4">
                     <p class="text-center mt-4">
-                      <a [href]="'http://localhost:8080/baocao/thuocdadung?thangBaoCao=' + reportMedicine.month + '&namBaoCao=' + reportMedicine.year "
+                      <a [href]="'http://localhost:8080/baocao/dangkikhambenh?thangBaoCao=' + reportExams.month + '&namBaoCao=' + reportExams.year "
                         target="_blank" class="btn" type="submit">
                         <i class="fas fa-plus-square mr-2"></i>
                         {{'report.create' | translate}}
