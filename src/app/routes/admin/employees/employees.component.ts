@@ -41,7 +41,7 @@ export class EmployeesComponent implements OnInit {
       .getAll()
       .subscribe(
         (employeeData = []) => {
-          employeeData.forEach((employee) => employee.keys = JSON.stringify(employee));
+          employeeData.forEach((employee) => employee.keys = JSON.stringify(employee).toLowerCase());
           this.employees = employeeData;
           this.searchedEmployees = employeeData;
         }
@@ -59,7 +59,7 @@ export class EmployeesComponent implements OnInit {
 
   public searchUpdateForEmployees(term: string): void {
     term = term.trim().toLowerCase();
-    const isMatch = (employee: any) => employee.keys.toLowerCase().includes(term);
+    const isMatch = (employee: any) => employee.keys.includes(term);
     if (term == "") {
       this.searchedEmployees = this.employees;
     }

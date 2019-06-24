@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
   }
 
   emailLogin() {
-    this.error = true;
     this.loginService
       .login(this.user)
       .subscribe((jwt: any) => {
@@ -50,6 +49,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/admin']);
           this.error = false;
         }
+      }, (error) => {
+        this.error = true;
       })
   }
 

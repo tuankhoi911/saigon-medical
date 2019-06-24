@@ -93,7 +93,7 @@
             </div>
             <hr class="mb-4">
             <button class="btn btn-lng btn-block w-25 float-right" (click)="createEmployee()"
-              [class.ban]="formEmp.invalid"> {{'employee.create' | translate}}</button>
+             [disabled]="formEmp.invalid" [class.ban]="formEmp.invalid"> {{'employee.create' | translate}}</button>
           </form>
         </div>
       </div>

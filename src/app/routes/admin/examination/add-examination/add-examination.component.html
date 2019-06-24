@@ -12,7 +12,7 @@
             <div class="mb-3">
               <label for="address2"> {{'examination.sympton' | translate}}</label>
               <input type="text" class="form-control" id="" placeholder="" name="trieuChung" required
-                [(ngModel)]="phieuKhamBenh.trieuChung">
+                [(ngModel)]="phieuKhamBenh.trieuChung" minlength="6">
               <p class="form-validation m-0"
                 *ngIf="formExams.controls?.trieuChung?.invalid && (formExams.controls?.trieuChung?.dirty || formExams.controls?.trieuChung?.touched) && !formExams.controls?.trieuChung?.errors?.minlength">
                 {{'validate.required' | translate}}
