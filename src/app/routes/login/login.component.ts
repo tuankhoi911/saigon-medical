@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Event, NavigationStart, NavigationEnd } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -29,8 +29,20 @@ export class LoginComponent implements OnInit {
   }
   error = false;
   pbLogo = 'assets/images/pbLogo.png';
+  isLoading = false;
 
-  constructor(public router: Router, private loginService: LoginService) { }
+  constructor(public router: Router, private loginService: LoginService) {
+    router.events.subscribe((event: Event) => {
+
+      if (event instanceof NavigationStart) {
+        this.isLoading = true;
+      }
+
+      if (event instanceof NavigationEnd) {
+        this.isLoading = false;
+      }
+    });
+  }
 
   validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

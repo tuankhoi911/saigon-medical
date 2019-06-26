@@ -5,6 +5,7 @@ import { LoginRoutingModule } from './login.routing';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { LoaderModule } from 'src/app/components/loader/loader.module';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -13,7 +14,8 @@ import { TranslateModule } from '@ngx-translate/core';
     LoginRoutingModule,
     FormsModule,
     RouterModule,
-    TranslateModule
+    TranslateModule,
+    LoaderModule
   ]
 })
 export class LoginModule { }

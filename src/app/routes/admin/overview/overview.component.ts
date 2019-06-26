@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OverviewService } from 'src/app/services/overview.service';
+import { Router, Event, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -37,7 +38,20 @@ export class OverviewComponent implements OnInit {
   genderRate: any;
   departRate: any;
   totalRevenue: any;
-  constructor(private overviewService: OverviewService) { }
+  isLoading = false;
+  constructor(private overviewService: OverviewService,
+    private router: Router) {
+    router.events.subscribe((event: Event) => {
+
+      if (event instanceof NavigationStart) {
+        this.isLoading = true;
+      }
+
+      if (event instanceof NavigationEnd) {
+        this.isLoading = false;
+      }
+    });
+  }
 
   ngOnInit() {
     this.getAllCardInfor();
@@ -50,7 +64,7 @@ export class OverviewComponent implements OnInit {
       .subscribe((data: any) => {
         this.cardInfor = data
         // console.log(data);
-        
+
       })
   }
 

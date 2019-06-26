@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbDatepickerModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { SuccessModule } from 'src/app/modals/success/success.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { LoaderModule } from 'src/app/components/loader/loader.module';
 
 @NgModule({
   declarations: [PatientComponent,
@@ -38,7 +39,8 @@ import { TranslateModule } from '@ngx-translate/core';
     NgbDatepickerModule,
     NgbModalModule,
     SuccessModule,
-    TranslateModule
+    TranslateModule,
+    LoaderModule
   ]
 })
 export class AdminModule { }
