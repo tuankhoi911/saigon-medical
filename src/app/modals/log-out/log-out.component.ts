@@ -24,6 +24,7 @@ export class LogOutComponent implements OnInit {
 
   logout() {
     this.router.navigate(['/']);
+    localStorage.clear();
     this.activeModal.dismiss('forget');
   }
 

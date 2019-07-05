@@ -29,6 +29,8 @@ export class PatientComponent implements OnInit, OnDestroy {
   constructor(private router: Router, protected patientService: PatientService, protected registerService: RegisterService, private modalService: NgbModal) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
+    this.getAllPatients();
+
         if ((router.url != '/admin/patient')) {
           this.isHidden = false;
         } else {
@@ -41,7 +43,7 @@ export class PatientComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getAllPatients();
     // console.log(this.headerJsonWebToken);
-    
+
   }
 
   ngOnDestroy() {
@@ -58,8 +60,9 @@ export class PatientComponent implements OnInit, OnDestroy {
           this.patients = patientData;
           this.searchedUsers = patientData;
           // console.log(this.patients)
-        }
-      )
+        }, (error) => {
+        this.router.navigate(['']);
+        })
   }
 
   public updatePatien(patient) {

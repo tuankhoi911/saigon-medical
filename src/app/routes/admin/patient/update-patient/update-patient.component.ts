@@ -60,7 +60,7 @@ export class UpdatePatientComponent implements OnInit {
       this.patientService.update(this.patient).subscribe();
       if (this.isSuccess) {
         this.router.navigate(['/admin/patient']).then(() => {
-          window.location.reload();
+          // window.location.reload();
         })
       }
     }

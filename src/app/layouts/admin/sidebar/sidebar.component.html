@@ -4,49 +4,49 @@
   </div>
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
-      <li class="nav-item p-0 m-2">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/overview'">
           <i class="fas fa-university mr-2"></i>
           <span data-feather="home"></span>
           {{'sidebar.overview' | translate}}
         </a>
       </li>
-      <li class="nav-item p-0 m-2" *ngIf="isAdmin || isEmployee">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2" *ngIf="isAdmin || isEmployee">
         <a class="nav-link" [routerLink]="'/admin/patient'">
           <i class="fab fa-accessible-icon mr-2"></i>
           <span data-feather="home"></span>
           {{'sidebar.patient' | translate}}
         </a>
       </li>
-      <li class="nav-item p-0 m-2" *ngIf="isAdmin || isDoctor">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2" *ngIf="isAdmin || isDoctor">
         <a class="nav-link" [routerLink]="'/admin/examination'">
           <i class="fas fa-stethoscope mr-2"></i>
           <span data-feather="home"></span>
           {{'sidebar.examination' | translate}}
         </a>
       </li>
-      <li class="nav-item p-0 m-2" *ngIf="isAdmin">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2" *ngIf="isAdmin">
         <a class="nav-link" [routerLink]="'/admin/employees'">
           <i class="fas fa-id-card mr-2"></i>
           <span data-feather="home"></span>
           {{'sidebar.employees' | translate}}
         </a>
       </li>
-      <li class="nav-item p-0 m-2" *ngIf="isAdmin || isPharmacist">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2" *ngIf="isAdmin || isPharmacist">
         <a class="nav-link" [routerLink]="'/admin/medicine'">
           <i class="fas fa-prescription-bottle-alt mr-2"></i>
           <span data-feather="home"></span>
           {{'sidebar.medicine' | translate}}
         </a>
       </li>
-      <li class="nav-item p-0 m-2" *ngIf="isAdmin || isEmployee">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2" *ngIf="isAdmin || isEmployee">
         <a class="nav-link" [routerLink]="'/admin/prescription'">
           <i class="fas fa-file-invoice-dollar mr-2"></i>
           <span data-feather="home"></span>
           {{'sidebar.invoice' | translate}}
         </a>
       </li>
-      <li class="nav-item p-0 m-2" *ngIf="isAdmin || isEmployee">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2" *ngIf="isAdmin || isEmployee">
         <a class="nav-link" [routerLink]="'/admin/report'">
           <i class="fas fa-file-chart-line mr-2"></i>
           <span data-feather="home"></span>
@@ -54,16 +54,16 @@
         </a>
       </li>
     </ul>
-    <div class="drop-devider m-2"></div>
+    <div class="drop-devider ml-0 mr-0 mt-2 mb-2"></div>
     <ul class="nav flex-column">
-      <li class="nav-item p-0 m-2">
+      <li class="nav-item p-0 ml-0 mr-2 mt-2 mb-2">
         <a class="nav-link" [routerLink]="'/admin/setting'">
           <i class="fas fa-cogs mr-2"></i>
           <span data-feather="home"></span>
           {{'sidebar.setting' | translate}}
         </a>
       </li>
-      <li class="nav-item p-0 m-2">
+      <li class="nav-item p-0 ml-0 mr-0 mt-2 mb-2">
         <a class="nav-link" (click)="show()" style="cursor: pointer;">
           <i class="fas fa-sign-out-alt mr-2"></i>
           <span data-feather="home"></span>
