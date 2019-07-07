@@ -14,6 +14,7 @@ export class OverviewService {
   public urlSex = 'tongquan/tylegioitinh';
   public urlRevenue = 'tongquan/doanhthu';
   public urlDpt = 'tongquan/tylechucvu';
+  public urlIncome = 'tongquan/doanhthumuoihaithang';
   public API_URL = environment.apiUrl;
   public headerJsonWebToken = `Bearer ${localStorage.getItem(environment.accessToken)}`;
 
@@ -76,6 +77,21 @@ export class OverviewService {
 
     return this.http
       .get(`${this.API_URL}/${this.urlDpt}`, httpOptions)
+      .pipe(
+        map((response: any[]) => {
+          return response;
+        })
+      )
+
+  }
+  public getAllIncome(): Observable<any[]> {
+    const headers_object = new HttpHeaders().set("Authorization", "Bearer " + this.headerJsonWebToken);
+    const httpOptions = {
+      headers: headers_object
+    };
+
+    return this.http
+      .get(`${this.API_URL}/${this.urlIncome}`, httpOptions)
       .pipe(
         map((response: any[]) => {
           return response;

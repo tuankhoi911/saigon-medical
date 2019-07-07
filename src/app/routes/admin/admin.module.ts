@@ -21,6 +21,7 @@ import { SuccessModule } from "src/app/modals/success/success.module";
 import { TranslateModule } from "@ngx-translate/core";
 import { LoaderModule } from "src/app/components/loader/loader.module";
 import { NgxPaginationModule } from "ngx-pagination";
+import { LineChartModule } from 'src/app/components/line-chart/line-chart.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     AdminRoutingModule,
     BarChartModule,
     PieChartModule,
+    LineChartModule,
     FormsModule,
     ReportModule,
     NgbDatepickerModule,
