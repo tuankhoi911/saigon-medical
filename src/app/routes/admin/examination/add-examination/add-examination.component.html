@@ -3,93 +3,168 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 order-md-1">
-          <h4 class="mb-3 text-center mt-3"> <i class="fas fa-file-medical mr-3"></i>
-            {{'examination.detailname' | translate}}
+          <h4 class="mb-3 text-center mt-3">
+            <i class="fas fa-file-medical mr-3"></i>
+            {{ "examination.detailname" | translate }}
           </h4>
           <form class="needs-validation" #formExams="ngForm">
-            <div class="row">
-            </div>
+            <div class="row"></div>
             <div class="mb-3">
-              <label for="address2"> {{'examination.sympton' | translate}}</label>
-              <input type="text" class="form-control" id="" placeholder="" name="trieuChung" required
-                [(ngModel)]="phieuKhamBenh.trieuChung" minlength="6">
-              <p class="form-validation m-0"
-                *ngIf="formExams.controls?.trieuChung?.invalid && (formExams.controls?.trieuChung?.dirty || formExams.controls?.trieuChung?.touched) && !formExams.controls?.trieuChung?.errors?.minlength">
-                {{'validate.required' | translate}}
+              <label for="address2">
+                {{ "examination.sympton" | translate }}</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id=""
+                placeholder=""
+                name="trieuChung"
+                required
+                [(ngModel)]="phieuKhamBenh.trieuChung"
+                minlength="6"
+              />
+              <p
+                class="form-validation m-0"
+                *ngIf="
+                  formExams.controls?.trieuChung?.invalid &&
+                  (formExams.controls?.trieuChung?.dirty ||
+                    formExams.controls?.trieuChung?.touched) &&
+                  !formExams.controls?.trieuChung?.errors?.minlength
+                "
+              >
+                {{ "validate.required" | translate }}
               </p>
             </div>
             <div class="mb-3">
-              <label for="address2"> {{'examination.diagnosis' | translate}}</label>
-              <input type="text" class="form-control" id="" placeholder="" name="chuanDoan" required
-                [(ngModel)]="phieuKhamBenh.chuanDoan">
-              <p class="form-validation m-0"
-                *ngIf="formExams.controls?.chuanDoan?.invalid && (formExams.controls?.chuanDoan?.dirty || formExams.controls?.chuanDoan?.touched) && !formExams.controls?.chuanDoan?.errors?.minlength">
-                {{'validate.required' | translate}}
+              <label for="address2">
+                {{ "examination.diagnosis" | translate }}</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id=""
+                placeholder=""
+                name="chuanDoan"
+                required
+                [(ngModel)]="phieuKhamBenh.chuanDoan"
+              />
+              <p
+                class="form-validation m-0"
+                *ngIf="
+                  formExams.controls?.chuanDoan?.invalid &&
+                  (formExams.controls?.chuanDoan?.dirty ||
+                    formExams.controls?.chuanDoan?.touched) &&
+                  !formExams.controls?.chuanDoan?.errors?.minlength
+                "
+              >
+                {{ "validate.required" | translate }}
               </p>
             </div>
             <div class="mb-3">
-              <label for="address2"> {{'examination.doctor' | translate}}</label>
-              <select class="custom-select d-block w-100" id="gender" name="bacSi" required
-                [(ngModel)]="phieuKhamBenh.maBacSi">
-                <option *ngFor="let doc of doctorList" [value]="doc.maNhanVien">{{doc?.tenNhanVien}}</option>
+              <label for="address2">
+                {{ "examination.doctor" | translate }}</label
+              >
+              <select
+                class="custom-select d-block w-100"
+                id="gender"
+                name="bacSi"
+                required
+                [(ngModel)]="phieuKhamBenh.maBacSi"
+              >
+                <option
+                  *ngFor="let doc of doctorList"
+                  [value]="doc.maNhanVien"
+                  >{{ doc?.tenNhanVien }}</option
+                >
               </select>
-              <p class="form-validation m-0"
-                *ngIf="formExams.controls?.bacSi?.invalid && (formExams.controls?.bacSi?.dirty || formExams.controls?.bacSi?.touched) && !formExams.controls?.bacSi?.errors?.minlength">
-                {{'validate.required' | translate}}
+              <p
+                class="form-validation m-0"
+                *ngIf="
+                  formExams.controls?.bacSi?.invalid &&
+                  (formExams.controls?.bacSi?.dirty ||
+                    formExams.controls?.bacSi?.touched) &&
+                  !formExams.controls?.bacSi?.errors?.minlength
+                "
+              >
+                {{ "validate.required" | translate }}
               </p>
             </div>
             <div class="mb-3 mt-4 medicine-table">
               <div class="container">
-                <div class="row font-weight-bold text-center" style="background: #395c9c; color: white">
+                <div
+                  class="row font-weight-bold text-center"
+                  style="background: #395c9c; color: white"
+                >
                   <div class="col-5" style="border-right: 1px #fff solid">
-                    {{'examination.drugname' | translate}}
+                    {{ "examination.drugname" | translate }}
                   </div>
                   <div class="col-3" style="border-right: 1px #fff solid">
-                    {{'examination.usage' | translate}}
+                    {{ "examination.usage" | translate }}
                   </div>
                   <div class="col-3">
-                    {{'examination.amount' | translate}}
+                    {{ "examination.amount" | translate }}
                   </div>
-                  <div class="col-1">
-                  </div>
+                  <div class="col-1"></div>
                 </div>
               </div>
               <ul class="p-0">
-                <li class="col-12 pl-0 pr-0 pt-2 pb-2" *ngFor="let medicine of medicinesAdded; let index = index">
+                <li
+                  class="col-12 pl-0 pr-0 pt-2 pb-2"
+                  *ngFor="let medicine of medicinesAdded; let index = index"
+                >
                   <div class="container">
                     <div class="row">
                       <div class="col-5 pt-1" style="border: 1px #000 solid">
-                        {{medicine.tenThuoc}}
+                        {{ medicine.tenThuoc }}
                       </div>
                       <div class="col-3 pt-1" style="border: 1px #000 solid">
-                        {{medicine.cachDung}}
+                        {{ medicine.cachDung }}
                       </div>
                       <div class="col-3 pt-1" style="border: 1px #000 solid">
-                        {{medicine.amount}}
+                        {{ medicine.amount }}
                       </div>
                       <div class="col-1 btn-action">
-                        <button class="btn btn-danger" style="width: 45px; height: 45px;" (click)="delete(index)"><i
-                            class="fas fa-trash-alt"></i></button>
+                        <button
+                          class="btn btn-danger"
+                          style="width: 45px; height: 45px;"
+                          (click)="delete(index)"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </li>
               </ul>
             </div>
-            <hr class="mb-4">
-            <button class="btn btn-lng btn-block" (click)="onCreate(formExams.value)" [disabled]="formExams.invalid"
-              [class.ban]="formExams.invalid"> {{'examination.create' | translate}}</button>
+            <hr class="mb-4" />
+            <button
+              class="btn btn-lng btn-block"
+              (click)="onCreate(formExams.value)"
+              [disabled]="formExams.invalid"
+              [class.ban]="formExams.invalid"
+            >
+              {{ "examination.create" | translate }}
+            </button>
           </form>
-          <p class="mt-4"><button class="btn" (click)="addMedicine()"><i class="fas fa-plus-square mr-2"></i>
-              {{'examination.addrx' | translate}}</button></p>
+          <p class="mt-4">
+            <button class="btn" (click)="addMedicine()">
+              <i class="fas fa-plus-square mr-2"></i>
+              {{ "examination.addrx" | translate }}
+            </button>
+          </p>
           <div class="row" *ngIf="isAdd">
             <div class="col-lg-12">
               <div class="search-patient mt-3">
                 <div class="row">
                   <div class="col-12">
                     <form class="search-container mx-auto">
-                      <input type="text" id="search-bar" (keyup)="searchUpdateMed($event.target.value)"
-                        placeholder=" {{'examination.search' | translate}}">
+                      <input
+                        type="text"
+                        id="search-bar"
+                        (keyup)="searchUpdateMed($event.target.value)"
+                        placeholder=" {{ 'examination.search' | translate }}"
+                      />
                       <a><i class="fas fa-search"></i></a>
                     </form>
                   </div>
@@ -101,20 +176,35 @@
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col"> {{'examination.drugname' | translate}}</th>
-                        <th scope="col"> {{'examination.amount' | translate}}</th>
-                        <th scope="col"> {{'examination.unit' | translate}}</th>
-                        <th scope="col" class="text-center"> {{'examination.addtopres' | translate}}</th>
+                        <th scope="col">
+                          {{ "examination.drugname" | translate }}
+                        </th>
+                        <th scope="col">
+                          {{ "examination.amount" | translate }}
+                        </th>
+                        <th scope="col">
+                          {{ "examination.unit" | translate }}
+                        </th>
+                        <th scope="col" class="text-center">
+                          {{ "examination.addtopres" | translate }}
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let user of searchedMed; let index =index">
-                        <th scope="row">{{index+1}}</th>
-                        <td>{{user?.tenThuoc}}</td>
-                        <td>{{user?.soLuong}}</td>
-                        <td>{{user?.donVi}}</td>
-                        <td class="btn-action text-center"><button class="btn" (click)="show(index, user)"><i
-                              class="fas fa-folder-plus"></i></button></td>
+                      <tr *ngFor="let user of searchedMed; let index = index">
+                        <th scope="row">{{ index + 1 }}</th>
+                        <td>{{ user?.tenThuoc }}</td>
+                        <td>{{ user?.soLuong }}</td>
+                        <td>{{ user?.donVi }}</td>
+                        <td class="btn-action text-center">
+                          <button
+                            class="btn"
+                            (click)="show(index, user)"
+                            [disabled]="user.clicked"
+                          >
+                            <i class="fas fa-folder-plus"></i>
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>

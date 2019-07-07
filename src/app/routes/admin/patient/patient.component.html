@@ -10,8 +10,8 @@
               </p>
             </div>
             <div class="col-11">
-              <h4 class="m-0">{{'patient.title' | translate}}</h4>
-              <p class="m-0">{{'patient.description' | translate}}</p>
+              <h4 class="m-0">{{ "patient.title" | translate }}</h4>
+              <p class="m-0">{{ "patient.description" | translate }}</p>
             </div>
           </div>
         </div>
@@ -24,8 +24,12 @@
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
-                  <input type="text" id="search-bar" (keyup)="searchUpdate($event.target.value)"
-                    placeholder="{{'patient.search' | translate}}">
+                  <input
+                    type="text"
+                    id="search-bar"
+                    (keyup)="searchUpdate($event.target.value)"
+                    placeholder="{{ 'patient.search' | translate }}"
+                  />
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
@@ -37,44 +41,69 @@
       <div class="col-lg-12 bg-nhanviet">
         <div class="patient-list">
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class=" mb-2 title-list p-2"> <i class="fas fa-list mr-2"></i>{{'patient.list' | translate}}</h5>
+            <h5 class=" mb-2 title-list p-2">
+              <i class="fas fa-list mr-2"></i>{{ "patient.list" | translate }}
+            </h5>
             <div class="patient-list-head mb-2">
               <p class="m-0">
-                <button class="btn m-2" [routerLink]="'add-patient'"><a><i
-                      class="fas fa-plus-square mr-2"></i>{{'patient.addpatient' | translate}}
-                  </a></button>
+                <button class="btn m-2" [routerLink]="'add-patient'">
+                  <a
+                    ><i class="fas fa-plus-square mr-2"></i
+                    >{{ "patient.addpatient" | translate }}
+                  </a>
+                </button>
               </p>
             </div>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">{{'patient.name' | translate}}</th>
-                  <th scope="col">{{'patient.sex' | translate}}</th>
-                  <th scope="col">{{'patient.birthday' | translate}}</th>
-                  <th scope="col">{{'patient.address' | translate}}</th>
-                  <th scope="col">{{'patient.job' | translate}}</th>
-                  <th scope="col">{{'patient.phone' | translate}}</th>
-                  <th scope="col">{{'patient.adddate' | translate}}</th>
-                  <th scope="col" class="text-center">{{'patient.action' | translate}}</th>
+                  <th scope="col">{{ "patient.name" | translate }}</th>
+                  <th scope="col">{{ "patient.sex" | translate }}</th>
+                  <th scope="col">{{ "patient.birthday" | translate }}</th>
+                  <th scope="col">{{ "patient.address" | translate }}</th>
+                  <th scope="col">{{ "patient.job" | translate }}</th>
+                  <th scope="col">{{ "patient.phone" | translate }}</th>
+                  <th scope="col">{{ "patient.adddate" | translate }}</th>
+                  <th scope="col" class="text-center">
+                    {{ "patient.action" | translate }}
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let patient of searchedUsers; let i=index">
-                  <th scope="row">{{patient.maBenhNhan}}</th>
-                  <td>{{patient.tenBenhNhan}}</td>
-                  <td>{{patient.gioiTinh}}</td>
-                  <td>{{patient.ngaySinh}}</td>
-                  <td>{{patient.diaChi}}</td>
-                  <td>{{patient.ngheNghiep}}</td>
-                  <td style="color: #5b86e5"><i class="fas  fa-mobile-android-alt mr-2"></i>{{patient.soDienThoai}}</td>
-                  <td>{{patient.ngayThem}}</td>
+                <tr
+                  *ngFor="
+                    let patient of searchedUsers | paginate: config;
+                    let i = index
+                  "
+                >
+                  <th scope="row">{{ patient.maBenhNhan }}</th>
+                  <td>{{ patient.tenBenhNhan }}</td>
+                  <td>{{ patient.gioiTinh }}</td>
+                  <td>{{ patient.ngaySinh }}</td>
+                  <td>{{ patient.diaChi }}</td>
+                  <td>{{ patient.ngheNghiep }}</td>
+                  <td style="color: #5b86e5">
+                    <i class="fas  fa-mobile-android-alt mr-2"></i
+                    >{{ patient.soDienThoai }}
+                  </td>
+                  <td>{{ patient.ngayThem }}</td>
                   <td class="btn-action text-center">
-                    <button class="btn mr-2" (click)="registerExams(patient)"><i
-                        class="fas fa-plus-square"></i></button>
-                    <button class="btn btn-warning mr-2 text-white"
-                      [routerLink]="['update-patient', patient.maBenhNhan]"><i class="fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger" (click)="verifyAction(patient)"><i class="fas fa-trash"></i></button>
+                    <button class="btn mr-2" (click)="registerExams(patient)">
+                      <i class="fas fa-plus-square"></i>
+                    </button>
+                    <button
+                      class="btn btn-warning mr-2 text-white"
+                      [routerLink]="['update-patient', patient.maBenhNhan]"
+                    >
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button
+                      class="btn btn-danger"
+                      (click)="verifyAction(patient)"
+                    >
+                      <i class="fas fa-trash"></i>
+                    </button>
                   </td>
                   <div *ngIf="isDelete" class="verify-box">
                     <div class="container h-100">
@@ -83,18 +112,32 @@
                           <div class="card">
                             <div class="card-header">
                               <div class="col-12 p-0">
-                                <p class="logo text-center m-0"><img class="w-75" [src]="logo" alt=""></p>
+                                <p class="logo text-center m-0">
+                                  <img class="w-75" [src]="logo" alt="" />
+                                </p>
                               </div>
                             </div>
                             <div class="card-body">
-                              <p class="text-center mt-4">{{'patient.verify' | translate}}</p>
+                              <p class="text-center mt-4">
+                                {{ "patient.verify" | translate }}
+                              </p>
                             </div>
                             <div class="card-footer">
                               <p class="text-right m-0">
-                                <button class="btn btn-success mr-2" (click)="cancelAction()"> <i
-                                    class="fas fa-undo-alt mr-2"></i>{{'patient.cancel' | translate}}</button>
-                                <button class="btn btn-danger ml-2" (click)="deletePatient()"> <i
-                                    class="fas fa-user-slash mr-2"></i>{{'patient.delete' | translate}}</button>
+                                <button
+                                  class="btn btn-success mr-2"
+                                  (click)="cancelAction()"
+                                >
+                                  <i class="fas fa-undo-alt mr-2"></i
+                                  >{{ "patient.cancel" | translate }}
+                                </button>
+                                <button
+                                  class="btn btn-danger ml-2"
+                                  (click)="deletePatient()"
+                                >
+                                  <i class="fas fa-user-slash mr-2"></i
+                                  >{{ "patient.delete" | translate }}
+                                </button>
                               </p>
                             </div>
                           </div>
@@ -105,6 +148,22 @@
                 </tr>
               </tbody>
             </table>
+
+            <pagination-controls
+              class="pagination-bar"
+              style="text-align:right"
+              (pageChange)="pageChanged($event)"
+              directionLinks="true"
+              autoHide="true"
+              responsive="true"
+              previousLabel="Trước"
+              nextLabel="Sau"
+              screenReaderPaginationLabel="Pagination"
+              screenReaderPageLabel="page"
+              screenReaderCurrentLabel="You're on page"
+            >
+              ></pagination-controls
+            >
           </div>
         </div>
       </div>

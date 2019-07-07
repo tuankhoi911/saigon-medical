@@ -11,10 +11,10 @@
             </div>
             <div class="col-11">
               <h4 class="m-0">
-                {{'examination.title' | translate}}
+                {{ "examination.title" | translate }}
               </h4>
               <p class="m-0">
-                {{'examination.description' | translate}}
+                {{ "examination.description" | translate }}
               </p>
             </div>
           </div>
@@ -28,8 +28,12 @@
             <div class="row">
               <div class="col-12">
                 <form class="search-container mx-auto">
-                  <input type="text" id="search-bar" (keyup)="searchUpdateForRegister($event.target.value)"
-                    placeholder=" {{'examination.search' | translate}}">
+                  <input
+                    type="text"
+                    id="search-bar"
+                    (keyup)="searchUpdateForRegister($event.target.value)"
+                    placeholder=" {{ 'examination.search' | translate }}"
+                  />
                   <a><i class="fas fa-search"></i></a>
                 </form>
               </div>
@@ -41,31 +45,59 @@
       <div class="col-lg-12 bg-nhanviet">
         <div class="patient-list">
           <div class="col-12 mt-4 patinent-table p-0 mb-4">
-            <h5 class="mb-4 title-list p-2"> <i class="fas fa-list mr-2"></i> {{'examination.list' | translate}}</h5>
+            <h5 class="mb-4 title-list p-2">
+              <i class="fas fa-list mr-2"></i>
+              {{ "examination.list" | translate }}
+            </h5>
             <table class="table ml-2">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col"> {{'examination.registid' | translate}}</th>
-                  <th scope="col"> {{'examination.name' | translate}}</th>
-                  <th scope="col"> {{'examination.status' | translate}}</th>
-                  <th scope="col"> {{'examination.adddate' | translate}}</th>
-                  <th scope="col" class=" text-center"> {{'examination.action' | translate}}</th>
+                  <th scope="col">{{ "examination.registid" | translate }}</th>
+                  <th scope="col">{{ "examination.name" | translate }}</th>
+                  <th scope="col">{{ "examination.status" | translate }}</th>
+                  <th scope="col">{{ "examination.adddate" | translate }}</th>
+                  <th scope="col" class=" text-center">
+                    {{ "examination.action" | translate }}
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let register of searchedRegis">
-                  <th scope="row">{{register?.maDangKi}}</th>
-                  <th scope="row">{{register?.maBenhNhan}}</th>
-                  <td><span class="badge" [class.badge-success]="register?.tinhTrang == 'Đã khám'"
-                      [class.badge-warning]="register?.tinhTrang == 'Đang chờ'">{{register?.tinhTrang}}</span></td>
-                  <td>{{register?.ngayDangKi}}</td>
+                <tr *ngFor="let register of searchedRegis | paginate: config">
+                  <th scope="row">{{ register?.maDangKi }}</th>
+                  <th scope="row">{{ register?.maBenhNhan }}</th>
+                  <td>
+                    <span
+                      class="badge"
+                      [class.badge-success]="register?.tinhTrang == 'Đã khám'"
+                      [class.badge-warning]="register?.tinhTrang == 'Đang chờ'"
+                      >{{ register?.tinhTrang }}</span
+                    >
+                  </td>
+                  <td>{{ register?.ngayDangKi }}</td>
                   <td class="text-center btn-action">
-                    <button class="btn mr-2" *ngIf="register?.tinhTrang == 'Đang chờ'"
-                      [routerLink]="['add-examination', register.maDangKi]"><i class="fas fa-plus-circle"></i></button>
-                    <button class="mr-2 btn btn-success" *ngIf="register?.tinhTrang == 'Đã khám'"
-                      [routerLink]="['examination-detail', register.maPhieuKham]"><i
-                        class="fas fa-folder-open"></i></button>
-                    <button class="btn btn-danger mr-2" (click)="verifyAction()"><i class="fas fa-trash"></i></button>
+                    <button
+                      class="btn mr-2"
+                      *ngIf="register?.tinhTrang == 'Đang chờ'"
+                      [routerLink]="['add-examination', register.maDangKi]"
+                    >
+                      <i class="fas fa-plus-circle"></i>
+                    </button>
+                    <button
+                      class="mr-2 btn btn-success"
+                      *ngIf="register?.tinhTrang == 'Đã khám'"
+                      [routerLink]="[
+                        'examination-detail',
+                        register.maPhieuKham
+                      ]"
+                    >
+                      <i class="fas fa-folder-open"></i>
+                    </button>
+                    <button
+                      class="btn btn-danger mr-2"
+                      (click)="verifyAction()"
+                    >
+                      <i class="fas fa-trash"></i>
+                    </button>
                   </td>
                   <div *ngIf="isDelete" class="verify-box">
                     <div class="container h-100">
@@ -74,18 +106,32 @@
                           <div class="card">
                             <div class="card-header">
                               <div class="col-12 p-0">
-                                <p class="logo text-center m-0"><img class="w-75" [src]="logo" alt=""></p>
+                                <p class="logo text-center m-0">
+                                  <img class="w-75" [src]="logo" alt="" />
+                                </p>
                               </div>
                             </div>
                             <div class="card-body">
-                              <p class="text-center mt-4"> {{'examination.verify' | translate}}</p>
+                              <p class="text-center mt-4">
+                                {{ "examination.verify" | translate }}
+                              </p>
                             </div>
                             <div class="card-footer">
                               <p class="text-right m-0">
-                                <button class="btn btn-success mr-2" (click)="cancelAction()"> <i
-                                    class="fas fa-undo-alt mr-2"></i> {{'examination.cancel' | translate}}</button>
-                                <button class="btn btn-danger ml-2" (click)="deleteRegister(register)"> <i
-                                    class="fas fa-user-slash mr-2"></i> {{'examination.delete' | translate}}</button>
+                                <button
+                                  class="btn btn-success mr-2"
+                                  (click)="cancelAction()"
+                                >
+                                  <i class="fas fa-undo-alt mr-2"></i>
+                                  {{ "examination.cancel" | translate }}
+                                </button>
+                                <button
+                                  class="btn btn-danger ml-2"
+                                  (click)="deleteRegister(register)"
+                                >
+                                  <i class="fas fa-user-slash mr-2"></i>
+                                  {{ "examination.delete" | translate }}
+                                </button>
                               </p>
                             </div>
                           </div>
@@ -96,6 +142,22 @@
                 </tr>
               </tbody>
             </table>
+
+            <pagination-controls
+              class="pagination-bar"
+              style="text-align:right"
+              (pageChange)="pageChanged($event)"
+              directionLinks="true"
+              autoHide="true"
+              responsive="true"
+              previousLabel="Trước"
+              nextLabel="Sau"
+              screenReaderPaginationLabel="Pagination"
+              screenReaderPageLabel="page"
+              screenReaderCurrentLabel="You're on page"
+            >
+              ></pagination-controls
+            >
           </div>
         </div>
       </div>
