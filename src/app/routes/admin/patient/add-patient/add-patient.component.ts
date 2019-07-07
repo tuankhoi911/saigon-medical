@@ -48,9 +48,11 @@ export class AddPatientComponent implements OnInit {
     if (this.isSuccess === true) {
       this.patientService.create(this.patient).subscribe();
       if (this.isSuccess) {
-        this.router.navigate(["/admin/patient"]).then(() => {
-          //window.location.reload();
-        });
+        this.router.navigate(['/admin/patient'])
+        .then(() => {
+          // window.location.reload();
+        })
+
       }
     }
   }
