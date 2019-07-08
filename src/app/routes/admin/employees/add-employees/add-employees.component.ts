@@ -63,7 +63,7 @@ export class AddEmployeesComponent implements OnInit {
     if (this.isSuccess === true) {
       this.employeeService.create(this.employee).subscribe();
       this.router.navigate(['/admin/employees']).then(() => {
-        window.location.reload();
+        // window.location.reload();
       })
     }
   }

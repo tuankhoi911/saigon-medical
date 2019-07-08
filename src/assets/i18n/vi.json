@@ -42,7 +42,8 @@
         "incomemonth": "Doanh thu theo tháng",
         "achiev": "Thành tựu y tế",
         "tech": "Công nghệ y tế mới",
-        "gallery": "Thư viện ảnh"
+        "gallery": "Thư viện ảnh",
+        "empgood":"Nhân viên tiêu biểu"
     },
     "patient": {
         "title": "Bệnh nhân",

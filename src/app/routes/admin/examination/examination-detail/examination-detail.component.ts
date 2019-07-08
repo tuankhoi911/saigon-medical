@@ -27,7 +27,7 @@ export class ExaminationDetailComponent implements OnInit {
     ).subscribe((value: any) => {
       this.exam = value;
       this.meds = value['chiTietDonThuocList']
-      console.log(this.meds);
+      // console.log(this.meds);
 
     })
   }

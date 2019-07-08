@@ -23,6 +23,7 @@ export class EmployeesComponent implements OnInit {
   ) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
+        this.getAllEmployees();
         if (router.url != "/admin/employees") {
           this.isHidden = false;
         } else {

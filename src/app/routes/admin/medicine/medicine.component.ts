@@ -24,8 +24,10 @@ export class MedicineComponent implements OnInit {
     protected medicineService: MedicineService,
     protected patientService: PatientService
   ) {
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
+        this.getAllMedicine();
         if (router.url != "/admin/medicine") {
           this.isHidden = false;
         } else {
@@ -39,6 +41,8 @@ export class MedicineComponent implements OnInit {
       currentPage: 1,
       totalItems: this.searchedMed ? this.searchedMed : 0,
     };
+
+   
   }
 
   show() {

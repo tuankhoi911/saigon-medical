@@ -52,7 +52,7 @@ export class AddMedicineComponent implements OnInit {
       this.medicineService.create(this.medicine).subscribe();
       if (this.isSuccess) {
         this.router.navigate(['/admin/medicine']).then(() => {
-          window.location.reload();
+          // window.location.reload();
         })
       }
     }

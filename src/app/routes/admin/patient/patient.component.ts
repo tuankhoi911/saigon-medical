@@ -83,7 +83,7 @@ export class PatientComponent implements OnInit, OnDestroy {
           );
           this.patients = patientData;
           this.searchedUsers = patientData;
-          // console.log(this.patients)
+          console.log(this.patients)
         },
         error => {
           this.router.navigate([""]);

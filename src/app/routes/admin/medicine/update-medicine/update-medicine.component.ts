@@ -58,7 +58,7 @@ export class UpdateMedicineComponent implements OnInit {
       this.medicineService.update(this.medicine).subscribe();
       if (this.isSuccess) {
         this.router.navigate(['/admin/medicine']).then(() => {
-          window.location.reload();
+          // window.location.reload();
         })
       }
     }

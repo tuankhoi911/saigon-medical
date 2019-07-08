@@ -57,7 +57,7 @@ export class UpdateEmployeesComponent implements OnInit {
       this.employeeService.update(this.employee).subscribe();
       if (this.isSuccess) {
         this.router.navigate(['/admin/employees']).then(() => {
-          window.location.reload();
+          // window.location.reload();
         })
       }
     }

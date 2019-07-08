@@ -153,6 +153,52 @@
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
         <h4 class="bg-gradient mb-4 title-list p-2">
+          <i class="fal fa-user mr-2"></i>{{ "overview.newpatient" | translate }}
+        </h4>
+        <div class="container">
+          <div class="row p-2">
+            <div *ngFor="let reward of newPat" class="col-lg-3">
+              <div class="card p-0 m-2">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ reward?.tenBenhNhan }}
+                  </h5>
+                  <p class="card-text">
+                    {{ reward?.ngaySinh }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mt-4 patinent-table p-0">
+        <h4 class="bg-gradient mb-4 title-list p-2">
+          <i class="fal fa-medal mr-2"></i>{{ "overview.empgood" | translate }}
+        </h4>
+        <div class="container">
+          <div class="row p-2">
+            <div *ngFor="let reward of newEmp" class="col-lg-3">
+              <div class="card p-0 m-2">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ reward?.tenNhanVien }}
+                  </h5>
+                  <p class="card-text">
+                    {{ reward?.ngaySinh }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-12 mt-4 patinent-table p-0">
+        <h4 class="bg-gradient mb-4 title-list p-2">
           <i class="fal fa-medal mr-2"></i>{{ "overview.achiev" | translate }}
         </h4>
         <div class="container">
@@ -173,7 +219,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
         <h4 class="bg-gradient mb-4 title-list p-2">

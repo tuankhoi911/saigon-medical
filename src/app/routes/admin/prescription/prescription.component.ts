@@ -17,6 +17,7 @@ export class PrescriptionComponent implements OnInit {
 
   constructor(private router: Router, private invoiceService: InvoiceService) {
     router.events.subscribe((event: Event) => {
+      this.getAllInvoices();
       if (event instanceof NavigationEnd) {
         if (router.url != "/admin/prescription") {
           this.isHidden = false;

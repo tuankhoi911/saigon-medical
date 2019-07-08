@@ -15,6 +15,8 @@ export class OverviewService {
   public urlRevenue = 'tongquan/doanhthu';
   public urlDpt = 'tongquan/tylechucvu';
   public urlIncome = 'tongquan/doanhthumuoihaithang';
+  public urlPat = 'tongquan/benhnhanmoi';
+  public urlEmp = 'tongquan/nhanvientieubieu';
   public API_URL = environment.apiUrl;
   public headerJsonWebToken = `Bearer ${localStorage.getItem(environment.accessToken)}`;
 
@@ -99,5 +101,36 @@ export class OverviewService {
       )
 
   }
+  public getPatient(): Observable<any[]> {
+    const headers_object = new HttpHeaders().set("Authorization", "Bearer " + this.headerJsonWebToken);
+    const httpOptions = {
+      headers: headers_object
+    };
+
+    return this.http
+      .get(`${this.API_URL}/${this.urlPat}`, httpOptions)
+      .pipe(
+        map((response: any[]) => {
+          return response;
+        })
+      )
+
+  }
+  public getEmployee(): Observable<any[]> {
+    const headers_object = new HttpHeaders().set("Authorization", "Bearer " + this.headerJsonWebToken);
+    const httpOptions = {
+      headers: headers_object
+    };
+
+    return this.http
+      .get(`${this.API_URL}/${this.urlEmp}`, httpOptions)
+      .pipe(
+        map((response: any[]) => {
+          return response;
+        })
+      )
+
+  }
+
 }
 

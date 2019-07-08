@@ -42,7 +42,8 @@
         "incomemonth": "Revenue by month",
         "achiev": "Medical achievement",
         "tech": "New medical technology",
-        "gallery": "Pictures gallery"
+        "gallery": "Pictures gallery",
+        "empgood":"High performance employee"
     },
     "patient": {
         "title": "Patient",
