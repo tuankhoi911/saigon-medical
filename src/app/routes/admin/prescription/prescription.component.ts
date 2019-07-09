@@ -16,9 +16,13 @@ export class PrescriptionComponent implements OnInit {
   public searchedInvoices = this.invoices;
 
   constructor(private router: Router, private invoiceService: InvoiceService) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    };
     router.events.subscribe((event: Event) => {
-      this.getAllInvoices();
       if (event instanceof NavigationEnd) {
+        this.router.navigated = false;
+        this.getAllInvoices();
         if (router.url != "/admin/prescription") {
           this.isHidden = false;
         } else {

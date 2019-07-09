@@ -20,9 +20,12 @@ export class ExaminationComponent implements OnInit {
     private router: Router,
     protected registerService: RegisterService
   ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    };
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-
+        this.router.navigated = false;
         this.getAllRegisters();
         if (router.url != "/admin/examination") {
           this.isHidden = false;

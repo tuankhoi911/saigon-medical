@@ -1,5 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, Event, NavigationEnd, NavigationStart, ActivatedRoute } from "@angular/router";
+import {
+  Router,
+  Event,
+  NavigationEnd,
+  NavigationStart,
+  ActivatedRoute,
+} from "@angular/router";
 import { EmployeeService } from "src/app/services/employee.service";
 
 @Component({
@@ -22,8 +28,12 @@ export class EmployeesComponent implements OnInit {
     private route: ActivatedRoute,
     protected employeeService: EmployeeService
   ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    };
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
+        this.router.navigated = false;
         if (router.url != "/admin/employees") {
           this.getAllEmployees();
           this.isHidden = false;
@@ -33,8 +43,7 @@ export class EmployeesComponent implements OnInit {
       }
     });
 
-    route.params.subscribe((params)=>console.log(params));
-
+    route.params.subscribe(params => console.log(params));
 
     this.config = {
       itemsPerPage: 8,

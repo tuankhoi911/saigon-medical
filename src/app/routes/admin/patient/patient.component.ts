@@ -44,9 +44,13 @@ export class PatientComponent implements OnInit, OnDestroy {
     protected registerService: RegisterService,
     private modalService: NgbModal
   ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    };
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        // this.getAllPatients();
+        this.router.navigated = false;
+        this.getAllPatients();
 
         if (router.url != "/admin/patient") {
           this.isHidden = false;
@@ -83,7 +87,7 @@ export class PatientComponent implements OnInit, OnDestroy {
           );
           this.patients = patientData;
           this.searchedUsers = patientData;
-          console.log(this.patients)
+          console.log(this.patients);
         },
         error => {
           this.router.navigate([""]);

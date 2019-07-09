@@ -36,11 +36,11 @@ export class BarChartComponent implements OnInit {
   public barChartLegend = true;
   public barChartData = [
     {
-      data: [65, 59, 80],
+      data: [0, 0, 0],
       label: this.translate.instant("overview.male"),
     },
     {
-      data: [28, 48, 40, 19],
+      data: [0, 0, 0],
       label: this.translate.instant("overview.female"),
     },
   ];
