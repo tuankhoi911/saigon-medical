@@ -103,7 +103,6 @@
   padding: 20px;
 }
 
-
 .bar-chart {
   background: white;
   border-radius: 5px;
@@ -127,7 +126,7 @@
 }
 
 .card {
-  box-shadow: 0 2px 4px 0 rgba(177,177,177,.5);
+  box-shadow: 0 2px 4px 0 rgba(177, 177, 177, 0.5);
 }
 
 .card-new {
@@ -140,4 +139,14 @@
 
 .card-img {
   height: 325px !important;
+}
+
+.red {
+  color: #e74c3c;
+  font-size: 12px;
+}
+
+.green {
+  color: #2ecc71;
+  font-size: 12px;
 }

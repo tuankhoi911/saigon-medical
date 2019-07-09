@@ -110,24 +110,23 @@
         <label for="">{{ "overview.dptdescription" | translate }}</label>
         <app-pie-chart></app-pie-chart>
       </div>
-
-
     </div>
 
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
         <h4 class="mb-4 title-list p-2 bg-gradient">
-          <i class="fal fa-file-invoice-dollar mr-2"></i>{{ "overview.incomemonth" | translate }}
+          <i class="fal fa-file-invoice-dollar mr-2"></i
+          >{{ "overview.incomemonth" | translate }}
         </h4>
-          <div class="container">
-            <div class="col-11 pie-chart mx-auto mb-4">
-              <h4 class="text-left mt-2">
-                {{ "overview.grow" | translate }}
-              </h4>
-              <!-- <label for="">{{ "overview.dptdescription" | translate }}</label> -->
-              <!-- <app-pie-chart></app-pie-chart> -->
-              <app-line-chart></app-line-chart>
-            </div>
+        <div class="container">
+          <div class="col-11 pie-chart mx-auto mb-4">
+            <h4 class="text-left mt-2">
+              {{ "overview.grow" | translate }}
+            </h4>
+            <!-- <label for="">{{ "overview.dptdescription" | translate }}</label> -->
+            <!-- <app-pie-chart></app-pie-chart> -->
+            <app-line-chart></app-line-chart>
+          </div>
         </div>
 
         <table class="table ml-2">
@@ -144,7 +143,14 @@
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ doanhThu.thang }}</td>
               <td>{{ doanhThu.giaTri }}</td>
-              <td>{{ doanhThu.tyLe > 0 ? doanhThu.tyLe : -doanhThu.tyLe }}</td>
+              <td>
+                <i *ngIf="doanhThu?.tyLe < 0" class="fas fa-caret-down red"></i>
+                <i
+                  *ngIf="doanhThu?.tyLe >= 0"
+                  class="fas fa-caret-up green"
+                ></i>
+                {{ doanhThu.tyLe > 0 ? doanhThu.tyLe : -doanhThu.tyLe }}%
+              </td>
             </tr>
           </tbody>
         </table>
@@ -153,7 +159,8 @@
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
         <h4 class="bg-gradient mb-4 title-list p-2">
-          <i class="fal fa-user mr-2"></i>{{ "overview.newpatient" | translate }}
+          <i class="fal fa-user mr-2"></i
+          >{{ "overview.newpatient" | translate }}
         </h4>
         <div class="container">
           <div class="row p-2">
@@ -223,13 +230,18 @@
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
         <h4 class="bg-gradient mb-4 title-list p-2">
-          <i class="fal fa-head-side-brain mr-2"></i>{{ "overview.tech" | translate }}
+          <i class="fal fa-head-side-brain mr-2"></i
+          >{{ "overview.tech" | translate }}
         </h4>
         <div class="container">
           <div class="row p-2">
             <div *ngFor="let tech of techs" class="col-lg-3">
               <div class="card card-new p-0 m-2">
-                <img class="card-img-top" [src]="tech?.techUrl" alt="Card image cap" />
+                <img
+                  class="card-img-top"
+                  [src]="tech?.techUrl"
+                  alt="Card image cap"
+                />
                 <div class="card-body">
                   <h5 class="card-title">
                     {{ tech?.techName }}
@@ -253,7 +265,11 @@
           <div class="row p-2">
             <div *ngFor="let image of gallery" class="col-lg-3">
               <div class="card card-img p-0 m-3">
-                <img class="card-img-top" [src]="image?.galleryUrl" alt="Card image cap" />
+                <img
+                  class="card-img-top"
+                  [src]="image?.galleryUrl"
+                  alt="Card image cap"
+                />
                 <div class="card-body">
                   <h5 class="card-title">
                     {{ image?.galleryName }}
@@ -271,14 +287,20 @@
           <div class="col-6">
             <p class="text-left">
               Copyright &copy; 2019
-              <span class="font-weight-bold" style="color: #36d1dc">GoCodee</span>
+              <span class="font-weight-bold" style="color: #36d1dc"
+                >GoCodee</span
+              >
             </p>
           </div>
           <div class="col-6">
             <p class="text-right">
               Designed by
-              <span class="font-weight-bold" style="color: #36d1dc">Le Tuan Khoi</span>, Designer of
-              <span class="font-weight-bold" style="color: #36d1dc">GoCodee</span>
+              <span class="font-weight-bold" style="color: #36d1dc"
+                >Le Tuan Khoi</span
+              >, Designer of
+              <span class="font-weight-bold" style="color: #36d1dc"
+                >GoCodee</span
+              >
               Co, Ltd.
             </p>
           </div>
