@@ -8,7 +8,8 @@
         "invoice": "Invoice",
         "report": "Report",
         "setting": "Setting",
-        "logout": "Log-out"
+        "logout": "Log-out",
+        "refresh":"Refresh"
     },
     "login": {
         "email": "Username",
@@ -43,7 +44,8 @@
         "achiev": "Medical achievement",
         "tech": "New medical technology",
         "gallery": "Pictures gallery",
-        "empgood":"High performance employee"
+        "empgood":"High performance employee",
+        "grow":"Rating of growth"
     },
     "patient": {
         "title": "Patient",

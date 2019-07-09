@@ -8,7 +8,8 @@
         "invoice": "Hóa đơn",
         "report": "Báo cáo",
         "setting": "Cài đặt",
-        "logout": "Đăng xuất"
+        "logout": "Đăng xuất",
+        "refresh":"Làm mới danh sách"
     },
     "login": {
         "email": "Tài khoản",
@@ -43,7 +44,8 @@
         "achiev": "Thành tựu y tế",
         "tech": "Công nghệ y tế mới",
         "gallery": "Thư viện ảnh",
-        "empgood":"Nhân viên tiêu biểu"
+        "empgood":"Nhân viên tiêu biểu",
+        "grow":"Tỉ lệ tăng trưởng doanh thu trong 12 tháng"
     },
     "patient": {
         "title": "Bệnh nhân",

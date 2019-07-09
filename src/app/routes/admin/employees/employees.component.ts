@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, Event, NavigationEnd } from "@angular/router";
+import { Router, Event, NavigationEnd, NavigationStart, ActivatedRoute } from "@angular/router";
 import { EmployeeService } from "src/app/services/employee.service";
 
 @Component({
@@ -19,18 +19,22 @@ export class EmployeesComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     protected employeeService: EmployeeService
   ) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        this.getAllEmployees();
         if (router.url != "/admin/employees") {
+          this.getAllEmployees();
           this.isHidden = false;
         } else {
           this.isHidden = true;
         }
       }
     });
+
+    route.params.subscribe((params)=>console.log(params));
+
 
     this.config = {
       itemsPerPage: 8,

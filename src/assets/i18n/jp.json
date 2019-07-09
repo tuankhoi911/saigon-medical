@@ -8,7 +8,8 @@
         "invoice": "請求書",
         "report": "レポート",
         "setting": "設定",
-        "logout": "ログアウト"
+        "logout": "ログアウト",
+        "refresh":"更新"
     },
     "login": {
         "email": "ユーザー名",
@@ -43,7 +44,8 @@
         "achiev": "医療成果",
         "tech": "新しい医療技術",
         "gallery": "写真ギャラリー",
-        "empgood":"優秀なスタッフ"
+        "empgood":"優秀なスタッフ",
+        "grow":"成長率"
     },
     "patient": {
         "title": "患者",

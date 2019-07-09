@@ -46,6 +46,11 @@
                   <a><i class="fas fa-plus-square mr-2"></i>{{ "patient.addpatient" | translate }}
                   </a>
                 </button>
+                <button class="btn m-2" (click)="getAllPatients()">
+                  <a><i class="fas fa-sync mr-2"></i>
+                    {{"sidebar.refresh" | translate}}
+                  </a>
+                </button>
               </p>
             </div>
             <table class="table ml-2">

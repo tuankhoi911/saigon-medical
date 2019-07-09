@@ -113,7 +113,7 @@ export class OverviewComponent implements OnInit {
     .getPatient()
     .subscribe((res: any) => {
       this.newPat = res;
-      console.log(res);     
+      // console.log(res);     
     })
   }
 
@@ -121,7 +121,7 @@ export class OverviewComponent implements OnInit {
     this.overviewService.getEmployee()
     .subscribe((res: any) => {
       this.newEmp = res;
-      console.log(res);
+      // console.log(res);
       
     })
   }

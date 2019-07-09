@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Router, Event, NavigationEnd } from "@angular/router";
+import { Router, Event, NavigationEnd, NavigationStart } from "@angular/router";
 import { PatientService } from "src/app/services/patient.service";
 import { Subject } from "rxjs";
 import "rxjs/add/operator/takeUntil";
@@ -46,7 +46,7 @@ export class PatientComponent implements OnInit, OnDestroy {
   ) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        this.getAllPatients();
+        // this.getAllPatients();
 
         if (router.url != "/admin/patient") {
           this.isHidden = false;
