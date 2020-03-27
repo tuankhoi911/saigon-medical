@@ -136,8 +136,8 @@
         "employees": "Employee",
         "doctor": "Doctor",
         "pharmacist": "Pharmacist",
-        "male": "Male",
-        "female": "Female"
+        "male": "M",
+        "female": "F"
     },
     "medicine": {
         "title": "Medicine",

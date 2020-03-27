@@ -137,7 +137,7 @@ export class AddExaminationComponent implements OnInit {
   }
 
   public getAllDoctor() {
-    const isDoctor = employee => employee.chucVu == "Bác sĩ";
+    const isDoctor = employee => employee.chucVu == "Doctor";
     this.employeeService.getAll().subscribe((mainData: any) => {
       mainData = mainData.filter(isDoctor);
       this.doctorList = mainData;

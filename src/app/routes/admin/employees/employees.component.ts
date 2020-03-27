@@ -33,7 +33,7 @@ export class EmployeesComponent implements OnInit {
       }
     });
 
-    route.params.subscribe((params)=>console.log(params));
+    route.params.subscribe((params)=>console.log());
 
 
     this.config = {

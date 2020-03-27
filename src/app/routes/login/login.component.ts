@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     password: ''
   }
   error = false;
-  pbLogo = 'assets/images/pbLogo.png';
+  pbLogo = 'assets/images/logo-2.png';
   isLoading = false;
 
   constructor(public router: Router, private loginService: LoginService) {
@@ -51,19 +51,23 @@ export class LoginComponent implements OnInit {
     return result;
   }
 
+  // emailLogin() {
+  //   this.loginService
+  //     .login(this.user)
+  //     .subscribe((jwt: any) => {
+  //       localStorage.setItem(environment.accessToken, jwt.accessToken)
+  //       localStorage.setItem(environment.role, jwt.role)
+  //       if (environment.accessToken) {
+  //         this.router.navigate(['/admin']);
+  //         this.error = false;
+  //       }
+  //     }, (error) => {
+  //       this.error = true;
+  //     })
+  // }
+
   emailLogin() {
-    this.loginService
-      .login(this.user)
-      .subscribe((jwt: any) => {
-        localStorage.setItem(environment.accessToken, jwt.accessToken)
-        localStorage.setItem(environment.role, jwt.role)
-        if (environment.accessToken) {
-          this.router.navigate(['/admin']);
-          this.error = false;
-        }
-      }, (error) => {
-        this.error = true;
-      })
+    this.router.navigate(['/admin']);
   }
 
   ngOnInit() {

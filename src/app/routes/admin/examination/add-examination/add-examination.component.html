@@ -141,7 +141,6 @@
             <button
               class="btn btn-lng btn-block"
               (click)="onCreate(formExams.value)"
-              [disabled]="formExams.invalid"
               [class.ban]="formExams.invalid"
             >
               {{ "examination.create" | translate }}

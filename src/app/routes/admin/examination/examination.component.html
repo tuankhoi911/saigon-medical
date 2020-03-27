@@ -67,16 +67,16 @@
                   <th scope="row">{{ register?.maDangKi }}</th>
                   <th scope="row">{{ register?.maBenhNhan }}</th>
                   <td>
-                    <span class="badge" [class.badge-success]="register?.tinhTrang == 'Đã khám'"
-                      [class.badge-warning]="register?.tinhTrang == 'Đang chờ'">{{ register?.tinhTrang }}</span>
+                    <span class="badge" [class.badge-success]="register?.tinhTrang == 'Done'"
+                      [class.badge-warning]="register?.tinhTrang == 'Waiting'">{{ register?.tinhTrang }}</span>
                   </td>
                   <td>{{ register?.ngayDangKi }}</td>
                   <td class="text-center btn-action">
-                    <button class="btn mr-2" *ngIf="register?.tinhTrang == 'Đang chờ'"
+                    <button class="btn mr-2" *ngIf="register?.tinhTrang == 'Waiting'"
                       [routerLink]="['add-examination', register.maDangKi]">
                       <i class="fas fa-plus-circle"></i>
                     </button>
-                    <button class="mr-2 btn btn-success" *ngIf="register?.tinhTrang == 'Đã khám'" [routerLink]="[
+                    <button class="mr-2 btn btn-success" *ngIf="register?.tinhTrang == 'Done'" [routerLink]="[
                         'examination-detail',
                         register.maPhieuKham
                       ]">

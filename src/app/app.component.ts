@@ -10,7 +10,7 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '
 export class AppComponent {
   title = 'hospital';
   constructor(private translate: TranslateService,private router: Router ) {
-    translate.setDefaultLang('jp');
+    translate.setDefaultLang('en');
 
     router.events.subscribe((event: Event) => {
 
