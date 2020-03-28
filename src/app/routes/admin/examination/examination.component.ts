@@ -15,6 +15,10 @@ export class ExaminationComponent implements OnInit {
   public searchedRegis = this.registers;
   isDelete: boolean;
   public logo = "assets/images/pbLogo.png";
+  title = {
+    title: 'examination.title',
+    description: 'examination.description'
+  }
 
   constructor(
     private router: Router,

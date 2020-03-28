@@ -1,24 +1,9 @@
-.patient {
-  margin-left: 237px;
-  margin-right: 5px;
-}
-
-.patient-nav {
-  padding: 15px;
-  border-bottom: 1px solid #e1e6ef;
-
-  i {
-    font-size: 50px;
-    color: darken(#36d1dc, 6%);
-  }
-}
-
 .search-patient {
-  margin: 50px;
+  margin:15px 0;
   a {
     position: absolute;
-    top: 8px;
-    right: 275px;
+    top: 20px;
+    right: 15px;
     font-size: 20px;
     color: #395c9c;
   }
@@ -29,8 +14,6 @@
   }
 
   form {
-    margin-left: 250px !important;
-    margin-right: 250px !important;
     width: auto;
   }
   input#search-bar {
@@ -65,12 +48,6 @@
   border: #e1e6ef 1px solid;
   border-radius: 5px;
   cursor: pointer;
-
-  tr {
-    &:hover {
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-    }
-  }
 }
 
 .patinent-table {

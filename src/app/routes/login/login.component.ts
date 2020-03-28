@@ -51,24 +51,24 @@ export class LoginComponent implements OnInit {
     return result;
   }
 
-  // emailLogin() {
-  //   this.loginService
-  //     .login(this.user)
-  //     .subscribe((jwt: any) => {
-  //       localStorage.setItem(environment.accessToken, jwt.accessToken)
-  //       localStorage.setItem(environment.role, jwt.role)
-  //       if (environment.accessToken) {
-  //         this.router.navigate(['/admin']);
-  //         this.error = false;
-  //       }
-  //     }, (error) => {
-  //       this.error = true;
-  //     })
-  // }
-
   emailLogin() {
-    this.router.navigate(['/admin']);
+    this.loginService
+      .login(this.user)
+      .subscribe((jwt: any) => {
+        localStorage.setItem(environment.accessToken, jwt.accessToken)
+        localStorage.setItem(environment.role, jwt.role)
+        if (environment.accessToken) {
+          this.router.navigate(['/admin']);
+          this.error = false;
+        }
+      }, (error) => {
+        this.error = true;
+      })
   }
+
+  // emailLogin() {
+  //   this.router.navigate(['/admin']);
+  // }
 
   ngOnInit() {
   }

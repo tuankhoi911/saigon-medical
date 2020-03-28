@@ -22,6 +22,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { LoaderModule } from "src/app/components/loader/loader.module";
 import { NgxPaginationModule } from "ngx-pagination";
 import { LineChartModule } from 'src/app/components/line-chart/line-chart.module';
+import { HeadingModule } from 'src/app/components/heading/heading.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { LineChartModule } from 'src/app/components/line-chart/line-chart.module
     TranslateModule,
     LoaderModule,
     NgxPaginationModule,
+    HeadingModule
   ],
 })
-export class AdminModule {}
+export class AdminModule { }

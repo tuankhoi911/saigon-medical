@@ -13,14 +13,7 @@ import { environment } from 'src/environments/environment';
 export class SidebarComponent implements OnInit {
   constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) { }
 
-  logo = 'assets/images/pbLogo.png'
-
-  public manages = [
-    { title: 'Quản lí bệnh nhân', link: '/admin/patient' },
-    { title: 'Quản lí khám bệnh', link: '/admin/examination' },
-    { title: 'Quản lí thuốc', link: '/admin/medicine' },
-    { title: 'Quản lí đơn thuốc', link: '/admin/prescription' }
-  ]
+  logo = 'assets/images/logo-2.png'
 
   isPharmacist = false;
   isAdmin = false;

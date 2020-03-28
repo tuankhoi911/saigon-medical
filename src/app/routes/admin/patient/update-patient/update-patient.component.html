@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 order-md-1">
-            <h4 class="mb-3 text-center"> <i class="fal fa-user-plus mr-3 mt-4"></i>
+            <h4 class="mb-3 text-center"> <i class="fas fa-file-medical mr-3 mt-4"></i>
               {{'patient.updateinfor' | translate}}
             </h4>
             <form class="needs-validation" #formPat="ngForm">
@@ -68,8 +68,8 @@
                   <label for="gender"> {{'patient.sex' | translate}}</label>
                   <select class="custom-select d-block w-100" id="gender" name="gioiTinh" required
                     [(ngModel)]="patient.gioiTinh">
-                    <option value="Nam">Nam</option>
-                    <option value="Nữ">Nữ
+                    <option value="M">M</option>
+                    <option value="F">F
                     </option>
                   </select>
                   <p class="form-validation m-0"
