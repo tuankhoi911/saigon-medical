@@ -11,18 +11,6 @@
   width: auto !important;
 }
 
-.btn-success {
-  background-image: linear-gradient(to right, #11998e, #38ef7d) !important;
-}
-
-.btn-danger {
-  background-image: linear-gradient(to right, #8e0e00, #cb356b) !important;
-}
-
-.btn-warning {
-  background-image: linear-gradient(to right, #cac531, #f3f9a7) !important;
-}
-
 .btn-print {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -35,12 +23,13 @@
 
 button {
   border: none !important;
-  background-image: linear-gradient(to right, #36d1dc, #5b86e5);
+  background: white;
   background-size: 150%;
+  width: 200px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  color: #2c3136 !important;
+  color: #167baf !important;
   font-size: 18px !important;
-  border-radius: 5px !important;
+  border-radius: 24px !important;
   padding-bottom: 10px !important;
   padding-top: 10px !important;
 
@@ -77,7 +66,7 @@ button {
     &:hover {
       border: none;
       transition-duration: 0.2s;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+      background: rgba(209, 209, 209, 0.3);;
     }
   }
 
@@ -85,6 +74,8 @@ button {
     button {
       width: 45px;
       height: 45px;
+      background: transparent !important;
+      box-shadow: none !important;
     }
   }
 }
@@ -118,7 +109,7 @@ button {
 }
 ::-webkit-scrollbar-thumb {
   width: 6px;
-  background-color: #5b86e5;
+  background-color: #2c3136;
 }
 ::-webkit-scrollbar-track {
   box-sizing: content-box;
@@ -134,7 +125,7 @@ button {
 // Box
 .verify-box {
   position: fixed;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 100;
   height: 100vh;
   width: 100vw;
@@ -148,7 +139,7 @@ button {
 
   .card-header {
     background: #2c3136;
-    border-bottom: #36d1dc solid 5px;
+    border-bottom: #2c3136 solid 5px;
   }
 }
 
@@ -158,12 +149,12 @@ button {
 
 .patient-nav {
   i {
-    color: darken(#36d1dc, 6%) !important;
+    color: darken(#2c3136, 6%) !important;
   }
 }
 
 .bg-gradient {
-  background-image: linear-gradient(to right, #36d1dc, #5b86e5);
+ background: #2c3136;
 }
 
 .br-5 {
@@ -171,7 +162,7 @@ button {
 }
 
 label {
-  border-left: #36d1dc 5px solid;
+  border-left: #2c3136 5px solid;
   padding-left: 5px;
 }
 

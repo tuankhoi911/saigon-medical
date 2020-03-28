@@ -8,6 +8,7 @@ import { NgbDatepickerModule } from "@ng-bootstrap/ng-bootstrap";
 import { TranslateModule } from "@ngx-translate/core";
 import { NgxPaginationModule } from "ngx-pagination";
 
+
 @NgModule({
   declarations: [AddPatientComponent, UpdatePatientComponent],
   imports: [
@@ -16,7 +17,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     FormsModule,
     NgbDatepickerModule,
     TranslateModule,
-    NgxPaginationModule,
+    NgxPaginationModule
   ],
 })
 export class PatientModule {}

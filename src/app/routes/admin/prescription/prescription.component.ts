@@ -14,6 +14,11 @@ export class PrescriptionComponent implements OnInit {
   public isHidden = false;
   public invoices: any;
   public searchedInvoices = this.invoices;
+  title = {
+    title: 'invoice.title',
+    description: 'invoice.description'
+  }
+
 
   constructor(private router: Router, private invoiceService: InvoiceService) {
     this.router.routeReuseStrategy.shouldReuseRoute = function() {

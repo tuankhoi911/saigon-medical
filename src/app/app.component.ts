@@ -14,9 +14,9 @@ import {
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = "hospital";
-  constructor(private translate: TranslateService, private router: Router) {
-    translate.setDefaultLang("vi");
+  title = 'hospital';
+  constructor(private translate: TranslateService,private router: Router ) {
+    translate.setDefaultLang('en');
 
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {

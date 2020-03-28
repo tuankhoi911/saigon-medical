@@ -18,6 +18,11 @@ export class MedicineComponent implements OnInit {
   public searchedMed = this.medicines;
   public patients: any;
   isDelete: boolean;
+  title = {
+    title: 'medicine.title',
+    description: 'medicine.description'
+  }
+
 
   constructor(
     private router: Router,

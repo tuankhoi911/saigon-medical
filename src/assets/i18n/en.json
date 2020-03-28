@@ -48,15 +48,15 @@
         "grow":"Rating of growth"
     },
     "patient": {
-        "title": "Patient",
-        "description": "Patient and examination management",
+        "title": "Patient Management",
+        "description": "Control infected and suspected case",
         "list": "List of patients",
         "name": "Full name",
         "sex": "Gender",
-        "address": "Address",
+        "address": "Nation",
         "adddate": "Added date",
         "phone": "Phone",
-        "job": "Career",
+        "job": "Instance",
         "birthday": "Date of birth",
         "action": "Action",
         "addpatient": "Add patient",
@@ -127,7 +127,7 @@
         "cancel": "Cancel",
         "delete": "Delete employee",
         "search": "Enter any key word to searching!",
-        "addinfor": "Patient information",
+        "addinfor": "Emplyees information",
         "updateinfor": "Update employee information",
         "create": "Create employee",
         "update": "Update employee",
@@ -136,8 +136,8 @@
         "employees": "Employee",
         "doctor": "Doctor",
         "pharmacist": "Pharmacist",
-        "male": "Male",
-        "female": "Female"
+        "male": "M",
+        "female": "F"
     },
     "medicine": {
         "title": "Medicine",

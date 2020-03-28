@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     password: ''
   }
   error = false;
-  pbLogo = 'assets/images/pbLogo.png';
+  pbLogo = 'assets/images/logo-2.png';
   isLoading = false;
 
   constructor(public router: Router, private loginService: LoginService) {
@@ -65,6 +65,10 @@ export class LoginComponent implements OnInit {
         this.error = true;
       })
   }
+
+  // emailLogin() {
+  //   this.router.navigate(['/admin']);
+  // }
 
   ngOnInit() {
   }

@@ -38,6 +38,11 @@ export class PatientComponent implements OnInit, OnDestroy {
     environment.accessToken
   )}`;
 
+  title = {
+    title: 'patient.title',
+    description: 'patient.description'
+  }
+
   constructor(
     private router: Router,
     protected patientService: PatientService,

@@ -21,7 +21,6 @@
   background: whitesmoke;
   height: inherit;
   width: inherit;
-  padding-left: 17%;
 }
 
 .medicine-table {
@@ -43,12 +42,12 @@
 
   i {
     font-size: 50px;
-    color: #395c9c;
+    color: #2e88b7;
   }
 }
 
 .patient-list {
-  margin: 20px;
+  margin: 20px 0;
   height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -60,7 +59,7 @@
     background: whitesmoke;
 
     button {
-      background: #395c9c;
+      background: #2e88b7;
       color: white;
 
       &:hover {
@@ -80,7 +79,7 @@
     list-style-type: none;
 
     .card-head {
-      background: #395c9c;
+      background: #2e88b7;
       color: white;
       padding-left: 5px;
     }
@@ -116,7 +115,7 @@
 
     .head {
       color: white;
-      background: #395c9c !important;
+      background: #2e88b7 !important;
     }
 
     .body {
@@ -165,10 +164,10 @@
 .search-patient {
   a {
     position: absolute;
-    top: 8px;
-    right: 275px;
+    top: 6px;
+    right: 30px;
     font-size: 20px;
-    color: #395c9c;
+    color: #2c3136;
   }
   .search-container {
     width: auto;
@@ -177,8 +176,6 @@
   }
 
   form {
-    margin-left: 250px !important;
-    margin-right: 250px !important;
     width: auto;
   }
   input#search-bar {
@@ -190,9 +187,9 @@
     border-radius: 5px;
     outline: none;
     &:focus {
-      border: 1px solid #395c9c;
+      border: 1px solid #2c3136;
       transition: 0.35s ease;
-      color: #395c9c;
+      color: #2c3136;
       &::-webkit-input-placeholder {
         transition: opacity 0.45s ease;
         opacity: 0;

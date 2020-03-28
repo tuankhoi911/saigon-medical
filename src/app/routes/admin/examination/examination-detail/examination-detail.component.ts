@@ -10,7 +10,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ExaminationDetailComponent implements OnInit {
 
-  logo = 'assets/images/pbLogo.png';
+  logo = 'assets/images/logo-2.png';
   public exam = {
     maPhieuKham: "",
     trieuChung: "",

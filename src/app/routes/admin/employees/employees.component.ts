@@ -22,6 +22,10 @@ export class EmployeesComponent implements OnInit {
   public searchedEmployees = this.employees;
   public logo = "assets/images/pbLogo.png";
   public trash: any;
+  title = {
+    title: 'employee.title',
+    description: 'employee.description'
+  }
 
   constructor(
     private router: Router,
@@ -43,7 +47,8 @@ export class EmployeesComponent implements OnInit {
       }
     });
 
-    route.params.subscribe(params => console.log(params));
+    route.params.subscribe((params)=>console.log());
+
 
     this.config = {
       itemsPerPage: 8,
