@@ -16,6 +16,10 @@ export class EmployeesComponent implements OnInit {
   public searchedEmployees = this.employees;
   public logo = "assets/images/pbLogo.png";
   public trash: any;
+  title = {
+    title: 'employee.title',
+    description: 'employee.description'
+  }
 
   constructor(
     private router: Router,
