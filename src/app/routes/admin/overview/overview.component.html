@@ -1,27 +1,11 @@
 <div class="container-fluid">
   <div class="patient">
     <div class="row">
-      <div class="col-lg-12 patient-nav">
-        <div class="container">
-          <div class="row">
-            <div class="col-1">
-              <p class="text-center m-0">
-                <i class="far fa-dna"></i>
-              </p>
-            </div>
-            <div class="col-11">
-              <h4 class="m-0">
-                {{ "overview.title" | translate }}
-              </h4>
-              <p class="m-0">
-                {{ "overview.description" | translate }}
-              </p>
-            </div>
-          </div>
-        </div>
+      <div class="col-lg-12 p-0">
+        <app-heading [title]="title"></app-heading>
       </div>
     </div>
-    <div class="row bg-gradient survey br-5 pt-3 pb-3">
+    <div class="row survey br-5 pt-3 pb-3">
       <div class="col-3">
         <div class="card">
           <div class="container">
@@ -44,7 +28,7 @@
           <div class="container">
             <div class="row">
               <div class="col-4 p-0">
-                <i class="fal fa-procedures survey-icon"></i>
+                <i class="fal fa-skull survey-icon"></i>
               </div>
               <div class="col-8 p-0">
                 <p class="don-kham m-0">
@@ -82,7 +66,7 @@
           <div class="container">
             <div class="row">
               <div class="col-4 p-0">
-                <i class="fal fa-hand-holding-usd survey-icon"></i>
+                <i class="fal fa-procedures survey-icon"></i>
               </div>
               <div class="col-8 p-0">
                 <p class="don-kham m-0">{{ "overview.revenue" | translate }}</p>
@@ -95,15 +79,15 @@
         </div>
       </div>
     </div>
-    <div class="row bg-gradient mt-4 br-5">
-      <div class="col-5 bar-chart mx-auto mt-4 mb-4">
+    <div class="row mt-4 br-5">
+      <div class="col-6 bar-chart mx-auto mt-4 mb-4">
         <h4 class="text-left mt-2">
           {{ "overview.ptnrate" | translate }}
         </h4>
         <label for="">{{ "overview.ptndescription" | translate }}</label>
         <app-bar-chart></app-bar-chart>
       </div>
-      <div class="col-5 pie-chart mx-auto mt-4 mb-4">
+      <div class="col-6 pie-chart mx-auto mt-4 mb-4">
         <h4 class="text-left mt-2">
           {{ "overview.dptrate" | translate }}
         </h4>
@@ -114,9 +98,8 @@
 
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
-        <h4 class="mb-4 title-list p-2 bg-gradient">
-          <i class="fal fa-file-invoice-dollar mr-2"></i
-          >{{ "overview.incomemonth" | translate }}
+        <h4 class="mb-4 title-list text-white p-2 bg-gradient">
+          <i class="fal fa-virus mr-2"></i>{{ "overview.incomemonth" | translate }}
         </h4>
         <div class="container">
           <div class="col-11 pie-chart mx-auto mb-4">
@@ -145,10 +128,7 @@
               <td>{{ doanhThu.giaTri }}</td>
               <td>
                 <i *ngIf="doanhThu?.tyLe < 0" class="fas fa-caret-down red"></i>
-                <i
-                  *ngIf="doanhThu?.tyLe >= 0"
-                  class="fas fa-caret-up green"
-                ></i>
+                <i *ngIf="doanhThu?.tyLe >= 0" class="fas fa-caret-up green"></i>
                 {{ doanhThu.tyLe > 0 ? doanhThu.tyLe : -doanhThu.tyLe }}%
               </td>
             </tr>
@@ -159,20 +139,23 @@
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
         <h4 class="bg-gradient mb-4 title-list p-2">
-          <i class="fal fa-user mr-2"></i
-          >{{ "overview.newpatient" | translate }}
+          <i class="fal fa-user mr-2"></i>{{ "overview.revenue" | translate }}
         </h4>
         <div class="container">
           <div class="row p-2">
             <div *ngFor="let reward of newPat" class="col-lg-3">
               <div class="card p-0 m-2">
-                <div class="card-body">
+                <div class="card-body p-2">
                   <h5 class="card-title">
                     {{ reward?.tenBenhNhan }}
                   </h5>
                   <p class="card-text">
                     {{ reward?.ngaySinh }}
                   </p>
+                  <span [class.badge-danger]="reward?.ngheNghiep == 'Infected'"
+                    [class.badge-warning]="reward?.ngheNghiep == 'Suspected'" class="card-text badge">
+                    {{ reward?.ngheNghiep }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -203,45 +186,16 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col-12 mt-4 patinent-table p-0">
-        <h4 class="bg-gradient mb-4 title-list p-2">
-          <i class="fal fa-medal mr-2"></i>{{ "overview.achiev" | translate }}
-        </h4>
-        <div class="container">
-          <div class="row p-2">
-            <div *ngFor="let reward of rewards" class="col-lg-3">
-              <div class="card card-new p-0 m-2">
-                <img class="card-img-top" [src]="reward?.doctorUrl" alt="Card image cap" />
-                <div class="card-body">
-                  <h5 class="card-title">
-                    {{ reward?.doctorName }}
-                  </h5>
-                  <p class="card-text">
-                    {{ reward?.doctorDescription }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col-12 mt-4 patinent-table p-0">
         <h4 class="bg-gradient mb-4 title-list p-2">
-          <i class="fal fa-head-side-brain mr-2"></i
-          >{{ "overview.tech" | translate }}
+          <i class="fal fa-head-side-brain mr-2"></i>{{ "overview.tech" | translate }}
         </h4>
         <div class="container">
           <div class="row p-2">
             <div *ngFor="let tech of techs" class="col-lg-3">
               <div class="card card-new p-0 m-2">
-                <img
-                  class="card-img-top"
-                  [src]="tech?.techUrl"
-                  alt="Card image cap"
-                />
+                <img class="card-img-top" [src]="tech?.techUrl" alt="Card image cap" />
                 <div class="card-body">
                   <h5 class="card-title">
                     {{ tech?.techName }}
@@ -256,47 +210,20 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 mt-4 patinent-table p-0">
-        <h4 class="bg-gradient mb-4 title-list p-2">
-          <i class="fal fa-images mr-2"></i>{{ "overview.gallery" | translate }}
-        </h4>
-        <div class="container">
-          <div class="row p-2">
-            <div *ngFor="let image of gallery" class="col-lg-3">
-              <div class="card card-img p-0 m-3">
-                <img
-                  class="card-img-top"
-                  [src]="image?.galleryUrl"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">
-                    {{ image?.galleryName }}
-                  </h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <footer class="mt-2">
       <div class="container">
         <div class="row">
           <div class="col-6">
             <p class="text-left">
-              Copyright &copy; 2019
-              <span class="font-weight-bold" style="color: #36d1dc"
-                >GoCodee</span
-              >
+              Copyright &copy; 2020
+              <span class="font-weight-bold" style="color: #2b2b2b">Lucien Roux</span>
             </p>
           </div>
           <div class="col-6">
             <p class="text-right">
               Designed by
-              <span class="font-weight-bold" style="color: #36d1dc"></span>
-              <span class="font-weight-bold" style="color: #36d1dc">GoCodee</span>
+              <span class="font-weight-bold" style="color: #2b2b2b"></span>
+              <span class="font-weight-bold" style="color: #2b2b2b">Lucien Roux</span>
               Co, Ltd.
             </p>
           </div>

@@ -35,11 +35,11 @@ export class LineChartComponent implements OnInit {
   public lineChartLegend = true;
   public lineChartData = [
     {
-      data: [0, 0, 0],
+      data: [1, 51, 3],
       label: "a",
     },
     {
-      data: [0, 0, 0, 0],
+      data: [12, 18, 29, 48],
       label: "b",
     },
   ];
@@ -52,10 +52,10 @@ export class LineChartComponent implements OnInit {
       this.incomes = res.map(item => item.giaTri / 1000);
       this.rate = res.map(item => item.tyLe);
       this.lineChartData = [
-        { data: this.incomes, label: "Doanh thu: (nghìn đồng)" },
-        { data: this.rate, label: "Tỷ lệ tăng trưởng : (%)" },
+        { data: this.incomes, label: "Infected: (thousand)" },
+        { data: this.rate, label: "Rate : (%)" },
       ];
-      this.lineChartLabels = res.map(item => item.thang);
+      // this.lineChartLabels = res.map(item => item.thang);
     });
   }
 }

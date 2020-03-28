@@ -14,19 +14,19 @@
     "login": {
         "email": "Username",
         "password": "Password",
-        "login": "Log-in",
+        "login": "Sign in",
         "copyright": "Copyright",
         "fail": "Login failed!",
         "recheck": "Please check out your account!"
     },
     "overview": {
         "title": "Overview",
-        "description": "Status and information of Nhanviet Medical Clinic",
+        "description": "Status and information of COVID-19 pandemic in the world",
         "exams": "Examinations",
-        "newpatient": "New Patients",
-        "newemploy": "New Employees",
-        "revenue": "Revenue",
-        "ptnrate": "Patients Gender Rate",
+        "newpatient": "Death",
+        "newemploy": "Employees",
+        "revenue": "Cases",
+        "ptnrate": "Patient Gender Rate",
         "ptndescription": "The different of gender rate",
         "male": "Male",
         "female": "Female",
@@ -40,12 +40,12 @@
         "digest": "Digest",
         "month": "Month",
         "note": "Note",
-        "incomemonth": "Revenue by month",
+        "incomemonth": "Infected increase by month",
         "achiev": "Medical achievement",
-        "tech": "New medical technology",
+        "tech": "News of COVID-19 pandemic",
         "gallery": "Pictures gallery",
         "empgood":"High performance employee",
-        "grow":"Rating of growth"
+        "grow":"Rating of infected & suspect"
     },
     "patient": {
         "title": "Patient Management",

@@ -9,7 +9,7 @@ import { switchMap } from "rxjs/operators";
   styleUrls: ["./prescription-detail.component.scss"],
 })
 export class PrescriptionDetailComponent implements OnInit {
-  logo = "assets/images/pbLogo.png";
+  logo = "assets/images/logo-2.png";
   public invoice = {
     maBenhNhan: "",
     maHoaDon: "",

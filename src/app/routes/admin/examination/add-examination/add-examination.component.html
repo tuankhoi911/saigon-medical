@@ -93,7 +93,7 @@
               </ul>
             </div>
             <hr class="mb-4" />
-            <button class="btn btn-lng btn-block" disabled="formExams.invalid" (click)="onCreate(formExams.value)"
+            <button class="btn btn-lng btn-block" (click)="onCreate(formExams.value)"
               [class.ban]="formExams.invalid">
               {{ "examination.create" | translate }}
             </button>

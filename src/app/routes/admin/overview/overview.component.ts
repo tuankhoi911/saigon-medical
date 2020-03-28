@@ -19,25 +19,30 @@ export class OverviewComponent implements OnInit {
     }
   ]
 
+  public title = {
+    title: 'overview.title',
+    description: 'overview.description'
+  }
+
   public techs = [
     {
-      techName: 'CRISPR',
-      techDescription: 'CRISPR là một họ các trình tự DNA ở trong vi khuẩn và vi khuẩn cổ...',
-      techUrl: 'assets/images/tech.jpg'
+      techName: 'COVID-19',
+      techDescription: 'Coronavirus disease (COVID-19) is an infectious disease caused by a new virus....',
+      techUrl: 'assets/images/teah.jpg'
     },
     {
-      techName: 'Vaccine CC',
-      techDescription: '"Vắcxin" loại bỏ khối u ở chuột.',
+      techName: 'Vaccine nCoV-TTX7455',
+      techDescription: 'The USA is developing new COVID-19 treatment vaccin',
       techUrl: 'assets/images/1.jpg'
     },
     {
-      techName: 'Vascepa ',
-      techDescription: 'Thuốc kê đơn Vascepa được phát hiện có công dụng giảm nguy cơ tim mạch lên đến 25%.',
+      techName: 'COVID-19 Treatment ',
+      techDescription: 'Many COVID-19 patients have tested negative for coronavirus ...',
       techUrl: 'assets/images/2.jpg'
     },
     {
       techName: 'Ketamine',
-      techDescription: 'Loại ma túy được ưa chuộng của thập niên 60, có thể giúp điều trị trầm cảm.',
+      techDescription: 'The favored drug of the 1960s, can help treat depression.',
       techUrl: 'assets/images/3.jpg'
     },
   ]
