@@ -18,6 +18,7 @@ export class MedicineComponent implements OnInit {
   public searchedMed = this.medicines;
   public patients: any;
   isDelete: boolean;
+  public trash: any;
   title = {
     title: 'medicine.title',
     description: 'medicine.description'
@@ -89,13 +90,14 @@ export class MedicineComponent implements OnInit {
   }
 
   public deleteMedicine(medicine) {
-    this.medicineService.delete(medicine.maThuoc).subscribe(() => {
+    this.medicineService.delete(this.trash.maThuoc).subscribe(() => {
       this.getAllMedicine();
     });
     this.isDelete = false;
   }
 
-  public verifyAction() {
+  public verifyAction(medicine) {
+    this.trash = medicine
     this.isDelete = true;
   }
 

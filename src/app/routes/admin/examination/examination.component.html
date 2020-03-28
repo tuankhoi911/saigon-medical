@@ -53,17 +53,17 @@
                   </td>
                   <td>{{ register?.ngayDangKi }}</td>
                   <td class="text-center btn-action">
-                    <button class="btn mr-2" *ngIf="register?.tinhTrang == 'Waiting'"
+                    <button class="mr-2 btn" *ngIf="register?.tinhTrang == 'Waiting'"
                       [routerLink]="['add-examination', register.maDangKi]">
                       <i class="fas fa-plus-circle"></i>
                     </button>
-                    <button class="mr-2 btn btn-success" *ngIf="register?.tinhTrang == 'Done'" [routerLink]="[
+                    <button class="mr-2 btn" *ngIf="register?.tinhTrang == 'Done'" [routerLink]="[
                         'examination-detail',
                         register.maPhieuKham
                       ]">
                       <i class="fas fa-folder-open"></i>
                     </button>
-                    <button class="btn btn-danger mr-2" (click)="verifyAction()">
+                    <button class="btn" (click)="verifyAction(register)">
                       <i class="fas fa-trash"></i>
                     </button>
                   </td>
@@ -90,7 +90,7 @@
                                   <i class="fas fa-undo-alt mr-2"></i>
                                   {{ "examination.cancel" | translate }}
                                 </button>
-                                <button class="btn btn-danger ml-2" (click)="deleteRegister(register)">
+                                <button class="btn btn-danger ml-2" (click)="deleteRegister()">
                                   <i class="fas fa-user-slash mr-2"></i>
                                   {{ "examination.delete" | translate }}
                                 </button>

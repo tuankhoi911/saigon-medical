@@ -66,7 +66,7 @@
                     <button class="btn text-white mr-2" [routerLink]="['update-medicine', medicine.maThuoc]">
                       <i class="fas fa-pencil-alt"></i>
                     </button>
-                    <button class="btn btn-danger" (click)="verifyAction()">
+                    <button class="btn btn-danger" (click)="verifyAction(medicine)">
                       <i class="fas fa-trash"></i>
                     </button>
                   </td>
@@ -92,7 +92,7 @@
                                 <button class="btn btn-success mr-2" (click)="cancelAction()">
                                   <i class="fas fa-undo-alt mr-2"></i>{{ "medicine.cancel" | translate }}
                                 </button>
-                                <button class="btn btn-danger ml-2" (click)="deleteMedicine(medicine)">
+                                <button class="btn btn-danger ml-2" (click)="deleteMedicine()">
                                   <i class="fas fa-user-slash mr-2"></i>{{ "medicine.delete" | translate }}
                                 </button>
                               </p>

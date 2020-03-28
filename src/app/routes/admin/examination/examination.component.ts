@@ -14,6 +14,7 @@ export class ExaminationComponent implements OnInit {
   public registers: any;
   public searchedRegis = this.registers;
   isDelete: boolean;
+  public trash: any;
   public logo = "assets/images/pbLogo.png";
   public title = {
     title: 'examination.title',
@@ -67,14 +68,15 @@ export class ExaminationComponent implements OnInit {
     });
   }
 
-  public deleteRegister(register) {
-    this.registerService.delete(register.maDangKi).subscribe(() => {
+  public deleteRegister() {
+    this.registerService.delete(this.trash.maDangKi).subscribe(() => {
       this.getAllRegisters();
     });
     this.isDelete = false;
   }
 
-  public verifyAction() {
+  public verifyAction(register) {
+    this.trash = register;
     this.isDelete = true;
   }
 
