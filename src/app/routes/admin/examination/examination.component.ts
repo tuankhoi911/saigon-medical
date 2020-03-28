@@ -15,7 +15,7 @@ export class ExaminationComponent implements OnInit {
   public searchedRegis = this.registers;
   isDelete: boolean;
   public logo = "assets/images/pbLogo.png";
-  title = {
+  public title = {
     title: 'examination.title',
     description: 'examination.description'
   }
